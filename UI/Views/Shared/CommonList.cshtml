@@ -1,0 +1,96 @@
+﻿@using BLL.Abstract
+@using UI.Helpers
+@model UI.Models.ViewModels.CommonViewModel
+
+@{
+//string action = User.IsInRole("Admin") ? "IndexForAdmin" : "IndexForEditor";
+	ViewDataDictionary dict_h = new ViewDataDictionary();
+	dict_h.Add("Header",Model.Entity);
+	dict_h.Add("Create","Edit");
+	dict_h.Add("Controller",Model.Entity.ToString());
+}
+
+
+
+@*<div><span class="h3 blue">@Model.Entity</span><span class="fRight">@Html.ActionLink(THResources.Resources.Add, "Edit", Model.Entity.ToString(), new { id = "0" }, null)</span></div>
+<div class="clearRight">&nbsp;</div>*@
+
+@Html.Partial("_IndexHeader",dict_h)
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Entry
+			</th>
+			<th>
+				EntryZht
+			</th>
+			<th>EntryZhs</th>
+			<th>
+				EntryJap
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+	@switch (Model.Entity)
+	{
+		case ModelType.Pos:
+			//@Html.Partial("_CommonListItemsPartial", Model.PosList, dict)
+			foreach (var item in Model.PosList)
+			{
+				ViewDataDictionary dict = new ViewDataDictionary();
+				dict.Add("Entity", Model.Entity.ToString());
+				dict.Add("Item",item);
+				dict.Add("Id",item.Id.ToString());
+				@Html.Partial("_CommonListItemsPartial",dict)
+
+			}
+			break;
+		case ModelType.ColPos:
+			//@Html.Partial("_CommonListItemsPartial", Model.ColPosList, dict)
+			foreach (var item in Model.ColPosList)
+			{
+				ViewDataDictionary dict = new ViewDataDictionary();
+				dict.Add("Entity", Model.Entity.ToString());
+				dict.Add("Item", item);
+				dict.Add("Id", item.Id.ToString());
+				@Html.Partial("_CommonListItemsPartial", dict)
+			}
+			break;
+		case ModelType.Word:
+			//@Html.Partial("_CommonListItemsPartial", Model.WordList, dict)
+			foreach (var item in Model.WordList)
+			{
+				ViewDataDictionary dict = new ViewDataDictionary();
+				dict.Add("Entity", Model.Entity.ToString());
+				dict.Add("Item", item);
+				dict.Add("Id", item.Id.ToString());
+				@Html.Partial("_CommonListItemsPartial", dict)
+			}
+			break;
+		case ModelType.ColWord:
+			//@Html.Partial("_CommonListItemsPartial", Model.ColWordList, dict)
+			foreach (var item in Model.ColWordList)
+			{
+				ViewDataDictionary dict = new ViewDataDictionary();
+				dict.Add("Entity", Model.Entity.ToString());
+				dict.Add("Item", item);
+				dict.Add("Id", item.Id.ToString());
+				@Html.Partial("_CommonListItemsPartial", dict)
+			}
+			break;
+	}
+		
+	</tbody>
+	
+</table>
+
+@if (Model.Entity != ModelType.Pos && Model.Entity != ModelType.ColPos)
+{
+	<div class="pagination">
+		@Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", Model.Entity.ToString(), new { page = x }))
+	</div>
+
+}

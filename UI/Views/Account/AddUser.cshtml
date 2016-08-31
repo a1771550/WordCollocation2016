@@ -1,0 +1,119 @@
+﻿@using UI.Helpers
+@using UI.Models.Account
+@model UI.Models.ViewModels.UserViewModel
+
+
+@{
+	//bool isEdit = (Model.CrudMode == CrudMode.Update);
+
+	ViewBag.Title = THResources.Resources.AddUser;
+
+	UserErrMsg msg;
+
+	AccountHelper.InitUserErrMsgs(out msg);
+
+	string actionName = "AddUser";
+	string formId = "UserForm";
+}
+
+<div class="span4">
+
+
+	@Html.Partial("_ViewBagErrorList")
+
+	@using (Html.BeginForm(actionName, "Account", FormMethod.Post, new { id = formId }))
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-horizontal">
+
+			<div class="form-group">
+				<h3>@ViewBag.Title</h3>
+			</div>
+
+
+			<div class="form-group">
+				<label for="Email">@THResources.Resources.Email</label>
+
+				<input type="text" id="Email" name="Email" style="width: 90%;" placeholder="@THResources.Resources.Email" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iEmailOk" />
+
+				<input type="hidden" id="EmailRequired" value="@msg.EmailRequired" />
+				<input type="hidden" id="EmailErrMsg" value="@msg.EmailErr" />
+				<input type="hidden" id="EmailTaken" value="@msg.EmailTaken" />
+				<span id="Email-error" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label for="FirstName">@THResources.Resources.FirstName</label>
+
+				<input type="text" id="FirstName" name="FirstName" style="width: 90%;" placeholder="@THResources.Resources.FirstName" />
+				<input type="hidden" id="FirstNameRequired" value="@msg.FirstNameRequired" />
+				<div id="FirstName-error" class="text-danger"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="LastName">@THResources.Resources.LastName</label>
+
+				<input type="text" id="LastName" name="LastName" style="width: 90%;" placeholder="@THResources.Resources.LastName" />
+				<input type="hidden" id="LastNameRequired" value="@msg.LastNameRequired" />
+				<div id="LastName-error" class="text-danger"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="Password">@THResources.Resources.Password <span id="pwdFormat">(@THResources.Resources.PasswordFormat1)</span></label>
+
+				<input type="text" id="Password" name="Password" style="width: 90%;" placeholder="@THResources.Resources.Password" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iPwdOk" />
+				<input type="hidden" id="PwdRequired" value="@msg.PwdRequired" />
+				<input type="hidden" id="PwdLenErr" value="@msg.PwdLenErr" />
+				<span id="Password-error" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label for="ConfirmPassword">@THResources.Resources.ConfirmPassword</label>
+
+				<input type="text" id="ConfirmPassword" name="ConfirmPassword" style="width: 90%;" placeholder="@THResources.Resources.ConfirmPassword" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iConPwdOk" />
+				<input type="hidden" id="ConfirmPwdRequired" value="@msg.ConfirmPwdRequired" />
+				<input type="hidden" id="PwdLenErr" value="@msg.PwdLenErr" />
+				<input type="hidden" id="ConfirmPwdError" value="@msg.ConfirmPwdErr" />
+				<span id="ConfirmPassword-error" class="text-danger"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label>@THResources.Resources.Role</label>
+				<ul class="checkbox">
+					@foreach (var role in Model.AllRoleList)
+					{
+						<li>
+							<input type="checkbox" name="SelectedRoles" value="@role.Id" id="@role.Id" />
+							<label for="@role.Id">@role.Name</label>
+						</li>
+
+					}
+				</ul>
+			</div>
+
+
+
+			<div class="form-group form-submit">
+				<button type="submit" id="btnSubmit" class="Add">@THResources.Resources.Add</button>
+			</div>
+
+			<div class="form-group form-submit">
+				@Html.ActionLink(THResources.Resources.ReturnToManagementIndex, "User")
+			</div>
+		</div>
+	}
+
+</div>
+
+
+@section scripts{
+
+	<script src="@Url.Content("~/Scripts/checkEmail.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/user_validation.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/MaskedPassword.min.js")"></script>
+	<script src="@Url.Content("~/Scripts/addUser.min.js")"></script>
+}

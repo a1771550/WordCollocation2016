@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WordCollocationModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Collocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="posId" Type="smallint" Nullable="false" />
+          <Property Name="colPosId" Type="smallint" Nullable="false" />
+          <Property Name="wordId" Type="bigint" Nullable="false" />
+          <Property Name="colWordId" Type="bigint" Nullable="false" />
+          <Property Name="CollocationPattern" Type="int" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ColPos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Entry" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EntryZht" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="EntryZhs" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="EntryJap" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CanDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="ColWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Entry" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EntryZht" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EntryZhs" Type="nvarchar" MaxLength="200" />
+          <Property Name="EntryJap" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CanDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="Example">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Entry" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="EntryZht" Type="nvarchar" MaxLength="1000" />
+          <Property Name="EntryZhs" Type="nvarchar" MaxLength="1000" />
+          <Property Name="EntryJap" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Source" Type="nvarchar" MaxLength="200" />
+          <Property Name="RemarkZht" Type="nvarchar" MaxLength="200" />
+          <Property Name="RemarkZhs" Type="nvarchar" MaxLength="200" />
+          <Property Name="RemarkJap" Type="nvarchar" MaxLength="200" />
+          <Property Name="CollocationId" Type="bigint" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Entry" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EntryZht" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="EntryZhs" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="EntryJap" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CanDel" Type="bit" />
+        </EntityType>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Entry" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EntryZht" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="EntryZhs" Type="nvarchar" MaxLength="200" />
+          <Property Name="EntryJap" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="CanDel" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Collocations_ColPoss">
+          <End Role="ColPos" Type="Self.ColPos" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ColPos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="colPosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collocations_ColWords">
+          <End Role="ColWord" Type="Self.ColWord" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ColWord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="colWordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collocations_Poss">
+          <End Role="Pos" Type="Self.Pos" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="posId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collocations_Words">
+          <End Role="Word" Type="Self.Word" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Word">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="wordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WcExamples_Collocations">
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="1" />
+          <End Role="Example" Type="Self.Example" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collocation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Example">
+              <PropertyRef Name="CollocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WordCollocationModel1StoreContainer">
+          <EntitySet Name="Collocation" EntityType="Self.Collocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ColPos" EntityType="Self.ColPos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ColWord" EntityType="Self.ColWord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Example" EntityType="Self.Example" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pos" EntityType="Self.Pos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Word" EntityType="Self.Word" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Collocations_ColPoss" Association="Self.FK_Collocations_ColPoss">
+            <End Role="ColPos" EntitySet="ColPos" />
+            <End Role="Collocation" EntitySet="Collocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collocations_ColWords" Association="Self.FK_Collocations_ColWords">
+            <End Role="ColWord" EntitySet="ColWord" />
+            <End Role="Collocation" EntitySet="Collocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collocations_Poss" Association="Self.FK_Collocations_Poss">
+            <End Role="Pos" EntitySet="Pos" />
+            <End Role="Collocation" EntitySet="Collocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collocations_Words" Association="Self.FK_Collocations_Words">
+            <End Role="Word" EntitySet="Word" />
+            <End Role="Collocation" EntitySet="Collocation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WcExamples_Collocations" Association="Self.FK_WcExamples_Collocations">
+            <End Role="Collocation" EntitySet="Collocation" />
+            <End Role="Example" EntitySet="Example" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WordCollocationModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Collocation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="posId" Type="Int16" Nullable="false" />
+          <Property Name="colPosId" Type="Int16" Nullable="false" />
+          <Property Name="wordId" Type="Int64" Nullable="false" />
+          <Property Name="colWordId" Type="Int64" Nullable="false" />
+          <Property Name="CollocationPattern" Type="Int32" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="ColPos" Relationship="Self.FK_Collocations_ColPoss" FromRole="Collocation" ToRole="ColPos" />
+          <NavigationProperty Name="ColWord" Relationship="Self.FK_Collocations_ColWords" FromRole="Collocation" ToRole="ColWord" />
+          <NavigationProperty Name="Pos" Relationship="Self.FK_Collocations_Poss" FromRole="Collocation" ToRole="Pos" />
+          <NavigationProperty Name="Word" Relationship="Self.FK_Collocations_Words" FromRole="Collocation" ToRole="Word" />
+          <NavigationProperty Name="Examples" Relationship="Self.FK_WcExamples_Collocations" FromRole="Collocation" ToRole="Example" />
+        </EntityType>
+        <EntityType Name="ColPos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Entry" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZht" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZhs" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryJap" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CanDel" Type="Boolean" />
+          <NavigationProperty Name="Collocations" Relationship="Self.FK_Collocations_ColPoss" FromRole="ColPos" ToRole="Collocation" />
+        </EntityType>
+        <EntityType Name="ColWord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Entry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZht" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZhs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EntryJap" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CanDel" Type="Boolean" />
+          <NavigationProperty Name="Collocations" Relationship="Self.FK_Collocations_ColWords" FromRole="ColWord" ToRole="Collocation" />
+        </EntityType>
+        <EntityType Name="Example">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Entry" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZht" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="EntryZhs" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="EntryJap" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RemarkZht" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RemarkZhs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RemarkJap" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CollocationId" Type="Int64" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Collocation" Relationship="Self.FK_WcExamples_Collocations" FromRole="Example" ToRole="Collocation" />
+        </EntityType>
+        <EntityType Name="Pos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Entry" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZht" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZhs" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryJap" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CanDel" Type="Boolean" />
+          <NavigationProperty Name="Collocations" Relationship="Self.FK_Collocations_Poss" FromRole="Pos" ToRole="Collocation" />
+        </EntityType>
+        <EntityType Name="Word">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Entry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZht" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EntryZhs" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EntryJap" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CanDel" Type="Boolean" />
+          <NavigationProperty Name="Collocations" Relationship="Self.FK_Collocations_Words" FromRole="Word" ToRole="Collocation" />
+        </EntityType>
+        <Association Name="FK_Collocations_ColPoss">
+          <End Role="ColPos" Type="Self.ColPos" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ColPos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="colPosId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collocations_ColWords">
+          <End Role="ColWord" Type="Self.ColWord" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ColWord">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="colWordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collocations_Poss">
+          <End Role="Pos" Type="Self.Pos" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="posId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collocations_Words">
+          <End Role="Word" Type="Self.Word" Multiplicity="1" />
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Word">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Collocation">
+              <PropertyRef Name="wordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WcExamples_Collocations">
+          <End Role="Collocation" Type="Self.Collocation" Multiplicity="1" />
+          <End Role="Example" Type="Self.Example" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collocation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Example">
+              <PropertyRef Name="CollocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WordCollocationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Collocations" EntityType="Self.Collocation" />
+          <EntitySet Name="ColPos" EntityType="Self.ColPos" />
+          <EntitySet Name="ColWords" EntityType="Self.ColWord" />
+          <EntitySet Name="Examples" EntityType="Self.Example" />
+          <EntitySet Name="Pos" EntityType="Self.Pos" />
+          <EntitySet Name="Words" EntityType="Self.Word" />
+          <AssociationSet Name="FK_Collocations_ColPoss" Association="Self.FK_Collocations_ColPoss">
+            <End Role="ColPos" EntitySet="ColPos" />
+            <End Role="Collocation" EntitySet="Collocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collocations_ColWords" Association="Self.FK_Collocations_ColWords">
+            <End Role="ColWord" EntitySet="ColWords" />
+            <End Role="Collocation" EntitySet="Collocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collocations_Poss" Association="Self.FK_Collocations_Poss">
+            <End Role="Pos" EntitySet="Pos" />
+            <End Role="Collocation" EntitySet="Collocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collocations_Words" Association="Self.FK_Collocations_Words">
+            <End Role="Word" EntitySet="Words" />
+            <End Role="Collocation" EntitySet="Collocations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WcExamples_Collocations" Association="Self.FK_WcExamples_Collocations">
+            <End Role="Collocation" EntitySet="Collocations" />
+            <End Role="Example" EntitySet="Examples" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WordCollocationModel1StoreContainer" CdmEntityContainer="WordCollocationEntities">
+          <EntitySetMapping Name="Collocations">
+            <EntityTypeMapping TypeName="WordCollocationModel1.Collocation">
+              <MappingFragment StoreEntitySet="Collocation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="posId" ColumnName="posId" />
+                <ScalarProperty Name="colPosId" ColumnName="colPosId" />
+                <ScalarProperty Name="wordId" ColumnName="wordId" />
+                <ScalarProperty Name="colWordId" ColumnName="colWordId" />
+                <ScalarProperty Name="CollocationPattern" ColumnName="CollocationPattern" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ColPos">
+            <EntityTypeMapping TypeName="WordCollocationModel1.ColPos">
+              <MappingFragment StoreEntitySet="ColPos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="EntryZht" ColumnName="EntryZht" />
+                <ScalarProperty Name="EntryZhs" ColumnName="EntryZhs" />
+                <ScalarProperty Name="EntryJap" ColumnName="EntryJap" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="CanDel" ColumnName="CanDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ColWords">
+            <EntityTypeMapping TypeName="WordCollocationModel1.ColWord">
+              <MappingFragment StoreEntitySet="ColWord">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="EntryZht" ColumnName="EntryZht" />
+                <ScalarProperty Name="EntryZhs" ColumnName="EntryZhs" />
+                <ScalarProperty Name="EntryJap" ColumnName="EntryJap" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="CanDel" ColumnName="CanDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Examples">
+            <EntityTypeMapping TypeName="WordCollocationModel1.Example">
+              <MappingFragment StoreEntitySet="Example">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="EntryZht" ColumnName="EntryZht" />
+                <ScalarProperty Name="EntryZhs" ColumnName="EntryZhs" />
+                <ScalarProperty Name="EntryJap" ColumnName="EntryJap" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="RemarkZht" ColumnName="RemarkZht" />
+                <ScalarProperty Name="RemarkZhs" ColumnName="RemarkZhs" />
+                <ScalarProperty Name="RemarkJap" ColumnName="RemarkJap" />
+                <ScalarProperty Name="CollocationId" ColumnName="CollocationId" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pos">
+            <EntityTypeMapping TypeName="WordCollocationModel1.Pos">
+              <MappingFragment StoreEntitySet="Pos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="EntryZht" ColumnName="EntryZht" />
+                <ScalarProperty Name="EntryZhs" ColumnName="EntryZhs" />
+                <ScalarProperty Name="EntryJap" ColumnName="EntryJap" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="CanDel" ColumnName="CanDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Words">
+            <EntityTypeMapping TypeName="WordCollocationModel1.Word">
+              <MappingFragment StoreEntitySet="Word">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="EntryZht" ColumnName="EntryZht" />
+                <ScalarProperty Name="EntryZhs" ColumnName="EntryZhs" />
+                <ScalarProperty Name="EntryJap" ColumnName="EntryJap" />
+                <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+                <ScalarProperty Name="CanDel" ColumnName="CanDel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

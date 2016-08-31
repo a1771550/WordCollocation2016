@@ -1,0 +1,22 @@
+﻿<ul class="dropdown-menu">
+	@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+	{
+
+		<li>
+			@Html.ActionLink("Pos", "Index", "Pos")
+		</li>
+		<li>
+			@Html.ActionLink("ColPos", "Index", "ColPos")
+		</li>
+
+	}
+	@if (Request.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Editor")))
+	{
+
+		<li>@Html.ActionLink("Word", "Index", "Word")</li>
+		<li>@Html.ActionLink("ColWord", "Index", "ColWord")</li>
+		<li>@Html.ActionLink("Collocation", "Index", "Collocation")</li>
+		<li>@Html.ActionLink("Example", "Index", "Example")</li>
+		<li><a href="/WebServices/WcServices.asmx">Web Services</a></li>
+	}
+</ul>

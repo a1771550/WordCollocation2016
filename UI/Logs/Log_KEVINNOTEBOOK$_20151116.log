@@ -1,0 +1,79 @@
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-11-16 13:57:36,615  5929ms ColPosRepository       GetList            - Unable to load the specified metadata resource.System.Data.Entity.Core.MetadataException: Unable to load the specified metadata resource.
+   於 System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.LoadResources(String assemblyName, String resourceName, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   於 System.Data.Entity.Core.Metadata.Edm.MetadataArtifactLoaderCompositeResource.CreateResourceLoader(String path, ExtensionCheck extensionCheck, String validExtension, ICollection`1 uriRegistry, MetadataArtifactAssemblyResolver resolver)
+   於 System.Data.Entity.Core.Metadata.Edm.MetadataCache.SplitPaths(String paths)
+   於 System.Data.Entity.Core.Common.Utils.Memoizer`2.Result.GetValue()
+   於 System.Data.Entity.Core.Common.Utils.Memoizer`2.Evaluate(TArg arg)
+   於 System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetArtifactLoader(DbConnectionOptions effectiveConnectionOptions)
+   於 System.Data.Entity.Core.Metadata.Edm.MetadataCache.GetMetadataWorkspace(DbConnectionOptions effectiveConnectionOptions)
+   於 System.Data.Entity.Core.EntityClient.EntityConnection.GetMetadataWorkspace()
+   於 System.Data.Entity.Core.Objects.ObjectContext..ctor(EntityConnection connection, Boolean isConnectionConstructor, ObjectQueryExecutionPlanFactory objectQueryExecutionPlanFactory, Translator translator, ColumnMapFactory columnMapFactory)
+   於 System.Data.Entity.Internal.InternalConnection.CreateObjectContextFromConnectionModel()
+   於 System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   於 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.GetEnumerator()
+   於 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   於 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   於 BLL.ColPosRepository.GetList() 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\ColPosRepository.cs: 行 30
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+

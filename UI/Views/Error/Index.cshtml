@@ -1,0 +1,29 @@
+﻿@using ErrorViewModel = UI.Models.ErrorViewModel
+@model ErrorViewModel
+@{
+    ViewBag.Title = "Custom Error";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@if (Session["ErrorViewModel"] != null)
+{
+	ErrorViewModel errView = (ErrorViewModel) Session["ErrorViewModel"];
+	<ul>
+		<li>Message: @errView.Message</li>
+		<li>StackTrace: @errView.StackTrace</li>
+		<li>Source: @errView.Source</li>
+		<li>TargetSite: @errView.TargetSite</li>
+	</ul>
+
+}
+else if(Model!=null)
+{
+	<ul>
+		<li>Message: @Model.Message</li>
+		<li>StackTrace: @Model.StackTrace</li>
+		<li>Source: @Model.Source</li>
+		<li>TargetSite: @Model.TargetSite</li>
+	</ul>
+}
+

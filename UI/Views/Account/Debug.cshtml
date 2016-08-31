@@ -1,0 +1,14 @@
+﻿@model UI.Models.ViewModels.UserEditModel
+
+@{
+    ViewBag.Title = "Debug";
+}
+
+<h2>Debug</h2>
+
+<div>SelectedRoles Count: @{
+	                          if (Model.SelectedRoles.Length > 0)
+	                          {
+		                          @Model.SelectedRoles.Length
+	                          }
+                          }</div>

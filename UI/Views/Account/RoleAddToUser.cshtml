@@ -1,0 +1,40 @@
+﻿@model AssignRoleVM
+
+@{
+	ViewBag.Title = Resources.RoleAddToUser;
+}
+
+<h2>@Resources.RoleAddToUser</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+	
+    <div class="form-horizontal">
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+		<p class="message-success">@ViewBag.ResultMessage</p>
+		<table class="table table-borderless table-responsive">
+			<tr>
+				<td>@Resources.UserName:</td>
+				<td>
+					@Html.DropDownListFor(model => model.UserName, new SelectList(Model.UserDropDown, "Value", "Text"), new { style = "width:200px" })
+				@Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+			</td>
+		</tr>
+		<tr>
+			<td>@Resources.RoleName:</td>
+			<td>
+				@Html.DropDownListFor(model => model.RoleName, new SelectList(Model.RoleDropDown, "Value", "Text"), new { style = "width:200px"})
+				@Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button type="submit" id="btnSubmit" class="Add">@Resources.Submit</button>
+			</td>
+		</tr>
+	</table>
+    </div>
+}

@@ -1,0 +1,17 @@
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\Models\bin\Debug\Models.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\Models\bin\Debug\Models.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\Models\obj\Debug\Models.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\Models\obj\Debug\Models.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\Models\bin\Debug\Models.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\Models\bin\Debug\Models.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\Models\obj\Debug\Models.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\Models\obj\Debug\Models.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\bin\Debug\Models.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\bin\Debug\Models.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\bin\Debug\log4net.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\bin\Debug\log4net.xml
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\obj\Debug\Models.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\obj\Debug\Models.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache

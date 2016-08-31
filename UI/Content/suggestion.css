@@ -1,0 +1,58 @@
+﻿.model-dialog-suggestion {
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.modal-dialog-suggestion .ui-widget-header {
+	padding: .3em;
+	margin: 1em .3em;
+	border: 1px solid #a9a9a9;
+	color: #f6f6ed;
+	background-color: #9b7188;
+	display: block;
+	text-align: center !important;
+}
+
+.modal-dialog-suggestion .ui-dialog-titlebar {
+	display: block;
+}
+
+.modal-dialog-suggestion .ui-dialog-title {
+	display: inline-block !important;
+	text-align: center !important;
+	width: auto !important;
+	padding-left: 4em !important;
+}
+
+.modal-dialog-suggestion .ui-dialog-titlebar-close {
+	display: block;
+	position: absolute;
+	right: -.6em !important;
+	top: -1.8em !important;
+	width: 18px !important;
+	height: 18px !important;
+	margin: 10px 0 0 0;
+	padding: 1px;
+	color: antiquewhite !important;
+	background-image: url("/images/close_window-18.png") !important;
+	background-color: #f6f6ed !important;
+}
+
+.modal-dialog-suggestion .ui-dialog-buttonpane {
+	text-align: center !important;
+	margin-right: 3.5em !important;
+}
+
+div#WordSuggestion p, div#WordSuggestion ul li a {
+	/*font-size: smaller;*/
+}
+
+div#WordSuggestion ul {
+	list-style: none;
+}
+
+	div#WordSuggestion ul li {
+		display: inline-block;
+		padding-right: .5em;
+	}

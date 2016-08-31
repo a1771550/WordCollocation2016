@@ -1,0 +1,87 @@
+﻿@model UI.Models.WcUserRoleModelView
+
+@{
+	ViewBag.Title = Model.Entity + " List";
+	string spanClass = Model.Entity == ModelType.Role ? "span3" : "span5";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+	@Html.ActionLink("Create", "Edit", Model.Entity.ToString(), new { id = "0" }, null)
+</p>
+
+<div class="@spanClass">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>
+					Name
+				</th>
+				@if (Model.Entity == ModelType.User)
+				{
+					<th>Password</th>
+					<th>Email</th>
+					<th>
+						Role
+					</th>
+				}
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@switch (Model.Entity)
+			{
+				case ModelType.Role:
+
+					foreach (var item in Model.RoleList)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+
+							</td>
+
+							<td>
+								@Html.ActionLink("Edit", "Edit", "Role", new { id = item.Id }, null)
+							</td>
+							<td>
+								@if (item.CanDel)
+								{
+									@Html.ActionLink("Delete", "Delete", "Role", new { id = item.Id }, new { id = item.Id, returnUrl = Request.Url, onclick = string.Format("return confirm('{0}');", THResources.Resources.ConfirmDelete) })
+								}
+							</td>
+						</tr>
+					}
+
+					break;
+				case ModelType.User:
+
+					foreach (var item in Model.UserList)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Password)
+							</td>
+							<td>@Html.DisplayFor(modelItem => item.Email)</td>
+							<td>@Html.DisplayFor(modelItem => item.RoleName)</td>
+
+							<td>
+								@Html.ActionLink("Edit", "Edit", "User", new { id = item.Id }, null)
+							</td>
+							<td>@Html.ActionLink("Delete", "Delete", "User", new { id = item.Id }, new { id = item.Id, returnUrl = Request.Url, onclick = string.Format("return confirm('{0}');", THResources.Resources.ConfirmDelete) })</td>
+						</tr>
+					}
+
+					break;
+			}
+
+
+		</tbody>
+	</table>
+
+</div>

@@ -1,0 +1,56 @@
+﻿@using CommonLib.Helpers
+@model UI.Models.ViewModels.SearchViewModel
+@{
+	string culture = CultureHelper.GetCurrentCulture();
+	string textClass = null;
+	string sugTitleSize = null;
+	switch (culture)
+	{
+		case "zh-hans":
+		case "zh-hant":
+			textClass = "font-size:small;";
+			break;
+		case "ja-jp":
+			textClass = "font-size:x-small;";
+			sugTitleSize = "small";
+			break;
+	}
+}
+<div class="span3">
+
+	<form action="javascript:void(0);" id="search-form">
+		<div class="form-group">
+			<label for="Word">@Resources.SearchWordText</label>
+			@Html.TextBoxFor(m => m.Word, new{id="Word",autocomplete="off"})
+		</div>
+		<div class="form-group">
+			<label for="ColPosId">@Resources.SearchColPosText</label>
+			@Html.DropDownList("ColPosId", Model.ColPosDropDownList, new {id="ColPosId", @class = "text fLeft" })
+		</div>
+		<div class="form-group">
+			<a id="btnSearch" class="button-link AddEntity">@Resources.Search</a>
+		</div>
+		<input type="hidden" id="wordRequired" value="@Resources.WordRequired" />
+		<input type="hidden" id="colPosRequired" value="@Resources.ColPosRequired" />
+		<input type="hidden" id="progressTitle" value="@Resources.ProgressTitle"/>
+		<input type="hidden" id="wordSuggestion" value="@Resources.WordSuggestion" />
+		<input type="hidden" id="titleSize" value="@sugTitleSize"/>
+		<input type="hidden" id="ok" value="@Resources.OK"/>
+		<input type="hidden" id="cancel" value="@Resources.Cancel"/>
+	</form>
+
+	<div id="progress">
+		<img id="preloader" alt="preloader" src="/images/preloader.gif" />
+		<p id="pro-p" style="@textClass">@Resources.Processing</p>
+	</div>
+
+	<div id="WordSuggestion">
+		<p>@Resources.WordSuggestionText:</p>
+		<ul>
+			<li><a href="#" class="lnkWord" tabindex="-1">abandon</a></li>
+			<li><a href="#" class="lnkWord" tabindex="-1">ability</a></li>
+			<li><a href="#" class="lnkWord" tabindex="-1">absence</a></li>
+			<li><a href="#" class="lnkWord" tabindex="-1">look</a></li>
+		</ul>
+	</div>
+</div>

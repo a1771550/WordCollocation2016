@@ -1,0 +1,35 @@
+﻿@using UI.Helpers
+@{
+	string navClass = "nav ww-nav pull-right hidden-phone";
+	if (Request.IsAuthenticated)
+	{
+		navClass = "nav ww-nav-admin pull-right hidden-phone";
+		//greetings = CookieHelper.GetCookieValue("Greetings");
+		//greetings = Session["Greetings"] == null ? string.Empty : (string)Session["Greetings"];
+	}
+}
+
+@if (Request.IsAuthenticated)
+{
+	using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+	{
+		@Html.AntiForgeryToken()
+
+		<ul class="@navClass" style="padding-top:0;">
+			<li><a href="javascript:document.getElementById('logoutForm').submit()">@Resources.LogOff</a></li>
+		</ul>
+	}
+
+	<span class="text-small">@GreetingsHelper.GetGreetings()</span>
+}
+else
+{
+	<ul class="@navClass" style="padding-top:0;">
+		<li>
+			@if (Request.Url != null)
+			{
+				@Html.ActionLink(Resources.LogOn, "Login", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { id = "loginLink" })
+			}
+		</li>
+	</ul>
+}

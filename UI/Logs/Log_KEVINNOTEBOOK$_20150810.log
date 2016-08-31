@@ -1,0 +1,196 @@
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-08-10 04:00:20,623 72646ms DataAccess             CreateDataSet      - A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) ---> System.ComponentModel.Win32Exception (0x80004005): The system cannot find the file specified
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   at DAL.DataAccess.CreateDataSet(String connString, String sql, CommandType commandType, String datasetName, SqlParameter[] parameters) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs:line 123
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+
+ERROR : 2015-08-10 04:00:20,859 72881ms AccountRepository      GetUserByEmail     - A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)System.Exception: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+   at DAL.DataAccess.CreateDataSet(String connString, String sql, CommandType commandType, String datasetName, SqlParameter[] parameters) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs:line 129
+   at BLL.AccountRepository.GetUserByEmail(String email) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 121
+
+ERROR : 2015-08-10 04:00:42,647 94670ms AccountRepository      CreateUser         - 建立連接至 SQL Server 時，發生網路相關或執行個體特定的錯誤。找不到或無法存取伺服器。確認執行個名稱是否正確，以及 SQL Server 是否設定為允許遠端連線。 (provider: Named Pipes Provider, error: 40 - 無法開啟至 SQL Server 的連接)System.Data.SqlClient.SqlException (0x80131904): 建立連接至 SQL Server 時，發生網路相關或執行個體特定的錯誤。找不到或無法存取伺服器。確認執行個名稱是否正確，以及 SQL Server 是否設定為允許遠端連線。 (provider: Named Pipes Provider, error: 40 - 無法開啟至 SQL Server 的連接) ---> System.ComponentModel.Win32Exception (0x80004005): The system cannot find the file specified
+   於 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   於 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   於 System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean withFailover, SqlAuthenticationMethod authType)
+   於 System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   於 System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   於 System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   於 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken)
+   於 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   於 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   於 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   於 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   於 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   於 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   於 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   於 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   於 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   於 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   於 System.Data.SqlClient.SqlConnection.Open()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs: 行 74
+   於 BLL.AccountRepository.CreateUser(User user) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs: 行 194
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:2,State:0,Class:20
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-08-10 05:49:25,389 18571ms TextHelper             Decrypt            - Bad Data.
+System.Security.Cryptography.CryptographicException: Bad Data.
+
+   於 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   於 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   於 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   於 UI.Helpers.TextHelper.Decrypt(String cipherString, Boolean useHashing) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Helpers\TextHelper.cs: 行 122
+
+ERROR : 2015-08-10 05:49:31,580 24762ms TextHelper             Decrypt            - Bad Data.
+System.Security.Cryptography.CryptographicException: Bad Data.
+
+   於 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   於 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   於 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   於 UI.Helpers.TextHelper.Decrypt(String cipherString, Boolean useHashing) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Helpers\TextHelper.cs: 行 122
+
+ERROR : 2015-08-10 05:49:36,071 29253ms TextHelper             Decrypt            - Bad Data.
+System.Security.Cryptography.CryptographicException: Bad Data.
+
+   於 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   於 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   於 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   於 UI.Helpers.TextHelper.Decrypt(String cipherString, Boolean useHashing) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Helpers\TextHelper.cs: 行 122
+
+ERROR : 2015-08-10 05:49:41,252 34434ms TextHelper             Decrypt            - Bad Data.
+System.Security.Cryptography.CryptographicException: Bad Data.
+
+   於 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   於 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   於 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   於 UI.Helpers.TextHelper.Decrypt(String cipherString, Boolean useHashing) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Helpers\TextHelper.cs: 行 122
+
+ERROR : 2015-08-10 05:50:09,634 62816ms TextHelper             Decrypt            - Bad Data.
+System.Security.Cryptography.CryptographicException: Bad Data.
+
+   於 System.Security.Cryptography.CryptographicException.ThrowCryptographicException(Int32 hr)
+   於 System.Security.Cryptography.Utils._DecryptData(SafeKeyHandle hKey, Byte[] data, Int32 ib, Int32 cb, Byte[]& outputBuffer, Int32 outputOffset, PaddingMode PaddingMode, Boolean fDone)
+   於 System.Security.Cryptography.CryptoAPITransform.TransformFinalBlock(Byte[] inputBuffer, Int32 inputOffset, Int32 inputCount)
+   於 UI.Helpers.TextHelper.Decrypt(String cipherString, Boolean useHashing) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Helpers\TextHelper.cs: 行 122
+
+[Log Ends]
+

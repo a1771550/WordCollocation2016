@@ -1,0 +1,57 @@
+﻿@model UI.Models.ViewModels.ValidateDemoViewModel
+
+@{
+	ViewBag.Title = "Validation Demo";
+	
+}
+
+<div class="span4">
+	<h3>@ViewBag.Title</h3>
+
+
+	@{
+		if (ViewBag.ErrorList != null && ViewBag.ErrorList.Count > 0)
+		{
+			<ul>
+				@foreach (var error in (List<ModelError>)ViewBag.ErrorList)
+				{
+					<li><span class="text-danger">Exception: @error.Exception</span>&nbsp;<span class="text-danger">ErrorMessage: @error.ErrorMessage</span></li>
+				}
+			</ul>
+		}
+	}
+
+	<section id="loginForm">
+		
+		@using (Html.BeginForm("Index", "ValidateDemo", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form", id = "login-form" }))
+		{
+			@Html.AntiForgeryToken()
+
+			@Html.ValidationSummary(true)
+
+			<div class="form-group">
+				@Html.TextBoxFor(m => m.UserNameEmail, new { placeholder = THResources.Resources.UserNameEmailForLogin, autocomplete = "off" })
+				@Html.ValidationMessageFor(m => m.UserNameEmail)
+			</div>
+			<div class="form-group">
+				@Html.PasswordFor(m => m.Password, new { placeholder = THResources.Resources.Password, autocomplete = "off" })
+				@Html.ValidationMessageFor(m => m.Password)
+			</div>
+
+			
+			<div class="form-group">
+
+				<button id="logon" type="submit">@THResources.Resources.LogOn</button>
+
+
+			</div>
+			
+
+		}
+	</section>
+
+</div>
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+	
+}

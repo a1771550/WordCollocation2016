@@ -1,0 +1,10 @@
+﻿@{
+	List<ModelError> ErrorList = (List<ModelError>) ViewData["ErrorList"];
+	
+		<ul>
+			@foreach (var error in ErrorList)
+			{
+				<li><span class="text-danger">Exception: @error.Exception</span>&nbsp;<span class="text-danger">ErrorMessage: @error.ErrorMessage</span></li>
+			}
+		</ul>
+}

@@ -1,0 +1,185 @@
+﻿<error errorId="97ac9d37-27db-4dbe-be1d-3d93dc031ade" application="/LM/W3SVC/8/ROOT" host="KEVINLAU_2015" type="UI.Models.Logging.JavaScriptException" message="TypeError: elem.nodeName is undefined: at document path 'http://localhost:50370/account/CreateUser'.&#xA;  at anonymous('TypeError: elem.nodeName is undefined', 'http://localhost:50370/Scripts/jquery-2.1.3.js', '7323', '4', 'TypeError: elem.nodeName is undefined')" detail="UI.Models.Logging.JavaScriptException: TypeError: elem.nodeName is undefined: at document path 'http://localhost:50370/account/CreateUser'.&#xA;  at anonymous('TypeError: elem.nodeName is undefined', 'http://localhost:50370/Scripts/jquery-2.1.3.js', '7323', '4', 'TypeError: elem.nodeName is undefined')" time="2015-05-12T18:41:16.6185277Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:no-cache&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_PRAGMA:no-cache&#xD;&#xA;HTTP_CONTENT_LENGTH:310&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;HTTP_ACCEPT:*/*&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.5&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=2LdefBCaSV5NNlvaZ-QSFI5eOGa07PwTAXDPnfttBvg2guVKu-Pbd_AjiCJ_zzsgU6SkBbFhHt8TrEcgKL17-jmv-Ww1; timezoneoffset=-480&#xD;&#xA;HTTP_HOST:localhost:50370&#xD;&#xA;HTTP_REFERER:http://localhost:50370/account/CreateUser&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0&#xD;&#xA;HTTP_X_REQUESTED_WITH:XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: no-cache&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Pragma: no-cache&#xD;&#xA;Content-Length: 310&#xD;&#xA;Content-Type: application/x-www-form-urlencoded; charset=UTF-8&#xD;&#xA;Accept: */*&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: en-US,en;q=0.5&#xD;&#xA;Cookie: __RequestVerificationToken=2LdefBCaSV5NNlvaZ-QSFI5eOGa07PwTAXDPnfttBvg2guVKu-Pbd_AjiCJ_zzsgU6SkBbFhHt8TrEcgKL17-jmv-Ww1; timezoneoffset=-480&#xD;&#xA;Host: localhost:50370&#xD;&#xA;Referer: http://localhost:50370/account/CreateUser&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0&#xD;&#xA;X-Requested-With: XMLHttpRequest&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/8/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="310" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="8" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/8" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Error/LogJavaScriptError" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Error\LogJavaScriptError" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="127.0.0.1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="61081" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Error/LogJavaScriptError" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="50370" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/8.0" />
+    </item>
+    <item name="URL">
+      <value string="/Error/LogJavaScriptError" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_PRAGMA">
+      <value string="no-cache" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="310" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded; charset=UTF-8" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="*/*" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.5" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=2LdefBCaSV5NNlvaZ-QSFI5eOGa07PwTAXDPnfttBvg2guVKu-Pbd_AjiCJ_zzsgU6SkBbFhHt8TrEcgKL17-jmv-Ww1; timezoneoffset=-480" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:50370" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:50370/account/CreateUser" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0" />
+    </item>
+    <item name="HTTP_X_REQUESTED_WITH">
+      <value string="XMLHttpRequest" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="message">
+      <value string="TypeError: elem.nodeName is undefined: at document path 'http://localhost:50370/account/CreateUser'.&#xA;  at anonymous('TypeError: elem.nodeName is undefined', 'http://localhost:50370/Scripts/jquery-2.1.3.js', '7323', '4', 'TypeError: elem.nodeName is undefined')" />
+    </item>
+  </form>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="2LdefBCaSV5NNlvaZ-QSFI5eOGa07PwTAXDPnfttBvg2guVKu-Pbd_AjiCJ_zzsgU6SkBbFhHt8TrEcgKL17-jmv-Ww1" />
+    </item>
+    <item name="timezoneoffset">
+      <value string="-480" />
+    </item>
+  </cookies>
+</error>

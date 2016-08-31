@@ -1,0 +1,54 @@
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-08-28 23:43:06,345  1127ms DataAccess             ExecuteNonQuery    - 將參數值從 SqlParameter 轉換成 String 失敗。System.InvalidCastException: 將參數值從 SqlParameter 轉換成 String 失敗。 ---> System.InvalidCastException: 物件必須實作 IConvertible。
+   於 System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   於 System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   於 System.Data.SqlClient.SqlParameter.GetCoercedValue()
+   於 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   於 System.Data.SqlClient.SqlCommand.SetUpRPCParameters(_SqlRPC rpc, Int32 startCount, Boolean inSchema, SqlParameterCollection parameters)
+   於 System.Data.SqlClient.SqlCommand.BuildRPC(Boolean inSchema, SqlParameterCollection parameters, _SqlRPC& rpc)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs: 行 86
+
+ERROR : 2015-08-28 23:45:32,757 147539ms DataAccess             ExecuteNonQuery    - 將參數值從 SqlParameter 轉換成 String 失敗。System.InvalidCastException: 將參數值從 SqlParameter 轉換成 String 失敗。 ---> System.InvalidCastException: 物件必須實作 IConvertible。
+   於 System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   於 System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   --- 內部例外狀況堆疊追蹤的結尾 ---
+   於 System.Data.SqlClient.SqlParameter.CoerceValue(Object value, MetaType destinationType, Boolean& coercedToDataFeed, Boolean& typeChanged, Boolean allowStreaming)
+   於 System.Data.SqlClient.SqlParameter.GetCoercedValue()
+   於 System.Data.SqlClient.SqlParameter.Validate(Int32 index, Boolean isCommandProc)
+   於 System.Data.SqlClient.SqlCommand.SetUpRPCParameters(_SqlRPC rpc, Int32 startCount, Boolean inSchema, SqlParameterCollection parameters)
+   於 System.Data.SqlClient.SqlCommand.BuildRPC(Boolean inSchema, SqlParameterCollection parameters, _SqlRPC& rpc)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs: 行 86
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+

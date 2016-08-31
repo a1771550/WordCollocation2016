@@ -1,0 +1,13 @@
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\bin\Release\DAL.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\bin\Release\DAL.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\bin\Release\log4net.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\bin\Release\log4net.xml
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\obj\Release\DAL.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\obj\Release\DAL.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Release\DAL.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Release\DAL.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Release\log4net.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Release\log4net.xml
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\obj\Release\DAL.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\obj\Release\DAL.pdb

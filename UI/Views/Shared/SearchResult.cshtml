@@ -1,0 +1,112 @@
+﻿@using CommonLib.Helpers
+@using UI.Helpers
+@model UI.Models.ViewModels.SearchViewModel
+
+@{
+	ViewBag.Title = THResources.Resources.SearchResult;
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	string definitionLink;
+	string culturename = CultureHelper.GetCurrentCulture();
+	if (culturename.Contains("hans"))
+	{
+		definitionLink = string.Format(SiteConfiguration.DictionaryLinkZhs, Model.Word);
+	}
+	else if (culturename.Contains("ja"))
+	{
+		definitionLink = string.Format(SiteConfiguration.DictionaryLinkJap, Model.Word);
+	}
+	else
+	{
+		definitionLink = string.Format(SiteConfiguration.DictionaryLinkZht, Model.Word);
+	}
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table id="WordList" class="table">
+	<tbody>
+		<tr>
+			<td>
+				<div id="collocations">
+					<div id="Word">
+						<h4>
+							@{
+
+							}
+							<i class="halflings-icon book" style="vertical-align:baseline;"></i><span id="lblWord">&nbsp;@Model.Word</span>&nbsp;
+							<span class="wordTransHeading">@(Model.WordTrans)</span>
+							&nbsp;<span id="lblpos">(@Model.Pos @Model.PosTrans)</span>
+							&nbsp;&nbsp;
+							<a href="@definitionLink" target="_blank" title="@THResources.Resources.SeeDefinition"><img src="~/images/accessories_dictionary.png" style="vertical-align:bottom;" alt="@THResources.Resources.SeeDefinition" title="@THResources.Resources.SeeDefinition" /></a>
+						</h4>
+						<div class="indent-1em marginBottom05em colPatternHeadingText">
+							<span>@THResources.Resources.CollocationPattern:&nbsp;</span>
+							<span class="">@Model.Pattern[0]</span>&nbsp;
+							<span class="">@Model.Pattern[1]</span>
+						</div>
+					</div>
+
+
+					@foreach (Collocation collocation in Model.CollocationList)
+					{
+						var colWord = collocation.ColWord;
+						var colWordZht = colWord.EntryZht;
+						var colWordZhs = colWord.EntryZhs;
+						var colWordJap = colWord.EntryJap;
+						//var colWordTrans = culturename.Contains("hans") ? colWordZht : colWordJap;
+						string colWordTrans;
+						if (culturename.Contains("hans"))
+						{
+							colWordTrans = colWordZhs;
+						}
+						else if (culturename.Contains("ja"))
+						{
+							colWordTrans = colWordJap;
+						}
+						else
+						{
+							colWordTrans = colWordZht;
+						}
+
+						var exampleList = collocation.Examples;
+						<div class="paddingLeftDot3em">
+							<table id="ColWordList" class="table table-striped" style="width: 99%">
+								<tbody>
+									<tr>
+										<td>
+											<div class="colWordDiv indent-1em">
+												<h5>
+													<i class="halflings-icon share-alt"></i>&nbsp;<span class="colWordIcon">@colWord.Entry</span>&nbsp;
+													<span class="colWordTrans">@colWordTrans</span>
+												</h5>
+
+												<div class="marginTop1em marginBottom05em">
+													<span class="exampleLabel">@THResources.Resources.ExampleText</span>
+												</div>
+
+												@foreach (var example in exampleList)
+												{
+													@Html.Partial("_ExampleListPartial", example)
+												}
+											</div>
+										</td>
+									</tr>
+
+								</tbody>
+							</table>
+
+						</div>
+					}
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="pagination">
+	@Html.PageLinks(Model.CollocationPagingInfo, x => Url.Action(Model.Action, Model.Controller, new { page = x }))
+</div>
+
+<div id="continueSearch">
+	@Html.ActionLink(THResources.Resources.ContinueToSearch, "Index", "Home")
+</div>

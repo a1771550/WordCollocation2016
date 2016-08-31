@@ -1,0 +1,562 @@
+﻿/*@import url("/css/wisewords/magic-bootstrap.css");
+@import url("/css/wisewords/bootstrap.min.css");
+@import url("/css/wisewords/bootstrap-responsive.min.css");
+@import url("/css/wisewords/socialicons.css");
+@import url("/css/wisewords/glyphicons.css");
+@import url("/css/wisewords/halflings.css");
+@import url("/css/wisewords/template.css");
+@import url("/css/wisewords/colors/color-classic.css");*/
+
+body {
+	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif !important;*/
+	/*font-family: Open Sans;*/
+	/*font-family: Verdana, "Avant Garde", Helvetica, Calibri, Candara, "Century Gothic", Arial, Sans-serif;*/
+	font-family: helvetica, arial, sans-serif !important;
+	/*font-family: "Arial Unicode MS", "Lucida Sans Unicode","PMingLiU, MingLiU","細明體", Arial, Helvetica, sans-serif !important;*/
+}
+
+a:link {
+	text-decoration: none;
+}
+
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input, select {
+	padding: 4px 6px;
+	height: 35px;
+	box-sizing: content-box;
+}
+
+h2, h3, h4, h5, h6 {
+	/*font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", SimSun, NSimSun, SimHei, PMingLiU, MingLiU, serif !important;*/
+	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", Times, serif !important;*/
+	font-family: "宋體",PMingLiU, MingLiU,"細明體", Arial, Helvetica, sans-serif;
+	font-weight: bold !important;
+}
+
+h4 {
+	font-size: 20px !important;
+}
+
+table th, a.button-link {
+	font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", serif;
+	font-weight: normal !important;
+}
+
+table td {
+	font-size: .8em;
+}
+
+a.button-link {
+	cursor: pointer;
+}
+
+label, select {
+	cursor: default;
+}
+
+select {
+	background-color: #f6f6ed;
+	border: 1px solid #b2b8c1;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+	-o-transition: border linear 0.2s, box-shadow linear 0.2s;
+	transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+/*-- Navigation Elements --*/
+.nav .dropdown-toggle .caret {
+	border-top-color: #494e55 !important;
+	border-bottom-color: #494e55 !important;
+	margin-top: 6px;
+}
+
+.nav .dropdown-toggle:hover .caret,
+.nav .dropdown-toggle:focus .caret {
+	border-top-color: #9b7188 !important;
+	border-bottom-color: #9b7188 !important;
+}
+
+.navbar-nav > li > a {
+	padding: 25px !important;
+	/*padding: 0 !important;*/
+}
+
+.navbar-nav > li > a {
+	line-height: 14px !important;
+}
+
+.ww-nav-admin {
+	padding-top: 6px;
+}
+
+	.ww-nav-admin a {
+		/*color:#494e55;*/
+		font-family: 'Open Sans', sans-serif;
+		font-size: .8em;
+		font-weight: 300;
+		line-height: 14px;
+		margin-left: 0px;
+		margin-right: 2px;
+		padding-right: 0px;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+		.ww-nav-admin a:hover {
+			/*color:#9b7188;*/
+		}
+
+	.ww-nav-admin > li {
+		float: left;
+		margin-left: 5px;
+	}
+
+		.ww-nav-admin > li > a {
+			/*padding:25px;*/
+			padding: 10px;
+		}
+
+		.ww-nav-admin > li.last a {
+			padding-right: 0px;
+		}
+
+.navbar-nav-admin > li > a {
+	padding: 10px !important;
+	/*padding: 0 !important;*/
+}
+/*-- Navigation Elements End --*/
+
+/*-- Form Elements --*/
+.input-validation-error {
+	border: 1px solid #b94a48 !important;
+	background-color: #fee !important;
+}
+
+.validation-summary-errors, .field-validation-error {
+	color: #b94a48;
+}
+
+.field-validation-error {
+	display: inline-block;
+	font-size: .8em;
+	margin-top: -1em;
+}
+
+/*.entry-form input[type=text] {
+	width: 40%;
+}*/
+
+.collocation-form {
+}
+/*-- Form Elements End --*/
+
+.main-content {
+	margin-top: 1em !important;
+	margin-bottom: 3em !important;
+}
+
+.wordTransHeading {
+	font-family: "標楷體","Arial Unicode MS","Lucida Sans Unicode","宋體", "PMingLiU, MingLiU", "細明體", Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
+}
+
+.colPatternHeadingText {
+	font-weight: bold;
+}
+
+.colPatternHeadingText {
+	font-size: 18px;
+}
+
+.word {
+	/*border: 1px solid #f6f6ed;
+	background-color: #494e55;
+	color: #f6f6ed;*/
+	color: #245185;
+	font-weight: bold;
+}
+
+.colWord, .colWordTrans, .colWordIcon {
+	/*border: 1px solid #494e55;
+	background-color: #f6f6ed;
+	color: #494e55;*/
+	color: #9b7188;
+}
+
+.colWordIcon {
+	font-style: italic;
+	font-size: 1.2em;
+}
+
+.colWord {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.colWordTrans {
+	/*font-family: "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", SimSun, NSimSun, SimHei, PMingLiU, MingLiU, serif;*/
+	font-family: "標楷體","Arial Unicode MS","Lucida Sans Unicode","宋體", "PMingLiU, MingLiU", "細明體", Arial, Helvetica, sans-serif;
+	font-size: 1.3em;
+}
+
+.colWordDiv {
+	/*font-size: 0.8em;*/
+	font-size: 1.1em;
+}
+
+.exampleDiv {
+	/*font-size: .9em;*/
+	font-size: 1.2em;
+}
+
+.exampleLabel {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", Times, serif !important;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.exampleText {
+	font-size: 1.1em;
+}
+
+.exampleTransText {
+	font-family: "標楷體","Arial Unicode MS","Lucida Sans Unicode","宋體", "PMingLiU, MingLiU", "細明體", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.exampleSourceText {
+	font-size: 1.1em;
+}
+
+.indent-1em {
+	text-indent: 1em;
+}
+
+.fLeft {
+	float: left;
+}
+
+.fRight {
+	float: right;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+.clearLeft {
+	clear: left;
+}
+
+.clearRight {
+	clear: right;
+}
+
+ul#letters {
+	list-style: none;
+}
+
+	ul#letters li {
+		float: left;
+		padding-right: .5em;
+	}
+
+
+/*-- margin list --*/
+.marginTop05em {
+	margin-top: .5em;
+}
+
+.marginTop1em {
+	margin-top: 1em;
+}
+
+.marginTop2em {
+	margin-top: 2em;
+}
+
+.marginTop3em {
+	margin-top: 3em;
+}
+
+.marginBottom05em {
+	margin-bottom: .5em;
+}
+
+.marginBottom1em {
+	margin-bottom: 1em;
+}
+/*-- margin list end --*/
+
+/*-- padding list starts */
+.paddingLeftDot3em {
+	padding-left: .3em;
+}
+
+.paddingLeftDot5em {
+	padding-left: .5em;
+}
+
+.paddingLeft1em {
+	padding-left: 1em;
+}
+
+.paddingLeft3em {
+	padding-left: 3em;
+}
+/*-- padding list ends */
+
+.alignLeft {
+	text-align: left;
+}
+
+.text-small {
+	font-size: .8em;
+}
+
+.text-smaller {
+	font-size: .7em;
+}
+
+.text-large {
+	font-size: 1.3em;
+}
+
+.text-larger{ font-size: 1.2em;}
+
+.purple{ color: #999999;}
+.blue{ color: #245185;}
+
+.line-height-small {
+	line-height: 90%;
+}
+
+.validation-summary-errors ul {
+	list-style-type: none;
+	text-indent: -1.5em;
+}
+
+div#colorswitcher {
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+ul#socialLinks {
+	display: inline-block;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+	ul#socialLinks li {
+		float: left;
+		padding-right: .2em;
+	}
+
+#imgUnderconstruction {
+	vertical-align: text-bottom;
+	width: 20%;
+	height: 20%;
+}
+
+#Message {
+	width: 120%;
+}
+
+
+.modal-dialog, .modal-dialog-suggestion {
+	background-color: #f6f6ed;
+	border: 1px solid #b2b8c1;
+}
+
+.ui-widget-overlay {
+	background-color: #000;
+	cursor: wait;
+	opacity: 0.5;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 1001;
+}
+
+table#WordList {
+	color: #333333;
+	border-collapse: collapse;
+	background-color: #d7c1c1;
+}
+
+	table#WordList td {
+		padding-bottom: 0 !important;
+	}
+
+.pagination {
+	margin: 1em 0 !important;
+}
+
+#resetPwd-form input {
+	width: 75%;
+}
+
+div#progress {
+	text-align: center;
+	padding: .5em 0 0 0;
+	margin: 0;
+	min-height: 0 !important;
+}
+
+a, button {
+	text-align: center;
+}
+
+button {
+	padding: .3em !important;
+	height: 2em !important;
+	width: 4em;
+}
+
+	a.AddEntity {
+		padding: .3em;
+		width: 5em;
+		/*text-align: center;*/
+	}
+
+	/*button.Add, button.Delete, button.Edit {
+		padding: 0;
+		width: 3em;
+		height: 2em;
+		padding: .3em !important;
+		width: 4em;
+		height: 2em !important;
+	}*/
+
+	/*button.Two {
+		height: 2em !important;
+		width: 4em;
+	}*/
+
+/*.form-group {
+	clear: left;
+}
+
+.form-group label {
+	display: inline-block;
+	float: left;
+}*/
+
+.iOk {
+	vertical-align: baseline;
+	width: .95em;
+	height: .95em;
+}
+
+/*#AddUserForm .form-horizontal .form-group input:first-child {
+	width: 90%;
+}*/
+
+#pwdFormat {
+	font-size: .7em;
+}
+
+.form-submit {
+	margin-top: 2em;
+}
+
+ul.checkbox {
+	list-style: none;
+}
+
+	ul.checkbox li {
+		float: left;
+		/*width: 7em;*/
+		width: 9em;
+		margin-left: -1.2em;
+	}
+
+		ul.checkbox li input[type="checkbox"] {
+			width: 1.2em;
+			height: 1.2em;
+			padding: 0;
+			margin-right: .5em;
+			vertical-align: bottom;
+			position: relative;
+			top: .2em;
+			*overflow: hidden;
+			clear: left;
+		}
+
+.bottomBorder {
+	border-bottom: solid 1px #ddd;
+}
+
+/*.remark {
+	font-size: .8em;
+}*/
+
+.labelField {
+	font-size: .9em;
+}
+
+.form-group {
+	margin-bottom: 0 !important;
+}
+
+input[type="text"].roleCode {
+	width: 8%;
+}
+
+table.tablePad1em tr td {
+	padding: 1em
+}
+
+table.tablePad2em tr td {
+	padding: 2em
+}
+
+table.tablePad05em tr td {
+	padding: .5em;
+}
+
+table.table-borderless tr td {
+	border: none;
+}
+
+/*button.resetPwdBtn {
+	width: 2em;
+}*/
+
+#rolelist {
+	list-style: none;
+	/*margin: 0;*/
+	margin-bottom: 2em;
+}
+
+#rolelist li {
+	float: left;
+	width: 6.5em;
+}
+
+#rolelist label {
+	display: inline;
+}
+
+#rolelist1 {
+	list-style: none;
+	margin: 0;
+}
+
+#rolelist1 li {
+	float: left;
+	width: 6em;
+}
+
+#rolelist1 label {
+	display: inline;
+}

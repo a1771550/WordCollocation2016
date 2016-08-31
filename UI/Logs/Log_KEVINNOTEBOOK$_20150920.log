@@ -1,0 +1,366 @@
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-09-20 19:03:04,331   720ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-09-20 19:03:05,233   265ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-09-20 19:03:22,711   309ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:03:22,887   485ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:05:31,692 129291ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:05:31,904 129502ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:21:28,977 1086576ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:21:29,120 1086718ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:22:48,414 1166012ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:23:12,812 1190410ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:24:12,453 1250051ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+ERROR : 2015-09-20 19:24:12,660 1250258ms MvcApplication         uthenticateRequest - Exception has been thrown by the target of an invocation.System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.TypeInitializationException: The type initializer for 'System.Data.Entity.SqlServer.SqlProviderServices' threw an exception. ---> System.TypeLoadException: Could not load type 'System.Data.Entity.Infrastructure.TableExistenceChecker' from assembly 'EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.
+   at System.Data.Entity.SqlServer.SqlProviderServices..ctor()
+   at System.Data.Entity.SqlServer.SqlProviderServices..cctor()
+   --- End of inner exception stack trace ---
+   at System.Data.Entity.SqlServer.SqlProviderServices.get_Instance()
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Data.Entity.Infrastructure.DependencyResolution.ProviderServicesFactory.GetInstance(Type providerType)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterSqlServerProvider()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.RegisterDbProviderServices()
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetServiceFactory(Type type, String name)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Data.Entity.Infrastructure.DependencyResolution.AppConfigDependencyResolver.GetService(Type type, Object key)
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Data.Entity.Infrastructure.DependencyResolution.CompositeResolver`2.GetService(Type type, Object key)
+   at System.Data.Entity.Infrastructure.DependencyResolution.DbDependencyResolverExtensions.GetService[T](IDbDependencyResolver resolver)
+   at System.Data.Entity.DbContext.InitializeLazyInternalContext(IInternalConnection internalConnection, DbCompiledModel model)
+   at BLL.AccountEntities..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountContext.Context.cs:line 19
+   at BLL.AccountRepository..ctor() in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs:line 23
+   at UI.MvcApplication.Application_PostAuthenticateRequest(Object sender, EventArgs e) in C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\UI\Global.asax.cs:line 46
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+

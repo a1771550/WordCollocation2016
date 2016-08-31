@@ -1,0 +1,47 @@
+﻿@using UI.Helpers
+@model UI.Models.ViewModels.RoleEditModel
+
+@{
+	ViewBag.Title = Resources.EditRole;
+	RoleErrMsg msg;
+	AccountHelper.InitRoleErrMsgs(out msg);
+}
+
+<div class="span3">
+
+	@Html.Partial("_ViewBagErrorList")
+
+	@using (Html.BeginForm())
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-horizontal">
+			<div class="form-group">
+				<h3>@ViewBag.Title</h3>
+			</div>
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+			@Html.ValidationMessage("Error")
+			<div class="form-group">
+
+				@Html.LabelFor(model => model.Role.RoleName, htmlAttributes: new { @class = "labelField" })
+				@Html.EditorFor(model => model.Role.RoleName)
+				@Html.ValidationMessageFor(model => model.Role.RoleName, "", new { @class = "text-danger" })
+
+			</div>
+
+			<div class="form-group form-submit">
+				<button type="submit" id="btnSubmit" class="Add">@Resources.Edit</button>
+				<input type="hidden" name="Role.RoleId" value="@Model.Role.RoleId"/>
+			</div>
+
+			<div class="form-group form-submit">
+				@Html.ActionLink(Resources.ReturnToManagementIndex, "RoleIndex")
+			</div>
+		</div>
+	}
+</div>
+@section scripts{
+	@*@Scripts.Render("~/scripts/role_validation.js")*@
+	@Scripts.Render("~/bundles/jqueryval")
+}
+

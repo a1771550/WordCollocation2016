@@ -1,0 +1,11 @@
+﻿@{
+	if (ViewBag.ErrorList != null && ViewBag.ErrorList.Count > 0)
+	{
+		<ul>
+			@foreach (var error in (List<ModelError>)ViewBag.ErrorList)
+			{
+				<li><span class="text-danger">Exception: @error.Exception</span>&nbsp;<span class="text-danger">ErrorMessage: @error.ErrorMessage</span></li>
+			}
+		</ul>
+	}
+}

@@ -1,0 +1,415 @@
+[Log Starts]
+ERROR : 2016-06-02 01:00:49,307  7411ms AccountRepository      GetUserByEmail     - The result of a query cannot be enumerated more than once.System.InvalidOperationException: The result of a query cannot be enumerated more than once.
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.EnsureCanEnumerateResults()
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.GetDbEnumerator()
+   於 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   於 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 134
+
+ERROR : 2016-06-02 01:00:49,338  7442ms AccountController      Login              - The result of a query cannot be enumerated more than once.System.Exception: The result of a query cannot be enumerated more than once.
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+ERROR : 2016-06-02 01:03:29,785 167888ms AccountRepository      GetUserByEmail     - The result of a query cannot be enumerated more than once.System.InvalidOperationException: The result of a query cannot be enumerated more than once.
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.EnsureCanEnumerateResults()
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.GetDbEnumerator()
+   於 System.Linq.Enumerable.Any[TSource](IEnumerable`1 source)
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 132
+
+ERROR : 2016-06-02 01:03:29,786 167889ms AccountController      Login              - The result of a query cannot be enumerated more than once.System.Exception: The result of a query cannot be enumerated more than once.
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 01:05:29,965  6550ms AccountRepository      GetUserByEmail     - The result of a query cannot be enumerated more than once.System.InvalidOperationException: The result of a query cannot be enumerated more than once.
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.EnsureCanEnumerateResults()
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.GetDbEnumerator()
+   於 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   於 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 134
+
+ERROR : 2016-06-02 01:05:29,994  6578ms AccountController      Login              - The result of a query cannot be enumerated more than once.System.Exception: The result of a query cannot be enumerated more than once.
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 01:11:39,065  7447ms AccountRepository      GetUserByEmail     - The result of a query cannot be enumerated more than once.System.InvalidOperationException: The result of a query cannot be enumerated more than once.
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.EnsureCanEnumerateResults()
+   於 System.Data.Entity.Core.Objects.ObjectResult`1.GetDbEnumerator()
+   於 System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   於 System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 134
+
+ERROR : 2016-06-02 01:11:39,144  7526ms AccountController      Login              - The result of a query cannot be enumerated more than once.System.Exception: The result of a query cannot be enumerated more than once.
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 01:14:32,844 53486ms AccountRepository      GetUserByEmail     - 並未將物件參考設定為物件的執行個體。System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 BLL.AccountRepository.GetRoleListFromUserInRoles(User& user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 95
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 143
+
+ERROR : 2016-06-02 01:14:32,902 53545ms AccountController      Login              - 並未將物件參考設定為物件的執行個體。System.Exception: 並未將物件參考設定為物件的執行個體。
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+ERROR : 2016-06-02 01:15:41,400 122042ms AccountRepository      GetUserByEmail     - 並未將物件參考設定為物件的執行個體。System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 BLL.AccountRepository.GetRoleListFromUserInRoles(User& user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 95
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 143
+
+ERROR : 2016-06-02 01:15:41,715 122357ms AccountController      Login              - 並未將物件參考設定為物件的執行個體。System.Exception: 並未將物件參考設定為物件的執行個體。
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+ERROR : 2016-06-02 01:16:44,420 185062ms AccountRepository      GetUserByEmail     - 並未將物件參考設定為物件的執行個體。System.NullReferenceException: 並未將物件參考設定為物件的執行個體。
+   於 BLL.AccountRepository.GetRoleListFromUserInRoles(User& user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 95
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 143
+
+ERROR : 2016-06-02 01:16:44,420 185062ms AccountController      Login              - 並未將物件參考設定為物件的執行個體。System.Exception: 並未將物件參考設定為物件的執行個體。
+   於 BLL.AccountRepository.GetUserByEmail(String email) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 161
+   於 UI.Controllers.AccountController.Login(LoginViewModel model) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\AccountController.cs: 行 86
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 11:16:39,415 53958ms DataAccess             ExecuteNonQuery    - The INSERT statement conflicted with the FOREIGN KEY constraint "FK_User_Profile". The conflict occurred in database "WordCollocation", table "dbo.Profile", column 'Email'.
+The statement has been terminated.System.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_User_Profile". The conflict occurred in database "WordCollocation", table "dbo.Profile", column 'Email'.
+The statement has been terminated.
+   於 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   於 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   於 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 87
+ClientConnectionId:43136d50-1ee8-4f77-b338-6d1071092dba
+Error Number:547,State:0,Class:16
+
+ERROR : 2016-06-02 11:16:39,456 53999ms AccountRepository      CreateUser         - The INSERT statement conflicted with the FOREIGN KEY constraint "FK_User_Profile". The conflict occurred in database "WordCollocation", table "dbo.Profile", column 'Email'.
+The statement has been terminated.System.Exception: The INSERT statement conflicted with the FOREIGN KEY constraint "FK_User_Profile". The conflict occurred in database "WordCollocation", table "dbo.Profile", column 'Email'.
+The statement has been terminated.
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 101
+   於 BLL.AccountRepository.CreateUser(User user, String[] selectedRoles) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 190
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 12:54:07,155 75651ms DataAccess             ExecuteNonQuery    - Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.
+   於 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   於 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   於 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   於 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 87
+ClientConnectionId:0658a7fd-6607-43c2-86dd-73a4e559ea2f
+Error Number:201,State:4,Class:16
+
+ERROR : 2016-06-02 12:54:07,193 75689ms AccountRepository      CreateRole         - Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.System.Exception: Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 101
+   於 BLL.AccountRepository.CreateRole(Role role) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 230
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 13:56:27,634 927239ms DataAccess             ExecuteNonQuery    - Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.System.Data.SqlClient.SqlException (0x80131904): Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.
+   於 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   於 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   於 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   於 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 87
+ClientConnectionId:eaabe7b5-7c23-404d-a4fe-c527362b26ef
+Error Number:201,State:4,Class:16
+
+ERROR : 2016-06-02 13:56:27,667 927273ms AccountRepository      CreateRole         - Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.System.Exception: Procedure or function 'AddRole' expects parameter '@Code', which was not supplied.
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 101
+   於 BLL.AccountRepository.CreateRole(Role role) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 230
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 14:07:58,204 422217ms DataAccess             ExecuteNonQuery    - Invalid column name 'A'.
+Invalid column name 'RoleId'.System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'A'.
+Invalid column name 'RoleId'.
+   於 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   於 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   於 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   於 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   於 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 87
+ClientConnectionId:71b4f451-963c-466e-9fc7-c1cd376963a5
+Error Number:207,State:1,Class:16
+
+ERROR : 2016-06-02 14:07:58,232 422245ms AccountRepository      UpdateUsersInRole  - Invalid column name 'A'.
+Invalid column name 'RoleId'.System.Exception: Invalid column name 'A'.
+Invalid column name 'RoleId'.
+   於 DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\DataAccess.cs: 行 101
+   於 BLL.AccountRepository.UpdateUsersInRole(String email, String[] roleIds) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 283
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 15:21:41,921 35997ms AccountRepository      UpdateUser         - A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   於 System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   於 BLL.AccountRepository.UpdateUser(User user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 313
+
+ERROR : 2016-06-02 15:22:12,339 66415ms AccountRepository      UpdateUser         - A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   於 System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   於 BLL.AccountRepository.UpdateUser(User user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 313
+
+ERROR : 2016-06-02 15:23:44,952 159028ms AccountRepository      UpdateUser         - A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   於 System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   於 BLL.AccountRepository.UpdateUser(User user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 313
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 15:28:27,373 98620ms AccountRepository      UpdateUser         - A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   於 System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   於 BLL.AccountRepository.UpdateUser(User user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 313
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 15:37:36,241 20169ms CommonControllerBase   BeginExecuteCore   - 輸入不是有效的 Base-64 字串，因為它含有非 Base-64 字元、兩個以上填補字元，或在填補字元中有不合法的字元。 System.FormatException: 輸入不是有效的 Base-64 字串，因為它含有非 Base-64 字元、兩個以上填補字元，或在填補字元中有不合法的字元。 
+   於 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   於 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   於 System.Convert.FromBase64String(String s)
+   於 System.Web.Mvc.DefaultModelBinder.GetPropertyValue(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor, IModelBinder propertyBinder)
+   於 System.Web.Mvc.DefaultModelBinder.BindProperty(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor)
+   於 System.Web.Mvc.DefaultModelBinder.BindProperties(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   於 System.Web.Mvc.DefaultModelBinder.BindComplexElementalModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Object model)
+   於 System.Web.Mvc.DefaultModelBinder.BindComplexModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   於 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   於 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.BeginInvokeAction(ControllerContext controllerContext, String actionName, AsyncCallback callback, Object state)
+   於 System.Web.Mvc.Controller.<BeginExecuteCore>b__1c(AsyncCallback asyncCallback, Object asyncState, ExecuteCoreState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallBeginDelegate(AsyncCallback callback, Object callbackState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   於 System.Web.Mvc.Controller.BeginExecuteCore(AsyncCallback callback, Object state)
+   於 UI.Controllers.Abstract.CommonControllerBase.BeginExecuteCore(AsyncCallback callback, Object state) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\Abstract\CommonControllerBase.cs: 行 39
+
+ERROR : 2016-06-02 15:38:07,161 51089ms CommonControllerBase   BeginExecuteCore   - 輸入不是有效的 Base-64 字串，因為它含有非 Base-64 字元、兩個以上填補字元，或在填補字元中有不合法的字元。 System.FormatException: 輸入不是有效的 Base-64 字串，因為它含有非 Base-64 字元、兩個以上填補字元，或在填補字元中有不合法的字元。 
+   於 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   於 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   於 System.Convert.FromBase64String(String s)
+   於 System.Web.Mvc.DefaultModelBinder.GetPropertyValue(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor, IModelBinder propertyBinder)
+   於 System.Web.Mvc.DefaultModelBinder.BindProperty(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor)
+   於 System.Web.Mvc.DefaultModelBinder.BindProperties(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   於 System.Web.Mvc.DefaultModelBinder.BindComplexElementalModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Object model)
+   於 System.Web.Mvc.DefaultModelBinder.BindComplexModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   於 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   於 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.BeginInvokeAction(ControllerContext controllerContext, String actionName, AsyncCallback callback, Object state)
+   於 System.Web.Mvc.Controller.<BeginExecuteCore>b__1c(AsyncCallback asyncCallback, Object asyncState, ExecuteCoreState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallBeginDelegate(AsyncCallback callback, Object callbackState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   於 System.Web.Mvc.Controller.BeginExecuteCore(AsyncCallback callback, Object state)
+   於 UI.Controllers.Abstract.CommonControllerBase.BeginExecuteCore(AsyncCallback callback, Object state) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\Abstract\CommonControllerBase.cs: 行 39
+
+ERROR : 2016-06-02 15:39:22,585 126512ms CommonControllerBase   BeginExecuteCore   - 輸入不是有效的 Base-64 字串，因為它含有非 Base-64 字元、兩個以上填補字元，或在填補字元中有不合法的字元。 System.FormatException: 輸入不是有效的 Base-64 字串，因為它含有非 Base-64 字元、兩個以上填補字元，或在填補字元中有不合法的字元。 
+   於 System.Convert.FromBase64_Decode(Char* startInputPtr, Int32 inputLength, Byte* startDestPtr, Int32 destLength)
+   於 System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   於 System.Convert.FromBase64String(String s)
+   於 System.Web.Mvc.DefaultModelBinder.GetPropertyValue(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor, IModelBinder propertyBinder)
+   於 System.Web.Mvc.DefaultModelBinder.BindProperty(ControllerContext controllerContext, ModelBindingContext bindingContext, PropertyDescriptor propertyDescriptor)
+   於 System.Web.Mvc.DefaultModelBinder.BindProperties(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   於 System.Web.Mvc.DefaultModelBinder.BindComplexElementalModel(ControllerContext controllerContext, ModelBindingContext bindingContext, Object model)
+   於 System.Web.Mvc.DefaultModelBinder.BindComplexModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+   於 System.Web.Mvc.ControllerActionInvoker.GetParameterValue(ControllerContext controllerContext, ParameterDescriptor parameterDescriptor)
+   於 System.Web.Mvc.ControllerActionInvoker.GetParameterValues(ControllerContext controllerContext, ActionDescriptor actionDescriptor)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   於 System.Web.Mvc.Async.AsyncControllerActionInvoker.BeginInvokeAction(ControllerContext controllerContext, String actionName, AsyncCallback callback, Object state)
+   於 System.Web.Mvc.Controller.<BeginExecuteCore>b__1c(AsyncCallback asyncCallback, Object asyncState, ExecuteCoreState innerState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallBeginDelegate(AsyncCallback callback, Object callbackState)
+   於 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.Begin(AsyncCallback callback, Object state, Int32 timeout)
+   於 System.Web.Mvc.Controller.BeginExecuteCore(AsyncCallback callback, Object state)
+   於 UI.Controllers.Abstract.CommonControllerBase.BeginExecuteCore(AsyncCallback callback, Object state) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\UI\Controllers\Abstract\CommonControllerBase.cs: 行 39
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 15:52:41,689 203974ms AccountRepository      UpdateUser         - A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   於 System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   於 BLL.AccountRepository.UpdateUser(User user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 313
+
+[Log Ends]
+
+[Log Starts]
+ERROR : 2016-06-02 15:57:00,987 35759ms AccountRepository      UpdateUser         - A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.System.InvalidOperationException: A referential integrity constraint violation occurred: The property value(s) of 'User.Email' on one end of a relationship do not match the property value(s) of 'UserInRole.Email' on the other end.
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.AddGraphToObjectStateManager(IEntityWrapper wrappedEntity, Boolean relationshipAlreadyExists, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.IncludeEntity(IEntityWrapper wrappedEntity, Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Include(Boolean addRelationshipAsUnchanged, Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.AddRelatedEntitiesToObjectStateManager(Boolean doAttach)
+   於 System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   於 System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   於 System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   於 BLL.AccountRepository.UpdateUser(User user) 於 E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\BLL\AccountRepository.cs: 行 313
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+

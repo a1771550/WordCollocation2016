@@ -1,0 +1,17 @@
+﻿@using System.Diagnostics
+<ul class="dropdown-menu">
+	<li>
+
+		@{
+			Debug.Assert(Request.Url != null, "Request.Url != null");
+		}
+
+		@Html.ActionLink("繁中", "SetCulture", "Home", new { culture = "zh-hant", returnUrl = Request.Url.AbsoluteUri }, null)
+	</li>
+	<li>
+		@Html.ActionLink("簡中", "SetCulture", "Home", new { culture = "zh-hans", returnUrl = Request.Url.AbsoluteUri }, null)
+	</li>
+	@*<li>
+		@Html.ActionLink("日本語", "SetCulture", "Home", new { culture = "ja-jp", returnUrl = Request.Url.AbsoluteUri }, null)
+	</li>*@
+</ul>

@@ -1,0 +1,11 @@
+﻿@if (Request.IsAuthenticated && User.IsInRole("Admin"))
+{
+	<ul class="dropdown-menu">
+		<li>
+			@Html.ActionLink(Resources.UserManagement, "UserIndex", "Account")
+		</li>
+		<li>
+			@Html.ActionLink(Resources.RoleManagement, "RoleIndex", "Account")
+		</li>
+	</ul>
+}

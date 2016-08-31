@@ -1,0 +1,35 @@
+﻿@{
+	ViewBag.Title = "Elmah Js Demo";
+}
+
+<h2>@ViewBag.Title</h2>
+@*<ul>
+	<li><a href="javascript:getPropertyData(null);">execute getPropertyData(null) method.</a></li>
+	<li><a href="javascript:testCapturedError();">execute testCapturedError() method.</a></li>
+</ul>*@
+@section scripts
+{
+	<script type="text/javascript">
+		//function getPropertyData(value)
+		//{
+		//	var x = value.property["data"];
+		//}
+
+		//function testCapturedError()
+		//{
+		//	var x = getPropertyDataCaptured(null);
+		//}
+
+		//function getPropertyDataCaptured(value)
+		//{
+		//	try
+		//	{
+		//		var x = value.property["data"];
+		//	} catch (err)
+		//	{
+		//		if (arguments != null && arguments.callee != null && arguments.callee.trace)
+		//			logError(err, arguments.callee.trace());
+		//	}
+		//}
+	</script>
+}

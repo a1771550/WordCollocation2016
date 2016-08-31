@@ -1,0 +1,91 @@
+﻿@model LoginModel
+
+@{
+	ViewBag.Title = Resources.LoginText;
+}
+
+<div class="span4">
+<h3>@ViewBag.Title</h3>
+	@Html.Partial("_ViewBagErrorList")
+	<section id="loginForm">
+		
+		@using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form", id = "login-form" }))
+		{
+			@Html.AntiForgeryToken()
+			@Html.ValidationSummary(true)
+			<!-- fake fields are a workaround for chrome autofill getting the wrong fields (works with javascript)-->
+			@*<input style="display:none" type="text" name="Email" class="fakefield" />
+			<input style="display: none" type="password" name="Password" class="fakefield"/>*@
+
+			
+				if (Model.IsConfirmed)
+				{
+					<input data-val="true" data-val-required="The IsConfirmed field is required." id="IsConfirmed" name="IsConfirmed" type="hidden" value="true" />
+				}
+				else
+				{
+					<input data-val="true" data-val-required="The IsConfirmed field is required." id="IsConfirmed" name="IsConfirmed" type="hidden" value="false" />
+				}
+
+			<div class="form-group">
+				@Html.Label("UserName", Resources.UserName, new { @class = "labelField" })
+				@Html.TextBoxFor(m => m.UserName, new { placeholder = Resources.UserName })
+				@Html.ValidationMessageFor(m => m.UserName)
+			</div>
+			
+			
+
+			if (Model.IsConfirmed)
+			{
+
+				<div class="form-group">
+					@Html.Label("Password", Resources.Password, new { @class = "labelField" })
+					@Html.PasswordFor(m => m.Password, new { placeholder = Resources.Password })
+					@Html.ValidationMessageFor(m => m.Password)
+
+				</div>
+
+				<div class="form-group">
+					<div class="checkbox">
+						@Html.CheckBoxFor(m => m.RememberMe, new { style = "position:relative; top:.5em;" })
+						@Html.LabelFor(m => m.RememberMe, new { @class = "text-small" })
+					</div>
+				</div>
+
+			}
+
+			
+				<div class="form-group">
+					@if (Model.IsConfirmed)
+					{
+						<button id="logon" type="submit">@Resources.LogOn</button>
+					}
+					else
+					{
+						<button id="resendConfirm" type="submit">@Resources.ResendConfirmEmail</button>
+					}
+				</div>
+
+
+
+
+			if (Model.IsConfirmed)
+			{
+				<p class="text-small">
+					@Html.ActionLink(Resources.RegisterAsNewUser, "Register") | @Html.ActionLink(Resources.ForgetPassword, "ResetPassword")
+				</p>
+			}
+		}
+	</section>
+
+	</div>
+
+
+	@*<section class="social" id="socialLoginForm">
+			<h2>Use another service to log in.</h2>
+			@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+		</section>*@
+
+	@section Scripts {
+		@Scripts.Render("~/bundles/jqueryval")
+	}

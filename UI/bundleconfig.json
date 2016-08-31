@@ -1,0 +1,104 @@
+[
+  {
+    "outputFileName": "Scripts/resetPassword.js",
+    "inputFiles": [
+      "Scripts/resetPassword.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/searchbox_submit.js",
+    "inputFiles": [
+      "Scripts/searchbox_submit.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/user_validation.js",
+    "inputFiles": [
+      "Scripts/user_validation.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/checkEmail.js",
+    "inputFiles": [
+      "Scripts/checkEmail.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/editUser.js",
+    "inputFiles": [
+      "Scripts/editUser.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/addUser.js",
+    "inputFiles": [
+      "Scripts/addUser.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/errorhandler.js",
+    "inputFiles": [
+      "Scripts/errorhandler.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/MaskedPassword.js",
+    "inputFiles": [
+      "Scripts/MaskedPassword.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/respond.js",
+    "inputFiles": [
+      "Scripts/respond.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/searchbox_submit.min.js",
+    "inputFiles": [
+      "Scripts/searchbox_submit.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/socialLinks.js",
+    "inputFiles": [
+      "Scripts/socialLinks.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/suggestion.js",
+    "inputFiles": [
+      "Scripts/suggestion.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/tinynav.js",
+    "inputFiles": [
+      "Scripts/tinynav.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/timezone.js",
+    "inputFiles": [
+      "Scripts/timezone.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/bootstrap.js",
+    "inputFiles": [
+      "Scripts/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/template.js",
+    "inputFiles": [
+      "Scripts/template.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jquery-cookie-plugin.js",
+    "inputFiles": [
+      "Scripts/jquery-cookie-plugin.js"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+﻿@using System.Web.Configuration
+@using CommonLib.Helpers
+@using UI.Helpers
+@{
+	//string rolename = CookieHelper.GetCookieValue("UserRoles");
+	bool isAdmin = Roles.IsUserInRole("Admin");
+	bool isEditor = Roles.IsUserInRole("Editor");
+	//if (!string.IsNullOrEmpty(rolename))
+	//{
+	//	string[] rolenames = TextHelper.Decrypt(rolename, WebConfigurationManager.AppSettings.Get("SecurityKey"), WebConfigurationManager.AppSettings.Get("KeyFileName")).Split(';');
+	//	isAdmin = rolenames.Any(name => name == "Admin");
+	//	isEditor = rolenames.Any(name => name == "Editor");
+	//}
+}
+@if (Request.IsAuthenticated && (isAdmin || isEditor))
+{
+	<p>
+
+		@if (isAdmin)
+		{
+			@Html.ActionLink("Pos", "Index", "Pos")
+			@Html.Raw(" | ")
+			@Html.ActionLink("ColPos", "Index", "ColPos")@Html.Raw(" | ")
+		}
+
+		
+			@Html.ActionLink("Word", "Index", "Word")@Html.Raw(" | ")
+			@Html.ActionLink("ColWord", "Index", "ColWord")@Html.Raw(" | ")
+			@Html.ActionLink("Collocation", "Index", "Collocation")@Html.Raw(" | ")
+			@Html.ActionLink("Example", "Index", "Example")
+		
+			
+		
+		
+		@Html.Raw(" | ")
+		<a href="/WebServices/WcServices.asmx">Web Services</a>
+	</p>
+}

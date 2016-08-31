@@ -1,0 +1,39 @@
+﻿@using UI.Models.Account
+@model UI.Models.ViewModels.UserViewModel
+@{
+	ViewBag.Title = "Role CheckBoxList Demo";
+	//UserViewModel Model = (UserViewModel)ViewBag.Model;
+	//Layout = "_Layout_debug";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+	<ul class="checkbox">
+		@foreach (var role in Model.AllRoleList)
+		{
+			<li>
+				<input type="checkbox" name="SelectedRoles" value="@role.Id" id="@role.Id" @{if (Model.SelectedRoles.Contains(role.Id)) { <text> checked='checked' </text>   }} />
+				<label for="@role.Id">@role.Name</label>
+			</li>
+		}
+	</ul>
+
+	<br /><br />
+	<button type="submit">Submit</button>
+
+	<br /><br />
+	<div>
+		SelectedRoles:
+
+		@if (Model.SelectedRoles != null && Model.SelectedRoles.Count() > 0)
+		{
+			foreach (int roleId in Model.SelectedRoles)
+			{
+				@roleId
+				@Html.Raw("<br>")
+			}
+		}
+	</div>
+}

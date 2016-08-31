@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account" xml:space="preserve">
+    <value>帳號</value>
+  </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>帳號資訊</value>
+  </data>
+  <data name="AllFieldsRequired" xml:space="preserve">
+    <value>以下各項為必填</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>版權所有</value>
+  </data>
+  <data name="Apr" xml:space="preserve">
+    <value>四月</value>
+  </data>
+  <data name="Aug" xml:space="preserve">
+    <value>八月</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Captcha" xml:space="preserve">
+    <value>驗證碼</value>
+  </data>
+  <data name="CaptchaAbove" xml:space="preserve">
+    <value>上圖的驗證碼</value>
+  </data>
+  <data name="CaptchaError" xml:space="preserve">
+    <value>驗證碼錯誤</value>
+  </data>
+  <data name="CH" xml:space="preserve">
+    <value>當代英語搭配辭典</value>
+  </data>
+  <data name="ChangeCaptcha" xml:space="preserve">
+    <value>換另一張圖</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>變更密碼</value>
+  </data>
+  <data name="ChangePasswordSuccess" xml:space="preserve">
+    <value>變更密碼成功</value>
+  </data>
+  <data name="CheckConfirmEmail" xml:space="preserve">
+    <value>請檢查您的電郵以進行確認</value>
+  </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>選擇語言</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>關閉帖子</value>
+  </data>
+  <data name="CloseButtonText" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="CloseConfirmText" xml:space="preserve">
+    <value>你確定要關閉這帖子？</value>
+  </data>
+  <data name="Collocate" xml:space="preserve">
+    <value>搭配</value>
+  </data>
+  <data name="CollocatingPOS" xml:space="preserve">
+    <value>搭配詞類</value>
+  </data>
+  <data name="CollocationPattern" xml:space="preserve">
+    <value>搭配型態</value>
+  </data>
+  <data name="CollocationPatternRequired" xml:space="preserve">
+    <value>請輸入搭配型態</value>
+  </data>
+  <data name="ColPos" xml:space="preserve">
+    <value>搭配詞類</value>
+  </data>
+  <data name="ColPosRequired" xml:space="preserve">
+    <value>請選擇搭配詞類</value>
+  </data>
+  <data name="ColWord" xml:space="preserve">
+    <value>搭配單字</value>
+  </data>
+  <data name="CommandButtonText" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="ConfirmAccount" xml:space="preserve">
+    <value>確認帳號</value>
+  </data>
+  <data name="ConfirmAccountByLink" xml:space="preserve">
+    <value>請點擊這連結以確認新帳戶</value>
+  </data>
+  <data name="ConfirmDelete" xml:space="preserve">
+    <value>您確定要刪除這個項目嗎？</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>確認新密碼</value>
+  </data>
+  <data name="ConfirmNewPasswordError" xml:space="preserve">
+    <value>* 請確認新密碼</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>確認密碼</value>
+  </data>
+  <data name="ConfirmPasswordError" xml:space="preserve">
+    <value>確認密碼錯誤，請再次確認密碼。</value>
+  </data>
+  <data name="ConfirmPasswordRequired" xml:space="preserve">
+    <value>請確認密碼</value>
+  </data>
+  <data name="ConfirmYourAccount" xml:space="preserve">
+    <value>確認您的新帳戶</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>連結</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>聯絡站長</value>
+  </data>
+  <data name="ContactCompleted" xml:space="preserve">
+    <value>留言已送出</value>
+  </data>
+  <data name="ContactCompletedParagraph" xml:space="preserve">
+    <value>謝謝您寶貴的意見。</value>
+  </data>
+  <data name="ContactParagraph" xml:space="preserve">
+    <value>若您對本站有任何疑問或建議，歡迎與站長聯絡。</value>
+  </data>
+  <data name="ContactText" xml:space="preserve">
+    <value>如果你想更多的細節，請與網站管理員&lt;a href='contact.aspx'&gt;聯繫&lt;/a&gt;報告此問題。</value>
+  </data>
+  <data name="ContextualPhrase" xml:space="preserve">
+    <value>情景片語</value>
+  </data>
+  <data name="CopyRight" xml:space="preserve">
+    <value>版權所有不得轉載</value>
+  </data>
+  <data name="CreateNewAccount" xml:space="preserve">
+    <value>註冊新帳號</value>
+  </data>
+  <data name="CreateProfile" xml:space="preserve">
+    <value>建立個人檔案</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>舊密碼</value>
+  </data>
+  <data name="CurrentPasswordError" xml:space="preserve">
+    <value>* 請輸入舊密碼</value>
+  </data>
+  <data name="CurrentPasswordNotMatch" xml:space="preserve">
+    <value>* 舊密碼錯誤，請再次輸入舊密碼。</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>日</value>
+  </data>
+  <data name="DearNewUser" xml:space="preserve">
+    <value>新用戶您好</value>
+  </data>
+  <data name="Dec" xml:space="preserve">
+    <value>十二月</value>
+  </data>
+  <data name="Definition" xml:space="preserve">
+    <value>定義</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>刪除</value>
+  </data>
+  <data name="DeleteConfirmText" xml:space="preserve">
+    <value>你確定要刪除這筆資料？</value>
+  </data>
+  <data name="DuplicatedEmail" xml:space="preserve">
+    <value>這電郵已有人使用，請輸入另一個電郵。</value>
+  </data>
+  <data name="DuplicatedEntry" xml:space="preserve">
+    <value>重覆輸入項目</value>
+  </data>
+  <data name="DuplicatedUserName" xml:space="preserve">
+    <value>這名稱已有人使用，請輸入另一個名稱。</value>
+  </data>
+  <data name="EditProfile" xml:space="preserve">
+    <value>修改個人資料</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>電郵</value>
+  </data>
+  <data name="EmailFormatError" xml:space="preserve">
+    <value>請輸入正確電郵格式</value>
+  </data>
+  <data name="EmailNotConfirmed" xml:space="preserve">
+    <value>電郵尚未確認</value>
+  </data>
+  <data name="EmailNotConfirmedHeading" xml:space="preserve">
+    <value>電郵尚未確認</value>
+  </data>
+  <data name="EmailNotConfirmedParagraph" xml:space="preserve">
+    <value>對不起，您的電郵尚未確認，無法登錄。</value>
+  </data>
+  <data name="EmailRequired" xml:space="preserve">
+    <value>請輸入電郵</value>
+  </data>
+  <data name="EmailTaken" xml:space="preserve">
+    <value>這電郵已經註冊</value>
+  </data>
+  <data name="EnterCaptchaAbove" xml:space="preserve">
+    <value>請輸入上圖的驗證碼</value>
+  </data>
+  <data name="EnterCaptchaBelow" xml:space="preserve">
+    <value>請輸入以下的驗證碼</value>
+  </data>
+  <data name="EnterKeyword" xml:space="preserve">
+    <value>請輸入關鍵字</value>
+  </data>
+  <data name="EnterUsernamePassword" xml:space="preserve">
+    <value>請輸入名稱及密碼</value>
+  </data>
+  <data name="EntryJapRequired" xml:space="preserve">
+    <value>請輸入日文條目</value>
+  </data>
+  <data name="EntryZhsRequired" xml:space="preserve">
+    <value>請輸入簡中條目</value>
+  </data>
+  <data name="EntryZhtRequired" xml:space="preserve">
+    <value>請輸入繁中條目</value>
+  </data>
+  <data name="ErrorInSendingMail" xml:space="preserve">
+    <value>在發送郵件時出錯。</value>
+  </data>
+  <data name="Example" xml:space="preserve">
+    <value>例句</value>
+  </data>
+  <data name="ExampleChi" xml:space="preserve">
+    <value>例句(中文)</value>
+  </data>
+  <data name="ExampleSourceText" xml:space="preserve">
+    <value>例句來源一覧：</value>
+  </data>
+  <data name="ExampleText" xml:space="preserve">
+    <value>例句：</value>
+  </data>
+  <data name="Feb" xml:space="preserve">
+    <value>二月</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>忘記密碼</value>
+  </data>
+  <data name="Forum" xml:space="preserve">
+    <value>討論區</value>
+  </data>
+  <data name="FunctionBeingImplemented" xml:space="preserve">
+    <value>該方法正在撰寫中，謝謝。</value>
+  </data>
+  <data name="HereIsYourPassword" xml:space="preserve">
+    <value>您好，以下是您的密碼，請小心儲存，謝謝!!</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="HopeEnjoyOurService" xml:space="preserve">
+    <value>希望您滿意本站所提供的服務!</value>
+  </data>
+  <data name="IfNoAccount" xml:space="preserve">
+    <value>如果沒有帳號，請前往</value>
+  </data>
+  <data name="ImgCollocate" xml:space="preserve">
+    <value>collocate.jpg</value>
+  </data>
+  <data name="InvalidLoginAttempt" xml:space="preserve">
+    <value>登錄失敗</value>
+  </data>
+  <data name="Jan" xml:space="preserve">
+    <value>一月</value>
+  </data>
+  <data name="Jul" xml:space="preserve">
+    <value>七月</value>
+  </data>
+  <data name="Jun" xml:space="preserve">
+    <value>六月</value>
+  </data>
+  <data name="LoginText" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="LogOn" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="LogoutText" xml:space="preserve">
+    <value>登出</value>
+  </data>
+  <data name="Mar" xml:space="preserve">
+    <value>三月</value>
+  </data>
+  <data name="MaxPasswordLengthError" xml:space="preserve">
+    <value>密碼最多不能超過20個字元</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>五月</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>留言</value>
+  </data>
+  <data name="MessageRequired" xml:space="preserve">
+    <value>請輸入留言</value>
+  </data>
+  <data name="MinPasswordLengthError" xml:space="preserve">
+    <value>密碼最少要有6個字元</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>月</value>
+  </data>
+  <data name="NeedRemark" xml:space="preserve">
+    <value>需要註解</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>新密碼</value>
+  </data>
+  <data name="NewPasswordCompareError" xml:space="preserve">
+    <value>* 確認新密碼，請再次確認新密碼。</value>
+  </data>
+  <data name="NewPasswordError" xml:space="preserve">
+    <value>* 請輸入新密碼</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>下一頁</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>非</value>
+  </data>
+  <data name="NoAccessRights" xml:space="preserve">
+    <value>沒有存取權限</value>
+  </data>
+  <data name="NoDataAvailable" xml:space="preserve">
+    <value>沒有可用數據</value>
+  </data>
+  <data name="NoSearchResult" xml:space="preserve">
+    <value>對不起，目前詞庫沒有您要找的搭配資料。</value>
+  </data>
+  <data name="NoSearchResult_WordOnly" xml:space="preserve">
+    <value>對不起，目前沒有 &lt;span class='word'&gt;{0}&lt;/span&gt; 的搭配資料。 </value>
+  </data>
+  <data name="NoSearchResult_WordPOS" xml:space="preserve">
+    <value>對不起，目前沒有搭配 &lt;span class='word'&gt;{0}&lt;/span&gt; 的 &lt;span class='colword'&gt;{1}&lt;/span&gt; 資料。</value>
+  </data>
+  <data name="noun" xml:space="preserve">
+    <value>名詞</value>
+  </data>
+  <data name="NoUserFound" xml:space="preserve">
+    <value>該使用者不存在</value>
+  </data>
+  <data name="Nov" xml:space="preserve">
+    <value>十一月</value>
+  </data>
+  <data name="Oct" xml:space="preserve">
+    <value>十月</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Oxford" xml:space="preserve">
+    <value>牛津英語搭配詞典</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>所請求的頁面或資源沒有被發現。</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>首頁</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密碼</value>
+  </data>
+  <data name="PasswordFormat" xml:space="preserve">
+    <value>密碼必須是 6 個至 20 個任何字元</value>
+  </data>
+  <data name="PasswordLengthError" xml:space="preserve">
+    <value>密碼必須是 6 個至 20 個任何字元</value>
+  </data>
+  <data name="PasswordRecovery" xml:space="preserve">
+    <value>取回密碼</value>
+  </data>
+  <data name="PasswordRecoverySuccessText" xml:space="preserve">
+    <value>密碼已寄出，請妥善保存。</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>請輸入密碼</value>
+  </data>
+  <data name="PatternDropDownListSelect" xml:space="preserve">
+    <value>- Select -</value>
+  </data>
+  <data name="PleaseLogIn" xml:space="preserve">
+    <value>請進行登錄</value>
+  </data>
+  <data name="PleaseSelect" xml:space="preserve">
+    <value>請選擇</value>
+  </data>
+  <data name="PleaseSelectCountry" xml:space="preserve">
+    <value>請選擇國家</value>
+  </data>
+  <data name="Pos" xml:space="preserve">
+    <value>詞類</value>
+  </data>
+  <data name="Post" xml:space="preserve">
+    <value>發帖</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>上一頁</value>
+  </data>
+  <data name="Regards" xml:space="preserve">
+    <value>敬上</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>註冊</value>
+  </data>
+  <data name="RegisterAsNewUser" xml:space="preserve">
+    <value>註冊新帳號</value>
+  </data>
+  <data name="RegisterConfirmEmailSent" xml:space="preserve">
+    <value>註冊確認電郵已寄出至您的電郵帳戶。</value>
+  </data>
+  <data name="RegisterSuccess" xml:space="preserve">
+    <value>註冊成功</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>註解</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>保持登入狀態</value>
+  </data>
+  <data name="RequestAnotherConfirmEmailLink" xml:space="preserve">
+    <value>補發確認電郵連結</value>
+  </data>
+  <data name="RequestTimeOut" xml:space="preserve">
+    <value>請求超時。這可能是由於過高的流量。請稍後再試一次。</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>搜尋</value>
+  </data>
+  <data name="SearchColPosText" xml:space="preserve">
+    <value>請選擇搭配該單字的詞類：</value>
+  </data>
+  <data name="SearchColWordText" xml:space="preserve">
+    <value>請輸入搭配上方單字的單字：</value>
+  </data>
+  <data name="SearchResult" xml:space="preserve">
+    <value>搜尋結果</value>
+  </data>
+  <data name="SearchWordText" xml:space="preserve">
+    <value>請輸入被搭配的單字：</value>
+  </data>
+  <data name="SeeDefinition" xml:space="preserve">
+    <value>查看詳細定義</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>送出</value>
+  </data>
+  <data name="Sep" xml:space="preserve">
+    <value>九月</value>
+  </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>服務器遇到了意外情況，防止它履行的要求。請稍後再試一次。</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>分享</value>
+  </data>
+  <data name="Share_Facebook" xml:space="preserve">
+    <value>分享至Facebook</value>
+  </data>
+  <data name="Share_Google" xml:space="preserve">
+    <value>分享至Google+</value>
+  </data>
+  <data name="Share_LinkedIn" xml:space="preserve">
+    <value>分享至LinkedIn</value>
+  </data>
+  <data name="Share_Twitter" xml:space="preserve">
+    <value>分享至Twitter</value>
+  </data>
+  <data name="SiteSearch" xml:space="preserve">
+    <value>站內搜尋</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>用詞搭配</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>來源</value>
+  </data>
+  <data name="SourceText" xml:space="preserve">
+    <value>來源：</value>
+  </data>
+  <data name="ThanksForConfirmAccount" xml:space="preserve">
+    <value>感謝確認。您現在可以進行登錄。</value>
+  </data>
+  <data name="ThanksForRegister" xml:space="preserve">
+    <value>感謝註冊本站。稍後系統會導向回首頁。</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>網頁錯誤</value>
+  </data>
+  <data name="ToLogin" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="UnderConstruction" xml:space="preserve">
+    <value>網站維修中，不日復工，謝謝。</value>
+  </data>
+  <data name="UnknownError" xml:space="preserve">
+    <value>未知的錯誤。</value>
+  </data>
+  <data name="UnknownErrorOccurred" xml:space="preserve">
+    <value>發生不明錯誤</value>
+  </data>
+  <data name="UseOtherServicesLogin" xml:space="preserve">
+    <value>使用其他帳號登入。</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用戶名稱</value>
+  </data>
+  <data name="UserNameEmailForLogin" xml:space="preserve">
+    <value>用戶名稱或電郵</value>
+  </data>
+  <data name="UserNameEmailNotMatch" xml:space="preserve">
+    <value>用戶名稱與電郵互不相符</value>
+  </data>
+  <data name="UserNameEmailRequired" xml:space="preserve">
+    <value>請輸入用戶名稱或電郵</value>
+  </data>
+  <data name="UserNamePasswordNotMatch" xml:space="preserve">
+    <value>用戶名稱與密碼互不相符</value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>請輸入用戶名稱</value>
+  </data>
+  <data name="UserNameTaken" xml:space="preserve">
+    <value>這用戶名稱已經註冊</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>找不到用戶登錄資料</value>
+  </data>
+  <data name="UsingAccountToLogin" xml:space="preserve">
+    <value>使用{0}帳號來登入</value>
+  </data>
+  <data name="verb" xml:space="preserve">
+    <value>動詞</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>網路</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>， 歡迎！</value>
+  </data>
+  <data name="Word" xml:space="preserve">
+    <value>單字</value>
+  </data>
+  <data name="WordCollocation" xml:space="preserve">
+    <value>用詞搭配</value>
+  </data>
+  <data name="WordRequired" xml:space="preserve">
+    <value>請輸入被搭配單字</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>年</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>角色</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>用戶</value>
+  </data>
+  <data name="ThisPageUnderConstruction" xml:space="preserve">
+    <value>這頁在建構中，請稍後再來訪。</value>
+  </data>
+  <data name="GoodAfternoon" xml:space="preserve">
+    <value>午安</value>
+  </data>
+  <data name="GoodEvening" xml:space="preserve">
+    <value>晚安</value>
+  </data>
+  <data name="GoodMorning" xml:space="preserve">
+    <value>早安</value>
+  </data>
+  <data name="SystemWillRedirectText1" xml:space="preserve">
+    <value>系統將會於</value>
+  </data>
+  <data name="SystemWillRedirectText2" xml:space="preserve">
+    <value>秒後自動導回首頁</value>
+  </data>
+  <data name="DbConnectionFailed" xml:space="preserve">
+    <value>資料庫連線失敗</value>
+  </data>
+  <data name="Sorry" xml:space="preserve">
+    <value>對不起</value>
+  </data>
+  <data name="SystemError" xml:space="preserve">
+    <value>系統異常</value>
+  </data>
+  <data name="DBEnginesInTrouble" xml:space="preserve">
+    <value>出了問題的資料庫引擎</value>
+  </data>
+  <data name="AccessDenied" xml:space="preserve">
+    <value>拒絕存取</value>
+  </data>
+  <data name="AccessDeniedDescription" xml:space="preserve">
+    <value>非網站管理員無權取存這項資源</value>
+  </data>
+  <data name="ResourcesNotFound" xml:space="preserve">
+    <value>找不到資源</value>
+  </data>
+  <data name="ResourcesNotFoundDescription" xml:space="preserve">
+    <value>伺服器無法為您提供這項資源</value>
+  </data>
+  <data name="UrlErrors" xml:space="preserve">
+    <value>網址錯誤</value>
+  </data>
+  <data name="UrlErrorsDescription" xml:space="preserve">
+    <value>請檢查網址是否輸入錯誤</value>
+  </data>
+  <data name="Processing" xml:space="preserve">
+    <value>資料讀取中，請稍候...</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>確定</value>
+  </data>
+  <data name="WordSuggestion" xml:space="preserve">
+    <value>輸入單字建議</value>
+  </data>
+  <data name="WordSuggestionText" xml:space="preserve">
+    <value>目前詞庫存有單字(名詞)如下</value>
+  </data>
+  <data name="ProgressTitle" xml:space="preserve">
+    <value>資料讀取中</value>
+  </data>
+  <data name="ContinueToSearch" xml:space="preserve">
+    <value>繼續搜尋</value>
+  </data>
+  <data name="IhaveOpinion" xml:space="preserve">
+    <value>我有話說</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="NameRequired" xml:space="preserve">
+    <value>請輸入姓名</value>
+  </data>
+  <data name="Opinion" xml:space="preserve">
+    <value>意見</value>
+  </data>
+  <data name="OpinionCompleted" xml:space="preserve">
+    <value>您的意見已送出</value>
+  </data>
+  <data name="OpinionParagraph" xml:space="preserve">
+    <value>若您對本站有任何疑問或建議，歡迎提出來，謝謝。</value>
+  </data>
+  <data name="OpinionRequired" xml:space="preserve">
+    <value>請輸入意見</value>
+  </data>
+  <data name="YourOpinion" xml:space="preserve">
+    <value>您的意見</value>
+  </data>
+  <data name="InvalidAccount" xml:space="preserve">
+    <value>帳號不適用</value>
+  </data>
+  <data name="InvalidAccountText" xml:space="preserve">
+    <value>查無此帳號，請重新輸入</value>
+  </data>
+  <data name="ReEnter" xml:space="preserve">
+    <value>重新輸入</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>重新設定密碼</value>
+  </data>
+  <data name="ResetPasswordComplete" xml:space="preserve">
+    <value>已成功重新設定密碼</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>名字</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>姓氐</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>請輸入名字</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>請輸入姓氐</value>
+  </data>
+  <data name="RoleNameRequired" xml:space="preserve">
+    <value>請輸入角色名稱</value>
+  </data>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>帳戶管理</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>新增</value>
+  </data>
+  <data name="AddRole" xml:space="preserve">
+    <value>新增角色</value>
+  </data>
+  <data name="AddUser" xml:space="preserve">
+    <value>新增用戶</value>
+  </data>
+  <data name="DeleteRole" xml:space="preserve">
+    <value>刪除角色</value>
+  </data>
+  <data name="DeleteUser" xml:space="preserve">
+    <value>刪除用戶</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>修改</value>
+  </data>
+  <data name="EditRole" xml:space="preserve">
+    <value>修改角色</value>
+  </data>
+  <data name="EditUser" xml:space="preserve">
+    <value>修改用戶</value>
+  </data>
+  <data name="ReturnToManagementIndex" xml:space="preserve">
+    <value>回到管理首頁</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>發送</value>
+  </data>
+  <data name="PasswordFormat1" xml:space="preserve">
+    <value>6 個至 20 個任何字元</value>
+  </data>
+  <data name="EmailPasswordNotMatch" xml:space="preserve">
+    <value>電郵與密碼互不相符</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>列表</value>
+  </data>
+  <data name="RoleManagement" xml:space="preserve">
+    <value>角色管理</value>
+  </data>
+  <data name="UserManagement" xml:space="preserve">
+    <value>用戶管理</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>代號</value>
+  </data>
+  <data name="RoleCodeRequired" xml:space="preserve">
+    <value>請輸入角色代號</value>
+  </data>
+  <data name="RoleCode" xml:space="preserve">
+    <value>角色代號</value>
+  </data>
+  <data name="RoleName" xml:space="preserve">
+    <value>角色名稱</value>
+  </data>
+  <data name="Register_ConfirmPassword_The_password_and_confirmation_password_do_not_match_" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>顯示名稱</value>
+  </data>
+  <data name="DisplayNameError" xml:space="preserve">
+    <value>請輸入顯示名稱</value>
+  </data>
+  <data name="RoleNameExisted" xml:space="preserve">
+    <value>這角色名稱已經存在</value>
+  </data>
+  <data name="PleaseEnterAllData" xml:space="preserve">
+    <value>請輸入所需資料</value>
+  </data>
+  <data name="RoleAddToUser" xml:space="preserve">
+    <value>將用戶套入角色</value>
+  </data>
+  <data name="CompleteRegisterProcess" xml:space="preserve">
+    <value>完成註冊程序</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>您好</value>
+  </data>
+  <data name="ConfirmEmailSentParagraph" xml:space="preserve">
+    <value>The registration email has been resent. Find the email and follow the instructions to complete the registration process.</value>
+  </data>
+  <data name="MailFrom" xml:space="preserve">
+    <value>寄自</value>
+  </data>
+  <data name="MailSubject" xml:space="preserve">
+    <value>主旨</value>
+  </data>
+  <data name="MailTo" xml:space="preserve">
+    <value>寄往</value>
+  </data>
+  <data name="NotCompleteEmailConfirmParagraph" xml:space="preserve">
+    <value>You have not completed the registration process. To complete this process look for the email that provides instructions or press the button to resend the email.</value>
+  </data>
+  <data name="ResendConfirmEmail" xml:space="preserve">
+    <value>重發註冊確認郵件</value>
+  </data>
+  <data name="ResetAccount" xml:space="preserve">
+    <value>重設帳戶</value>
+  </data>
+  <data name="ResetPasswordParagraph" xml:space="preserve">
+    <value>請點擊下方結以重設密碼</value>
+  </data>
+  <data name="Salute" xml:space="preserve">
+    <value>先生/女仕</value>
+  </data>
+  <data name="ToCompleteRegisterClickLink" xml:space="preserve">
+    <value>請點擊下方鏈結以確認您的郵址</value>
+  </data>
+  <data name="DeleteRoleForUser" xml:space="preserve">
+    <value>將角色從用戶移除</value>
+  </data>
+  <data name="RoleAddedToUser" xml:space="preserve">
+    <value>已將 {1} 角色套入用戶 {0}</value>
+  </data>
+  <data name="RoleRemovedFromUser" xml:space="preserve">
+    <value>已將 {1} 角色從用戶 {0} 移除</value>
+  </data>
+  <data name="RoleRemoveFromUser" xml:space="preserve">
+    <value>將 {1} 角色從用戶 {0} 移除</value>
+  </data>
+  <data name="UserRoleTaken" xml:space="preserve">
+    <value>該角色已套用給用戶</value>
+  </data>
+  <data name="WcAdmin" xml:space="preserve">
+    <value>網站管理</value>
+  </data>
+  <data name="RegisterInstructions" xml:space="preserve">
+    <value>註冊指引</value>
+  </data>
+  <data name="RegisterInstructionsText" xml:space="preserve">
+    <value>請查看您的收件箱，並打開本站寄給您的郵件，點擊當中的鏈結以完成註冊。</value>
+  </data>
+  <data name="RegisterSuccessText" xml:space="preserve">
+    <value>您已經完成了註冊過程。您現在可以點擊登錄鏈結登錄本站。</value>
+  </data>
+  <data name="ResetPwdMailSent" xml:space="preserve">
+    <value>請查看您的收件箱，並打開本站寄給您的郵件，點擊當中的鏈結以重設密碼。</value>
+  </data>
+  <data name="LoginWithNewPwd" xml:space="preserve">
+    <value>請用新密碼重新登入。</value>
+  </data>
+  <data name="ResetPasswordFailed" xml:space="preserve">
+    <value>重設密碼失敗</value>
+  </data>
+  <data name="ResetPasswordFailedParagraph" xml:space="preserve">
+    <value>重設密碼失敗。您輸入的可能不是正確的用戶名稱。 請再試一次。</value>
+  </data>
+</root>

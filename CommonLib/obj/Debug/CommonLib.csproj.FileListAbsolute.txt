@@ -1,0 +1,31 @@
+c:\users\administrator\documents\visual studio 2013\Projects\WordCollocation2015\CommonLib\bin\Debug\CommonLib.dll.config
+c:\users\administrator\documents\visual studio 2013\Projects\WordCollocation2015\CommonLib\bin\Debug\CommonLib.dll
+c:\users\administrator\documents\visual studio 2013\Projects\WordCollocation2015\CommonLib\bin\Debug\CommonLib.pdb
+c:\users\administrator\documents\visual studio 2013\Projects\WordCollocation2015\CommonLib\obj\Debug\CommonLib.dll
+c:\users\administrator\documents\visual studio 2013\Projects\WordCollocation2015\CommonLib\obj\Debug\CommonLib.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.dll.config
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.dll
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.pdb
+C:\Users\Administrator\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.dll.config
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.dll.config
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\CommonLib\bin\Debug\CommonLib.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.dll
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects_2013\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.pdb
+C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\CommonLib.dll.config
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\CommonLib.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\CommonLib.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\log4net.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\log4net.xml
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\obj\Debug\CommonLib.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\obj\Debug\CommonLib.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache

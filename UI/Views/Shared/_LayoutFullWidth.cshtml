@@ -1,0 +1,112 @@
+﻿@using CommonLib.Helpers
+@using UI.Models.Extensions
+@{
+	var currentYear = DateTime.Now.Year;
+	var footer = currentYear == 2014 ? Html.Raw(string.Format("&copy; 2014 {0} {1}.", THResources.Resources.SiteTitle, THResources.Resources.AllRightsReserved)) : Html.Raw(string.Format("&copy; 2014 - {0} {1}. {2}", currentYear, THResources.Resources.SiteTitle, THResources.Resources.AllRightsReserved));
+
+	string navClass = "nav ww-nav pull-right hidden-phone";
+	if (Request.IsAuthenticated)
+	{
+		navClass = "nav ww-nav-admin pull-right hidden-phone";
+	}
+	string lang = CultureHelper.GetCurrentNeutralCulture();
+	string dir = CultureHelper.IsRighToLeft() ? "rtl" : "ltr";
+
+	string title = string.Format("{0}: {1}", THResources.Resources.SiteTitle, ViewBag.Title);
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="@lang" dir="@dir" class="no-js" xmlns:fb="http://ogp.me/ns/fb#">
+<!--<![endif]-->
+<head prefix="og: http://ogp.me/ns# object: http://ogp.me/ns/object#">
+	<meta charset="UTF-8">
+	<meta name="description" content="A Word Collocation website designed for Chinese-English translators and students.">
+	<meta name="keywords" content="Word Collocation, WordCollocation">
+	<meta property="og:title"
+		  content="@title" />
+	<meta property="og:site_name" content="@THResources.Resources.SiteTitle" />
+	<meta property="og:url"
+		  content="http://www.translationhall.com" />
+	<meta property="og:description" content="A Word Collocation website designed for Chinese-English translators and students." />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@title</title>
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+	<link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196">
+	<link rel="icon" type="image/png" href="/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Poiret+One|PT+Serif|Open+Sans:400,300' rel='stylesheet' type='text/css'>
+
+	@Scripts.Render("~/bundles/modernizr")
+	@Styles.Render("~/bundles/css")
+	@Html.RenderStyles()
+</head><body>
+	<div class="container">
+		<div class="masthead clearfix">
+			<a href="~/">
+				<img id="logo" src="@Url.Content("~/images/wclogo.png")" alt="@THResources.Resources.SiteTitle" title="@THResources.Resources.SiteTitle">
+			</a>
+			<ul id="nav" class="@navClass">
+				<li class="active">@Html.ActionLink(THResources.Resources.Home, "Index", "Home")</li>
+
+				@*@Html.Partial("_UserRoleAdminLinks")*@
+
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle">@THResources.Resources.ChooseLanguage <b class="caret"></b></a>
+					@Html.Partial("_SetCultureDropDown")
+				</li>
+
+				<li>@Html.Partial("_LoginPartial")</li>
+				<li>@Html.ActionLink(THResources.Resources.IhaveOpinion, "Index", "Contact")</li>
+			</ul>
+		</div>
+		<hr>
+
+		<div class="row main-content">
+			<div class="offset3 span12 zone-content">
+				@Html.Partial("_AdminLinksPartial")
+			</div>
+
+			@*@Html.Partial("_Underconstruction")*@
+
+			<div class="span12 zone-content">
+				@RenderBody()
+			</div>
+		</div>
+		<hr>
+
+		@Html.Partial("_Footer", footer)
+	</div>
+	<!-- End Container -->
+	@*@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/bootstrap")*@
+	@Scripts.Render("~/bundles/layout")
+	@RenderSection("scripts", false)
+
+	@*@if ((LoggingHandler)HttpContext.Current.Session[MvcApplication.LoggingHandlerSession] == LoggingHandler.Elmah)
+		{*@
+	<!-- for elmah: DON'T move/remove/replace the following code (into bundle/other js file)!!! -->
+	<!-- for elmah: logErrorUrl is a global variable, used by errorhandler.js rendered in the following 'layout bundle'...-->
+	<script>
+		var logErrorUrl = '@Url.Action("LogJavaScriptError", "Error")';
+	</script>
+	<script src="@Url.Content("~/scripts/errorhandler.min.js")"></script>
+	@* } *@
+
+	@Html.RenderJavaScripts()
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿@using UI.Helpers
+@model UI.Models.ViewModels.UserViewModel
+
+@{
+	ViewBag.Title = Resources.UserManagement;
+}
+
+<p>
+	@Html.ActionLink(Resources.AddUser, "Register", "Account", null, new { @class = "button-link AddEntity" })
+</p>
+<table class="table table-bordered table-responsive table-striped table-condensed">
+	<thead>
+		<tr>
+			<th>
+				@Resources.UserName
+			</th>
+			<th>
+				@Resources.Email
+			</th>
+			<th>@Resources.Role</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	@foreach (UserProfile user in AccountHelper.GetUserList())
+			{
+		<tbody>
+			<tr>
+				<td>@user.UserName</td>
+				<td>
+					@user.Email
+				</td>
+				<td>
+					<ol id="rolelist1">
+						@foreach (string role in AccountHelper.GetRoleListForUser(user.UserName))
+						{
+							<li>@role</li>
+						}
+					</ol>
+					
+				</td>
+				<td>
+					@Html.ActionLink(Resources.Edit, "UserEdit", "Account", new { userId = user.UserId }, null) |
+					@Html.ActionLink(Resources.Delete, "UserDelete", "Account", new { userId = user.UserId }, new { onclick = string.Format("return confirm('{0}');", Resources.ConfirmDelete) })
+				</td>
+			</tr>
+		</tbody>
+			}
+
+</table>
+
+<div class="pagination">
+	@Html.PageLinks(Model.UserPagingInfo, x => Url.Action("UserIndex", "Account", new { page = x }))
+</div>
+

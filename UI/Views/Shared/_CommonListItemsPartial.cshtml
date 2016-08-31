@@ -1,0 +1,48 @@
+﻿@using BLL.Abstract
+@{
+	string entity = (string)ViewData["Entity"];
+	ModelType type = (ModelType)Enum.Parse(typeof(ModelType), entity, true);
+	WcBase item = null;
+	string id = (string)ViewData["Id"];
+
+	switch (type)
+	{
+		case ModelType.Pos:
+			item = (Pos)ViewData["Item"];
+			break;
+		case ModelType.ColPos:
+			item = (ColPos)ViewData["Item"];
+			break;
+		case ModelType.Word:
+			item = (Word)ViewData["Item"];
+			break;
+		case ModelType.ColWord:
+			item = (ColWord)ViewData["Item"];
+			break;
+	}
+}
+<tr>
+	<td>
+		@item.Entry
+	</td>
+	<td>
+		@item.EntryZht
+	</td>
+	<td>
+		@item.EntryZhs
+	</td>
+	<td>
+		@item.EntryJap
+	</td>
+	<td>
+		@Html.ActionLink(THResources.Resources.Edit, "Edit", entity, new { id }, null)
+
+		@if (item.CanDel != null && item.CanDel.Value)
+		{
+			if (User.IsInRole("Admin"))
+			{
+				@Html.Raw(" | ") @Html.ActionLink(THResources.Resources.Delete, "Delete", entity, new { id }, new { id, returnUrl = Request.Url, onclick = string.Format("return confirm('{0}');", THResources.Resources.ConfirmDelete) })
+			}
+		}
+	</td>
+</tr>

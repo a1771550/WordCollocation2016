@@ -1,0 +1,31 @@
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+ERROR : 2015-08-02 01:05:45,647 57650ms DataAccess             ExecuteNonQuery    - SqlParameterCollection 钡獶 Null  SqlParameter ン
+把计嘿: valueSystem.ArgumentNullException: SqlParameterCollection 钡獶 Null  SqlParameter ン
+把计嘿: value
+    System.Data.SqlClient.SqlParameterCollection.ValidateType(Object value)
+    System.Data.SqlClient.SqlParameterCollection.AddRange(Array values)
+    DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters)  C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs: ︽ 85
+
+ERROR : 2015-08-02 01:06:52,374 124376ms AccountRepository      CreateUser         - SqlParameterCollection 钡獶 Null  SqlParameter ン
+把计嘿: valueSystem.Exception: SqlParameterCollection 钡獶 Null  SqlParameter ン
+把计嘿: value
+    DAL.DataAccess.ExecuteNonQuery(String connString, String sql, CommandType commandType, SqlParameter[] parameters)  C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\DAL\DataAccess.cs: ︽ 106
+    BLL.AccountRepository.CreateUser(User user)  C:\Users\Kevin Lau\Documents\Visual Studio 2013\Projects\WordCollocation2015_wc\BLL\AccountRepository.cs: ︽ 166
+
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+
+[Log Starts]
+[Log Ends]
+

@@ -1,0 +1,27 @@
+﻿@model AllRoleAndUser
+
+@{
+    ViewBag.Title = "DisplayAllUserRoles";
+}
+
+<h2>DisplayAllUserroles</h2>
+
+<table border="1">
+	<tr>
+		<td>User Name</td>
+		<td>Role Name</td>
+	</tr>
+
+	@if (Model != null)
+	{
+		foreach (var item in Model.AllDetailsUserList)
+		{
+			<tr>
+				<td>@item.UserName</td>
+				<td>@item.RoleName</td>
+			</tr>
+		}
+	}
+
+</table>
+

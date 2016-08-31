@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WordCollocationModelStoreContainer" CdmEntityContainer="AccountEntities">
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="WordCollocationModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WordCollocationModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RegisterToken" ColumnName="RegisterToken" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInRoles">
+      <EntityTypeMapping TypeName="WordCollocationModel.UserInRole">
+        <MappingFragment StoreEntitySet="UserInRoles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddRole" FunctionName="WordCollocationModel.Store.AddRole" />
+    <FunctionImportMapping FunctionImportName="CheckIfDuplicatedEmail" FunctionName="WordCollocationModel.Store.CheckIfDuplicatedEmail" />
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="WordCollocationModel.Store.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="GetRoleByCode" FunctionName="WordCollocationModel.Store.GetRoleByCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WordCollocationModel.GetRoleByCode_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRoles" FunctionName="WordCollocationModel.Store.GetRoles">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WordCollocationModel.GetRoles_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRolesByEmail" FunctionName="WordCollocationModel.Store.GetRolesByEmail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WordCollocationModel.GetRolesByEmail_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByEmail" FunctionName="WordCollocationModel.Store.GetUserByEmail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WordCollocationModel.GetUserByEmail_Result">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RegisterToken" ColumnName="RegisterToken" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUsers" FunctionName="WordCollocationModel.Store.GetUsers" />
+    <FunctionImportMapping FunctionImportName="ResetPassword" FunctionName="WordCollocationModel.Store.ResetPassword" />
+    <FunctionImportMapping FunctionImportName="UpdateRole" FunctionName="WordCollocationModel.Store.UpdateRole" />
+    <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="WordCollocationModel.Store.UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>

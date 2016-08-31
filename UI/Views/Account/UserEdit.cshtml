@@ -1,0 +1,103 @@
+﻿@using UI.Helpers;
+@using WcResources = THResources.Resources;
+@model UI.Models.ViewModels.UserEditModel
+
+
+@{
+
+	ViewBag.Title = WcResources.EditUser;
+
+	UserErrMsg msg;
+
+	AccountHelper.InitUserErrMsgs(out msg);
+
+	string actionName = "UserEdit";
+	string formId = "UserForm";
+}
+
+<div class="span4">
+
+	@Html.Partial("_ViewBagErrorList")
+	@{
+		if (ViewBag.ErrMsg != null)
+		{
+			<span class="text-danger">ErrorMessage: @ViewBag.ErrMsg</span>
+		}
+	}
+
+
+
+	@using (Html.BeginForm(actionName, "Account", FormMethod.Post, new { id = formId }))
+	{
+		@Html.AntiForgeryToken()
+
+		<div class="form-horizontal">
+
+			<div class="form-group">
+				<h3>@ViewBag.Title</h3>
+			</div>
+
+			@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+			<div class="form-group">
+				<label for="UserName">@WcResources.UserName</label>
+
+				<input type="text" id="UserName" name="User.UserName" style="width: 90%;" placeholder="@WcResources.UserName" value="@Model.User.UserName" />
+				<input type="hidden" id="UserNameRequired" value="@msg.UserNameRequired"/>
+				<input type="hidden" id="UserNameTaken" value="@msg.UserNameTaken"/>
+				<input type="hidden" id="OriginalUserName" value="@Model.User.UserName"/>
+				<div id="UserName-error" class="text-danger"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="Email">@WcResources.Email</label>
+
+				<input type="text" id="Email" name="User.Email" style="width: 90%;" placeholder="@WcResources.Email" value="@Model.User.Email" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iEmailOk" />
+
+				<input type="hidden" id="EmailRequired" value="@msg.EmailRequired" />
+				<input type="hidden" id="EmailErrMsg" value="@msg.EmailErr" />
+				<input type="hidden" id="EmailTaken" value="@msg.EmailTaken"/>
+				<input type="hidden" id="OriginalEmail" value="@Model.User.Email" />
+				<span id="Email-error" class="text-danger"></span>
+
+			</div>
+
+
+
+			<div class="span6 form-group">
+				<label>@WcResources.Role</label>
+				<ul id="rolelist" class="checkbox">
+					@foreach (var role in Model.RoleList)
+					{
+						<li>
+							<input type="checkbox" name="SelectedRoles" id="@role.RoleId" value="@role.RoleName" @{if (Model.SelectedRoles.Any(m => m.Equals(role.RoleName)))
+							                                                                                     {
+								                                                                                     <text> checked='checked' </text>
+							                                                                                     }}/>
+
+							<label>@role.RoleName</label>
+						</li>
+					}
+				</ul>
+			</div>
+
+			<div class="form-group form-submit">
+				<button type="submit" id="btnSubmit" class="Edit">@WcResources.Edit</button>
+				<input type="hidden" name="User.UserId" value="@Model.User.UserId" />
+			</div>
+
+			<div class="form-group form-submit">
+				@Html.ActionLink(WcResources.ReturnToManagementIndex, "UserIndex")
+			</div>
+		</div>
+	}
+
+</div>
+
+
+@section scripts{
+	@Scripts.Render("~/bundles/jqueryval")
+	<script src="@Url.Content("~/Scripts/checkEmail.js")"></script>
+	<script src="@Url.Content("~/Scripts/user_validation.js")"></script>
+	<script src="@Url.Content("~/Scripts/editUser.js")"></script>
+}

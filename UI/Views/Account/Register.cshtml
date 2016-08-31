@@ -1,0 +1,92 @@
+﻿@using System.Web.Configuration
+@using UI.Helpers
+@using Recaptcha.Web.Mvc;
+@model RegisterModel
+
+@{
+	ViewBag.Title = Resources.RegisterAsNewUser;
+	UserErrMsg msg;
+	AccountHelper.InitUserErrMsgs(out msg);
+}
+<style>
+	/* Change the white to any color ;)-*/
+	html > /**/ body input:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 1000px #f6f6ed inset;
+		box-shadow: 0 0 0 1000px #f6f6ed inset;
+	}
+</style>
+
+<div class="span4">
+	<h3>@ViewBag.Title</h3>
+	@Html.Partial("_ViewBagErrorList")
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+	<p>@ViewBag.RegisterResult</p>
+	<section id="registerForm">
+
+		@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "UserForm", role = "form" }))
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-group">
+				<label for="UserName" class="labelField">@Resources.UserName</label>
+				<input type="text" id="UserName" name="UserName" style="width: 90%;" placeholder="@Resources.UserName" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iUserNameOk" />
+				<input type="hidden" id="UserNameRequired" value="@msg.UserNameRequired" />
+				<input type="hidden" id="UserNameTaken" value="@msg.UserNameTaken" />
+				<div id="UserName-error" class="field-validation-error"></div>
+			</div>
+
+			<div class="form-group">
+				<label for="Email" class="labelField">@Resources.Email</label>
+				<input type="text" id="Email" name="Email" style="width: 90%;" placeholder="@Resources.Email" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iEmailOk" />
+				<input type="hidden" id="EmailRequired" value="@msg.EmailRequired" />
+				<input type="hidden" id="EmailErrMsg" value="@msg.EmailErr" />
+				<input type="hidden" id="EmailTaken" value="@msg.EmailTaken" />
+				<div id="Email-error" class="field-validation-error"></div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="Password" class="labelField">@Resources.Password <span id="pwdFormat">(@Resources.PasswordFormat1)</span></label>
+
+				<input type="text" id="Password" name="Password" style="width: 90%;" placeholder="@Resources.Password" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iPwdOk" />
+				<input type="hidden" id="PwdRequired" value="@msg.PwdRequired" />
+				<input type="hidden" id="PwdLenErr" value="@msg.PwdLenErr" />
+				<span id="Password-error" class="field-validation-error"></span>
+
+			</div>
+
+			<div class="form-group">
+				<label for="ConfirmPassword" class="labelField">@Resources.ConfirmPassword</label>
+
+				<input type="text" id="ConfirmPassword" name="ConfirmPassword" style="width: 90%;" placeholder="@Resources.ConfirmPassword" />&nbsp;<img src="@Url.Content("~/Images/ok.png")" class="iOk" id="iConPwdOk" />
+				<input type="hidden" id="ConfirmPwdRequired" value="@msg.ConfirmPwdRequired" />
+				<input type="hidden" id="PwdLenErr" value="@msg.PwdLenErr" />
+				<input type="hidden" id="ConfirmPwdError" value="@msg.ConfirmPwdErr" />
+				<span id="ConfirmPassword-error" class="field-validation-error"></span>
+
+			</div>
+
+			if (bool.Parse(WebConfigurationManager.AppSettings.Get("ReCaptchaEnabled")))
+			{
+				<div class="form-group">
+					@Html.Recaptcha()
+					@Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Default)
+				</div>
+			}
+
+
+			<div class="form-group form-submit">
+
+				<button type="submit" id="btnSubmit">@Resources.Register</button>
+
+			</div>
+
+
+		}
+	</section>
+</div>
+@section Scripts{
+	@Scripts.Render("~/bundles/register")
+}
