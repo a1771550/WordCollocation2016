@@ -174,6 +174,7 @@ namespace UI.Controllers
 					if (returnUrl.ToLower().Contains("confirmationsuccess")) return RedirectToAction("Index", "Home");
 					return RedirectToLocal(returnUrl);
 				}
+				
 				errorMsg = WcResources.UserNamePasswordNotMatch;
 			}
 
@@ -201,6 +202,7 @@ namespace UI.Controllers
 
 			// If we got this far, something failed, redisplay form
 			ModelState.AddModelError("", errorMsg);
+			ViewBag.returnUrl = returnUrl;
 			return View(model);
 		}
 

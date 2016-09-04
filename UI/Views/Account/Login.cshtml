@@ -5,35 +5,36 @@
 }
 
 <div class="span4">
-<h3>@ViewBag.Title</h3>
+	<h3>@ViewBag.Title</h3>
 	@Html.Partial("_ViewBagErrorList")
 	<section id="loginForm">
-		
+
+		@*@using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form", id = "login-form" }))*@
 		@using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form", role = "form", id = "login-form" }))
 		{
 			@Html.AntiForgeryToken()
 			@Html.ValidationSummary(true)
 			<!-- fake fields are a workaround for chrome autofill getting the wrong fields (works with javascript)-->
 			@*<input style="display:none" type="text" name="Email" class="fakefield" />
-			<input style="display: none" type="password" name="Password" class="fakefield"/>*@
+				<input style="display: none" type="password" name="Password" class="fakefield"/>*@
 
-			
-				if (Model.IsConfirmed)
-				{
-					<input data-val="true" data-val-required="The IsConfirmed field is required." id="IsConfirmed" name="IsConfirmed" type="hidden" value="true" />
+
+		if (Model.IsConfirmed)
+		{
+			<input data-val="true" data-val-required="The IsConfirmed field is required." id="IsConfirmed" name="IsConfirmed" type="hidden" value="true" />
 				}
 				else
 				{
-					<input data-val="true" data-val-required="The IsConfirmed field is required." id="IsConfirmed" name="IsConfirmed" type="hidden" value="false" />
+			<input data-val="true" data-val-required="The IsConfirmed field is required." id="IsConfirmed" name="IsConfirmed" type="hidden" value="false" />
 				}
 
-			<div class="form-group">
-				@Html.Label("UserName", Resources.UserName, new { @class = "labelField" })
-				@Html.TextBoxFor(m => m.UserName, new { placeholder = Resources.UserName })
-				@Html.ValidationMessageFor(m => m.UserName)
-			</div>
-			
-			
+		<div class="form-group">
+			@Html.Label("UserName", Resources.UserName, new { @class = "labelField" })
+			@Html.TextBoxFor(m => m.UserName, new { placeholder = Resources.UserName })
+			@Html.ValidationMessageFor(m => m.UserName)
+		</div>
+
+
 
 			if (Model.IsConfirmed)
 			{
@@ -54,17 +55,17 @@
 
 			}
 
-			
-				<div class="form-group">
-					@if (Model.IsConfirmed)
-					{
-						<button id="logon" type="submit">@Resources.LogOn</button>
-					}
-					else
-					{
-						<button id="resendConfirm" type="submit">@Resources.ResendConfirmEmail</button>
-					}
-				</div>
+
+			<div class="form-group">
+				@if (Model.IsConfirmed)
+				{
+					<button id="logon" type="submit">@Resources.LogOn</button>
+				}
+				else
+				{
+					<button id="resendConfirm" type="submit">@Resources.ResendConfirmEmail</button>
+				}
+			</div>
 
 
 
@@ -78,14 +79,14 @@
 		}
 	</section>
 
-	</div>
+</div>
 
 
-	@*<section class="social" id="socialLoginForm">
-			<h2>Use another service to log in.</h2>
-			@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-		</section>*@
+@*<section class="social" id="socialLoginForm">
+		<h2>Use another service to log in.</h2>
+		@Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+	</section>*@
 
-	@section Scripts {
-		@Scripts.Render("~/bundles/jqueryval")
-	}
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
