@@ -1,7 +1,0 @@
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Debug\DAL.dll
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Debug\DAL.pdb
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Debug\log4net.dll
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\bin\Debug\log4net.xml
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\obj\Debug\DAL.dll
-E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\DAL\obj\Debug\DAL.pdb

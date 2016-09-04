@@ -127,7 +127,8 @@ namespace UI.Helpers
 			{
 				UserProfile user = GetUserFromId(userId);
 				string[] rolenames = Roles.GetRolesForUser(user.UserName);
-				Roles.RemoveUserFromRoles(user.UserName, rolenames);
+				if(rolenames.Any())
+					Roles.RemoveUserFromRoles(user.UserName, rolenames);
 				UsersContext db = new UsersContext();
 				db.Entry(user).State = EntityState.Deleted;
 				db.SaveChanges();

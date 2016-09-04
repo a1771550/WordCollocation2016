@@ -278,29 +278,8 @@ namespace UI.Controllers
 				email.To = to;
 				email.UserName = username;
 				email.ConfirmationToken = confirmationToken;
+				email.Subject = WcResources.CompleteRegisterProcess;
 				email.Send();
-
-				//	MailMessage mailMsg = new MailMessage();
-
-				//	// To
-				//	mailMsg.To.Add(new MailAddress(to, username));
-
-				//	// From
-				//	mailMsg.From = new MailAddress("admin@wordcollocation.net", "WordCollocation.net");
-
-				//	// Subject and multipart/alternative Body
-				//	mailMsg.Subject = "Send Email Test";
-				//	string text = "text body";
-				//	string html = @"<p>Test from 2016 Register</p><div>token: " + confirmationToken + "</div>";
-				//	mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
-				//	mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
-
-				//	// Init SmtpClient and send
-				//	SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
-				//	System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("tongling", "a1b2c3d4");
-				//	smtpClient.Credentials = credentials;
-				//	smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-				//	smtpClient.Send(mailMsg);
 			}
 			catch (Exception ex)
 			{

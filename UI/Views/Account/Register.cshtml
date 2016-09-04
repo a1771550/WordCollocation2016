@@ -1,4 +1,5 @@
 ﻿@using System.Web.Configuration
+@using Microsoft.Web.Helpers
 @using UI.Helpers
 @using Recaptcha.Web.Mvc;
 @model RegisterModel
@@ -21,7 +22,7 @@
 	@Html.Partial("_ViewBagErrorList")
 	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-	<p>@ViewBag.RegisterResult</p>
+	<p class="text-danger">@ViewBag.RegisterResult</p>
 	<section id="registerForm">
 
 		@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "UserForm", role = "form" }))
@@ -68,10 +69,11 @@
 
 			</div>
 
+			<div class="form-group">&nbsp;</div>
+
 			if (bool.Parse(WebConfigurationManager.AppSettings.Get("ReCaptchaEnabled")))
 			{
 				<div class="form-group">
-					@Html.Recaptcha()
 					@Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Default)
 				</div>
 			}

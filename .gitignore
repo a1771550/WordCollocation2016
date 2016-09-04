@@ -4,3 +4,7 @@
 *.Config
 *.csproj
 *.log
+*.pdb
+*/bin/*
+*/obj/*
+*.cache
