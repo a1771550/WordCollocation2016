@@ -6,12 +6,10 @@ using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using Elmah;
 using log4net;
 using UI.Controllers.Abstract;
-using UI.Models.Logging;
 using UI.Models.Misc;
-using ErrorViewModel = Models.ErrorViewModel;
+using ErrorViewModel = UI.Models.ViewModels.ErrorViewModel;
 
 namespace UI.Controllers
 {
@@ -34,7 +32,6 @@ namespace UI.Controllers
 		// GET: Error
 		public ActionResult Index(ErrorViewModel model = null)
 		{
-
 			return View(model);
 		}
 
@@ -169,40 +166,40 @@ namespace UI.Controllers
 			return null;
 		}
 
-		/// <summary>
-		/// for Elmah
-		/// </summary>
-		/// <param name="message"></param>
-		public void LogJavaScriptError(string message)
-		{
-			ErrorSignal.FromCurrentContext().Raise(new JavaScriptException(message));
-		}
+		///// <summary>
+		///// for Elmah
+		///// </summary>
+		///// <param name="message"></param>
+		//public void LogJavaScriptError(string message)
+		//{
+		//	ErrorSignal.FromCurrentContext().Raise(new JavaScriptException(message));
+		//}
 
-		public ViewResult ElmahJsDemo()
-		{
-			return View();
-		}
+		//public ViewResult ElmahJsDemo()
+		//{
+		//	return View();
+		//}
 
-		public ViewResult ElmahDemo()
-		{
-			//var error = new Error();
-			return View();
-		}
+		//public ViewResult ElmahDemo()
+		//{
+		//	//var error = new Error();
+		//	return View();
+		//}
 
-		public ViewResult Log4NetDemo()
-		{
-			try
-			{
-				//string connString = null;
-				//DataSet ds = DataAccess.CreateDataSet(null, "Select * from Categories");
-				return View();
+		//public ViewResult Log4NetDemo()
+		//{
+		//	try
+		//	{
+		//		//string connString = null;
+		//		//DataSet ds = DataAccess.CreateDataSet(null, "Select * from Categories");
+		//		return View();
 
-			}
-			catch (Exception ex)
-			{
-				log.Error(ex.Message, ex);
-			}
-			return null;
-		}
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		log.Error(ex.Message, ex);
+		//	}
+		//	return null;
+		//}
 	}
 }

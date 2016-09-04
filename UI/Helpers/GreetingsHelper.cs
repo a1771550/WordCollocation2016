@@ -47,7 +47,7 @@ namespace UI.Helpers
 					else if (hour > 17) greetings = SiteConfiguration.GoodEveningJap;
 					break;
 			}
-			return $"{userName} {greetings}";
+			return String.Format("{0} {1}", userName, greetings);
 		}
 
 

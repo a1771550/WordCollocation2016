@@ -957,4 +957,7 @@
   <data name="ResetPasswordFailedParagraph" xml:space="preserve">
     <value>重設密碼失敗。您輸入的可能不是正確的用戶名稱。 請再試一次。</value>
   </data>
+  <data name="CaptchaRequired" xml:space="preserve">
+    <value>請輸入驗証碼</value>
+  </data>
 </root>

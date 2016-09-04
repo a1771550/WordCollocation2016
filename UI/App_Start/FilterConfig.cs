@@ -22,7 +22,7 @@ namespace UI
 			//		return;
 			//}
 
-			filters.Add(new ElmahHandleErrorAttribute());
+			//filters.Add(new ElmahHandleErrorAttribute());
 			//filters.Add(new HandleErrorAttribute());
 		}
 	}

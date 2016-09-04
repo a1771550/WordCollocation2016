@@ -1,7 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
+using log4net;
 using Microsoft.Web.WebPages.OAuth;
 using UI.Helpers;
 using UI.Models;
@@ -13,21 +18,23 @@ using UI.Models.ViewModels;
 
 namespace UI.Controllers
 {
-	[Authorize(Roles = "Admin")]
+	/* never put [Authorize(Roles="Admin")] above this controller; otherwise the logoff won't work!! */
+	[Authorize]
 	public class AccountController : Controller
-    {
-	    public ViewResult UserIndex(short page=1)
-	    {
-		    UserViewModel model = new UserViewModel(page);
-		    return View(model);
-	    }
-	    
-	    public ActionResult UserEdit(int userId)
-	    {
-		    UserEditModel model = new UserEditModel(userId);
-		    model.SelectedRoles = AccountHelper.GetRoleListByUserId(userId);
+	{
+		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+		public ViewResult UserIndex(short page = 1)
+		{
+			UserViewModel model = new UserViewModel(page);
 			return View(model);
-	    }
+		}
+
+		public ActionResult UserEdit(int userId)
+		{
+			UserEditModel model = new UserEditModel(userId);
+			model.SelectedRoles = AccountHelper.GetRoleListByUserId(userId);
+			return View(model);
+		}
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -50,7 +57,7 @@ namespace UI.Controllers
 			return RedirectToAction("UserIndex");
 		}
 
-		public ActionResult RoleIndex(short page=1)
+		public ActionResult RoleIndex(short page = 1)
 		{
 			RoleViewModel model = new RoleViewModel(page);
 			return View(model);
@@ -140,47 +147,8 @@ namespace UI.Controllers
 			AccountHelper.InitUserDropDown(ref objvm);
 			return View(objvm);
 		}
-
-
-		//public ActionResult RoleRemoveFromUser()
-		//{
-		//	AssignRoleVM objvm = new AssignRoleVM();
-		//	AccountHelper.InitRoleDropDown(ref objvm);
-		//	AccountHelper.InitUserDropDown(ref objvm);
-		//	return View(objvm);
-		//}
-
-		//[HttpPost]
-		//[ValidateAntiForgeryToken]
-		//public ActionResult RoleRemoveFromUser(AssignRoleVM objvm)
-		//{
-		//	if (objvm.RoleName == "0")
-		//	{
-		//		ModelState.AddModelError("RoleName", "Please select a role");
-		//	}
-		//	if (objvm.UserName == "0")
-		//	{
-		//		ModelState.AddModelError("UserName", "Please select a user");
-		//	}
-		//	AccountHelper.InitRoleDropDown(ref objvm);
-		//	AccountHelper.InitUserDropDown(ref objvm);
-
-		//	if (ModelState.IsValid)
-		//	{
-		//		if (Roles.IsUserInRole(objvm.UserName, objvm.RoleName))
-		//		{
-		//			Roles.RemoveUserFromRole(objvm.UserName, objvm.RoleName);
-
-		//			ViewBag.ResultMessage = "Role removed from this user successfully !";
-		//		}
-		//		else
-		//		{
-		//			ViewBag.ResultMessage = "This user doesn't belong to selected role.";
-		//		}
-		//	}
-		//	return View(objvm);
-		//}
 	
+
 		[AllowAnonymous]
 		public ActionResult Login(string returnUrl)
 		{
@@ -202,7 +170,10 @@ namespace UI.Controllers
 			if (ModelState.IsValid)
 			{
 				if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+				{
+					if (returnUrl.ToLower().Contains("confirmationsuccess")) return RedirectToAction("Index", "Home");
 					return RedirectToLocal(returnUrl);
+				}
 				errorMsg = WcResources.UserNamePasswordNotMatch;
 			}
 
@@ -233,48 +204,20 @@ namespace UI.Controllers
 			return View(model);
 		}
 
-		private void ResendConfirmationEmail(string username)
+		
+		public ActionResult LogOff()
 		{
-			UserProfile user = AccountHelper.GetUserFromName(username);
-			string token = AccountHelper.GetConfirmTokenFromUser(user.UserId);
-			SendEmailConfirmation(user.Email, username, token);
-
+			WebSecurity.Logout();
+			return RedirectToAction("Index", "Home");
 		}
 
-		//[HttpPost]
-	 //   public ActionResult Login(Login login)
-	 //   {
-		//    if (ModelState.IsValid)
-		//    {
-		//	    bool success = WebSecurity.Login(login.Email, login.Password);
-		//	    if (success)
-		//	    {
-		//		    string returnUrl = Request.QueryString.Get("ReturnUrl");
-		//		    Response.Redirect(string.IsNullOrEmpty(returnUrl) ? "~/Home/Index" : returnUrl);
-		//	    }
-		//	    else return View(login);
-		//    }
-		//    else
-		//    {
-		//	    ModelState.AddModelError("Error",  ThResources.EmailPasswordNotMatch);
-		//	}
-		//	return View();
-		//}
-
-		private void SendEmailConfirmation(string to, string username, string confirmationToken)
-		{
-			dynamic email = new Postal.Email("RegEmail");
-			email.To = to;
-			email.UserName = username;
-			email.ConfirmationToken = confirmationToken;
-			email.Send();
-		}
+		
 
 		[AllowAnonymous]
-	    public ActionResult Register()
-	    {
-		    return View();
-	    }
+		public ActionResult Register()
+		{
+			return View();
+		}
 
 		[HttpPost]
 		[AllowAnonymous]
@@ -291,32 +234,29 @@ namespace UI.Controllers
 						RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
 						if (string.IsNullOrEmpty(recaptchaHelper.Response))
 						{
-							// todo: i18n
-							ModelState.AddModelError("", "Captcha answer cannot be empty.");
+							// donetodo: i18n
+							ModelState.AddModelError("", WcResources.CaptchaRequired);
 							return View(model);
 						}
 						RecaptchaVerificationResult recaptchaResult = await recaptchaHelper.VerifyRecaptchaResponseTaskAsync();
 						if (recaptchaResult != RecaptchaVerificationResult.Success)
 						{
-							// todo: i18n
-							ModelState.AddModelError("", "Incorrect captcha answer.");
+							// donetodo: i18n
+							ModelState.AddModelError("", WcResources.CaptchaError);
 							return View(model);
 						}
 					}
-					
+
 
 					if (WebSecurity.UserExists(model.UserName))
 					{
 						ViewBag.RegisterResult = WcResources.UserNameTaken;
 						return View(model);
 					}
-					else
-					{
-						string confirmationToken =
+					string confirmationToken =
 						WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { model.Email }, true);
-						SendEmailConfirmation(model.Email, model.UserName, confirmationToken);
-						return RedirectToAction("RegisterStepTwo", "Account");
-					}
+					SendEmailConfirmation(model.Email, model.UserName, confirmationToken);
+					return RedirectToAction("RegisterStepTwo", "Account");
 				}
 				catch (MembershipCreateUserException e)
 				{
@@ -328,10 +268,56 @@ namespace UI.Controllers
 			return View(model);
 		}
 
+		private void SendEmailConfirmation(string to, string username, string confirmationToken)
+		{
+			try
+			{
+				dynamic email = new Postal.Email("RegEmail");
+				email.To = to;
+				email.UserName = username;
+				email.ConfirmationToken = confirmationToken;
+				email.Send();
+
+				//	MailMessage mailMsg = new MailMessage();
+
+				//	// To
+				//	mailMsg.To.Add(new MailAddress(to, username));
+
+				//	// From
+				//	mailMsg.From = new MailAddress("admin@wordcollocation.net", "WordCollocation.net");
+
+				//	// Subject and multipart/alternative Body
+				//	mailMsg.Subject = "Send Email Test";
+				//	string text = "text body";
+				//	string html = @"<p>Test from 2016 Register</p><div>token: " + confirmationToken + "</div>";
+				//	mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(text, null, MediaTypeNames.Text.Plain));
+				//	mailMsg.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+
+				//	// Init SmtpClient and send
+				//	SmtpClient smtpClient = new SmtpClient("smtp.sendgrid.net", Convert.ToInt32(587));
+				//	System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("tongling", "a1b2c3d4");
+				//	smtpClient.Credentials = credentials;
+				//	smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+				//	smtpClient.Send(mailMsg);
+			}
+			catch (Exception ex)
+			{
+				log.Error(ex.Message, ex);
+				Console.WriteLine(ex.Message);
+			}
+		}
+
+		private void ResendConfirmationEmail(string username)
+		{
+			UserProfile user = AccountHelper.GetUserFromName(username);
+			string token = AccountHelper.GetConfirmTokenFromUser(user.UserId);
+			SendEmailConfirmation(user.Email, username, token);
+
+		}
 
 		//[HttpPost]
-	 //   public ActionResult Register(Register register)
-	 //   {
+		//   public ActionResult Register(Register register)
+		//   {
 		//    if (ModelState.IsValid)
 		//    {
 		//	    if (!WebSecurity.UserExists(register.Email))
@@ -346,7 +332,7 @@ namespace UI.Controllers
 		//	    ModelState.AddModelError("Error", ThResources.PleaseEnterAllData);
 		//    }
 		//    return View();
-	 //   }
+		//   }
 
 		[AllowAnonymous]
 		public ActionResult RegisterStepTwo()
@@ -419,28 +405,6 @@ namespace UI.Controllers
 			return View();
 		}
 
-		//[AllowAnonymous]
-		//public ActionResult ResetPwdEmailConfirm(string Id)
-		//{
-		//	if (WebSecurity.ConfirmAccount(Id))
-		//	{
-		//		return RedirectToAction("ResetPwdEmailConfirmConfirmationSuccess");
-		//	}
-		//	return RedirectToAction("ResetPwdEmailConfirmConfirmationFailure");
-		//}
-
-		//[AllowAnonymous]
-		//public ActionResult ResetPwdEmailConfirmConfirmationSuccess()
-		//{
-		//	return View();
-		//}
-
-		//[AllowAnonymous]
-		//public ActionResult ResetPwdEmailConfirmConfirmationFailure()
-		//{
-		//	return View();
-		//}
-
 		[AllowAnonymous]
 		public ActionResult InvalidUserName()
 		{
@@ -471,27 +435,7 @@ namespace UI.Controllers
 			return View(model);
 		}
 
-		//[AllowAnonymous]
-		//public ActionResult PasswordResetFailure()
-		//{
-		//	return View();
-		//}
-
-		//[AllowAnonymous]
-		//public ActionResult PasswordResetSuccess()
-		//{
-		//	return View();
-		//}
-		//
-		// POST: /Account/Disassociate
-
-		
-	    public ActionResult LogOff()
-	    {
-		    WebSecurity.Logout();
-		    return RedirectToAction("Login");
-	    }
-	    
+	
 		#region Helpers
 		private ActionResult RedirectToLocal(string returnUrl)
 		{
@@ -577,5 +521,5 @@ namespace UI.Controllers
 		{
 			return View();
 		}
-    }
+	}
 }

@@ -97,7 +97,8 @@
 
 @section scripts{
 	@Scripts.Render("~/bundles/jqueryval")
-	<script src="@Url.Content("~/Scripts/checkEmail.js")"></script>
-	<script src="@Url.Content("~/Scripts/user_validation.js")"></script>
-	<script src="@Url.Content("~/Scripts/editUser.js")"></script>
+	@*<script src="@Url.Content("~/Scripts/checkEmail.js")"></script>
+	<script src="@Url.Content("~/Scripts/user_edit_validation.js")"></script>
+	<script src="@Url.Content("~/Scripts/editUser.js")"></script>*@
+	@Scripts.Render("~/bundles/userEdit")
 }

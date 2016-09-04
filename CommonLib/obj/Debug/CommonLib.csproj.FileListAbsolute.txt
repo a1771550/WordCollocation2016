@@ -1,0 +1,8 @@
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\obj\Debug\CommonLib.csprojResolveAssemblyReference.cache
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\CommonLib.dll.config
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\CommonLib.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\CommonLib.pdb
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\log4net.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\bin\Debug\log4net.xml
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\obj\Debug\CommonLib.dll
+E:\Kevin Lau\Documents\Visual Studio 2013\Projects (E)\WordCollocation2016_wc\CommonLib\obj\Debug\CommonLib.pdb

@@ -205,6 +205,15 @@ namespace THResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 請輸入驗証碼.
+        /// </summary>
+        public static string CaptchaRequired {
+            get {
+                return ResourceManager.GetString("CaptchaRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 當代英語搭配辭典.
         /// </summary>
         public static string CH {

@@ -1,14 +1,18 @@
 ﻿@using System.Web.Configuration
 @{
 	Layout = null;
-	string link = string.Format("http://{0}/Account/RegisterConfirmation/{1}", WebConfigurationManager.AppSettings.Get("SiteUrl"), ViewBag.ConfirmationToken);
+	//string link = string.Format("http://{0}/Account/RegisterConfirmation/{1}", WebConfigurationManager.AppSettings.Get("SiteUrl"), ViewBag.ConfirmationToken);
+	var link = Url.Action(
+			  "RegisterConfirmation", "Account",
+			  new { Id = Html.Encode(ViewBag.ConfirmationToken) },
+			  protocol: Request.Url?.Scheme);
 }
 
-@Resources.MailTo: @ViewBag.To
-@Resources.MailFrom: @WebConfigurationManager.AppSettings.Get("NoReplyMail")
-@Resources.MailSubject: @Resources.CompleteRegisterProcess
+<div>@Resources.MailTo: @ViewBag.To</div>
+<div>@Resources.MailFrom: @WebConfigurationManager.AppSettings.Get("NoReplyMail")
+</div>
+<div>@Resources.MailSubject: @Resources.CompleteRegisterProcess</div>
 
-@ViewBag.UserName @Resources.Salute @Resources.Hello,
+<p>@ViewBag.UserName @Resources.Salute @Resources.Hello,</p>
 
-@Resources.ToCompleteRegisterClickLink:
-@link
+<p>@Resources.ToCompleteRegisterClickLink: @link</p>

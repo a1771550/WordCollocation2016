@@ -14,7 +14,7 @@ namespace UI.Models.ViewModels
 		public Role Role { get; set; }
 		//public Role SelectedRole { get; set; }
 
-	public RolePagingInfo RolePagingInfo { get; set; }
+		public RolePagingInfo RolePagingInfo { get; set; }
 		public int PageSize { get { return int.Parse(WebConfigurationManager.AppSettings.Get("RolePageSize")); } }
 		public RoleViewModel() { }
 
@@ -53,7 +53,7 @@ namespace UI.Models.ViewModels
 		public Role Role { get; set; }
 
 		public RoleEditModel() { }
-		public RoleEditModel(int roleId):this()
+		public RoleEditModel(int roleId) : this()
 		{
 			string name = AccountHelper.GetRoleNameById(roleId);
 			Role = new Role { RoleId = roleId, RoleName = name };

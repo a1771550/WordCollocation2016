@@ -8,7 +8,7 @@ namespace UI
 		// For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
 		public static void RegisterBundles(BundleCollection bundles)
 		{
-			bundles.Add(new ScriptBundle("~/bundles/layout").Include("~/Scripts/jquery-{version}.js").Include("~/Scripts/bootstrap.js").Include("~/Scripts/tinynav.js").Include("~/Scripts/template.js").Include("~/Scripts/socialLinks.js").Include("~/Scripts/jquery-cookie-plugin.js").Include("~/Scripts/timezone.js").Include("~/Scripts/jquery-ui.custom/jquery-ui.js").Include("~/Scripts/suggestion.js").Include("~/Scripts/searchbox_submit.js"));
+			bundles.Add(new ScriptBundle("~/bundles/layout").Include("~/Scripts/jquery-{version}.js").Include("~/Scripts/bootstrap.js").Include("~/Scripts/tinynav.js").Include("~/Scripts/template.js").Include("~/Scripts/socialLinks.js").Include("~/Scripts/jquery-cookie-plugin.js").Include("~/Scripts/timezone.js").Include("~/Scripts/jquery-ui.custom/jquery-ui.js").Include("~/Scripts/suggestion.js").Include("~/Scripts/searchbox_submit.js").Include("~/Scripts/js.cookie.js").Include("~/Scripts/logout.js"));
 
 			//bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
 			//			"~/Scripts/jquery-{version}.js"));
@@ -27,6 +27,13 @@ namespace UI
 			bundles.Add(new ScriptBundle("~/bundles/register").Include("~/Scripts/checkEmail.js").Include("~/Scripts/user_validation.js").Include("~/Scripts/MaskedPassword.js").Include("~/Scripts/addUser.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/resetPassword").Include("~/Scripts/jquery-{version}.js").Include("~/Scripts/checkEmail.js").Include("~/Scripts/user_validation.js").Include("~/Scripts/MaskedPassword.js").Include("~/Scripts/resetPassword.js"));
+
+			/*
+			 * <script src="@Url.Content("~/Scripts/checkEmail.js")"></script>
+	<script src="@Url.Content("~/Scripts/user_edit_validation.js")"></script>
+	<script src="@Url.Content("~/Scripts/editUser.js")"></script>
+			 */
+			 bundles.Add(new ScriptBundle("~/bundles/userEdit").Include("~/Scripts/checkEmail.js").Include("~/Scripts/user_edit_validation.js").Include("~/Scripts/editUser.js"));
 
 			// Use the development version of Modernizr to develop with and learn from. Then, when you're
 			// ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
