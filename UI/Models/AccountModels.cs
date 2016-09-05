@@ -113,7 +113,6 @@ namespace UI.Models
 		[StringLength(100, ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "PasswordLengthError", MinimumLength = 6)]
 		[DataType(DataType.Password)]
 		[Display(ResourceType = typeof(THResources.Resources), Name = "Password")]
-
 		public string Password { get; set; }
 
 		[Required(ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "ConfirmPasswordRequired")]
@@ -137,16 +136,17 @@ namespace UI.Models
 
 		public string Token { get; set; }
 
-		[Required]
-		[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+		[Required(ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "NewPasswordRequired")]
+		[StringLength(100, ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "PasswordLengthError", MinimumLength = 6)]
 		[DataType(DataType.Password)]
-		[Display(Name = "New password")]
+		[Display(ResourceType = typeof(THResources.Resources), Name = "NewPassword")]
 		public string NewPassword { get; set; }
 
+		[Required(ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "ConfirmNewPasswordRequired")]
 		[DataType(DataType.Password)]
-		[Display(Name = "Confirm new password")]
-		[Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
-		public string ConfirmPassword { get; set; }
+		[Display(ResourceType = typeof(THResources.Resources), Name = "ConfirmNewPassword")]
+		[Compare("NewPassword", ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "ConfirmNewPasswordError")]
+		public string ConfirmNewPassword { get; set; }
 	}
 	public class ExternalLogin
 	{

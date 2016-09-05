@@ -439,11 +439,20 @@ namespace THResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to * 請確認新密碼.
+        ///   Looks up a localized string similar to 確認新密碼錯誤，請再次確認新密碼.
         /// </summary>
         public static string ConfirmNewPasswordError {
             get {
                 return ResourceManager.GetString("ConfirmNewPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 請確認新密碼.
+        /// </summary>
+        public static string ConfirmNewPasswordRequired {
+            get {
+                return ResourceManager.GetString("ConfirmNewPasswordRequired", resourceCulture);
             }
         }
         
@@ -457,7 +466,7 @@ namespace THResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 確認密碼錯誤，請再次確認密碼。.
+        ///   Looks up a localized string similar to 確認密碼錯誤，請再次確認密碼.
         /// </summary>
         public static string ConfirmPasswordError {
             get {
@@ -601,7 +610,7 @@ namespace THResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to * 舊密碼錯誤，請再次輸入舊密碼。.
+        ///   Looks up a localized string similar to * 舊密碼錯誤，請再次輸入舊密碼.
         /// </summary>
         public static string CurrentPasswordNotMatch {
             get {
@@ -1384,6 +1393,15 @@ namespace THResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 請輸入新密碼.
+        /// </summary>
+        public static string NewPasswordRequired {
+            get {
+                return ResourceManager.GetString("NewPasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 下一頁.
         /// </summary>
         public static string NextPage {
@@ -1911,6 +1929,15 @@ namespace THResources {
         public static string ResetPasswordParagraph {
             get {
                 return ResourceManager.GetString("ResetPasswordParagraph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 重設密碼程序.
+        /// </summary>
+        public static string ResetPasswordProcess {
+            get {
+                return ResourceManager.GetString("ResetPasswordProcess", resourceCulture);
             }
         }
         

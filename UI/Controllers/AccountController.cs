@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Net.Mail;
-using System.Net.Mime;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Web.Configuration;
@@ -171,7 +170,7 @@ namespace UI.Controllers
 			{
 				if (WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
 				{
-					if (returnUrl.ToLower().Contains("confirmationsuccess")) return RedirectToAction("Index", "Home");
+					if (returnUrl.ToLower().Contains("confirmationsuccess") || returnUrl.ToLower().Contains("resetpasswordconfirmation")) return RedirectToAction("Index", "Home");
 					return RedirectToLocal(returnUrl);
 				}
 				
@@ -257,7 +256,13 @@ namespace UI.Controllers
 					}
 					string confirmationToken =
 						WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { model.Email }, true);
-					SendEmailConfirmation(model.Email, model.UserName, confirmationToken);
+
+					Dictionary<string, object> dict = new Dictionary<string, object>();
+					dict.Add("Subject", WcResources.CompleteRegisterProcess);
+					dict.Add("Type", "Register");
+					Session["SubjectType"] = dict;
+					SendEmailConfirmation(model.Email, model.UserName, confirmationToken, WcResources.CompleteRegisterProcess, "Register");
+					
 					return RedirectToAction("RegisterStepTwo", "Account");
 				}
 				catch (MembershipCreateUserException e)
@@ -270,7 +275,7 @@ namespace UI.Controllers
 			return View(model);
 		}
 
-		private void SendEmailConfirmation(string to, string username, string confirmationToken)
+		private void SendEmailConfirmation(string to, string username, string confirmationToken, string emailSubject, string type)
 		{
 			try
 			{
@@ -278,7 +283,11 @@ namespace UI.Controllers
 				email.To = to;
 				email.UserName = username;
 				email.ConfirmationToken = confirmationToken;
-				email.Subject = WcResources.CompleteRegisterProcess;
+				email.Subject = emailSubject;
+				Dictionary<string, object> dict = new Dictionary<string, object>();
+				dict.Add("Subject", emailSubject);
+				dict.Add("Type", type);
+				Session["SubjectType"] = dict;
 				email.Send();
 			}
 			catch (Exception ex)
@@ -292,7 +301,12 @@ namespace UI.Controllers
 		{
 			UserProfile user = AccountHelper.GetUserFromName(username);
 			string token = AccountHelper.GetConfirmTokenFromUser(user.UserId);
-			SendEmailConfirmation(user.Email, username, token);
+			string type = "ResetPassword";
+			Dictionary<string, object> dict = new Dictionary<string, object>();
+			dict.Add("Subject", WcResources.ResetPasswordComplete);
+			dict.Add("Type", type);
+			Session["SubjectType"] = dict;
+			SendEmailConfirmation(user.Email, username, token, WcResources.ResetPassword, type);
 
 		}
 
@@ -343,6 +357,7 @@ namespace UI.Controllers
 			return View();
 		}
 
+		// donetodo: test resetpassword function...
 		[AllowAnonymous]
 		public ActionResult ResetPassword()
 		{
@@ -366,6 +381,7 @@ namespace UI.Controllers
 					email.To = model.Email;
 					email.UserName = username;
 					email.ConfirmationToken = confirmationToken;
+					email.Subject = WcResources.ResetPasswordProcess;
 					email.Send();
 
 					return RedirectToAction("ResetPwdStepTwo");
@@ -376,15 +392,15 @@ namespace UI.Controllers
 			{
 				username = AccountHelper.GetUserNameFromEmail(model.Email);
 				ResendConfirmationEmail(username);
-				return RedirectToAction("ResetPwdEmailConfirmPending");
+				return RedirectToAction("ResetPwdStepTwo");
 			}
 		}
 
-		[AllowAnonymous]
-		public ActionResult ResetPwdEmailConfirmPending()
-		{
-			return View();
-		}
+		//[AllowAnonymous]
+		//public ActionResult ResetPwdEmailConfirmPending()
+		//{
+		//	return View();
+		//}
 
 		[AllowAnonymous]
 		public ActionResult InvalidUserName()
@@ -399,23 +415,23 @@ namespace UI.Controllers
 		}
 
 		[AllowAnonymous]
-		[HttpPost]
-		public ActionResult ResetPasswordConfirmation(ResetPasswordConfirmModel model)
-		{
-			if (WebSecurity.ResetPassword(model.Token, model.NewPassword))
-			{
-				return RedirectToAction("PasswordResetSuccess");
-			}
-			return RedirectToAction("PasswordResetFailure");
-		}
-
-		[AllowAnonymous]
 		public ActionResult ResetPasswordConfirmation(string Id)
 		{
 			ResetPasswordConfirmModel model = new ResetPasswordConfirmModel() { Token = Id };
 			return View(model);
 		}
 
+		[AllowAnonymous]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult ResetPasswordConfirmation(ResetPasswordConfirmModel model)
+		{
+			if (WebSecurity.ResetPassword(model.Token, model.NewPassword))
+			{
+				return View("ResetPasswordSuccess");
+			}
+			return View("ResetPasswordFailure");
+		}
 	
 		#region Helpers
 		private ActionResult RedirectToLocal(string returnUrl)
@@ -492,15 +508,5 @@ namespace UI.Controllers
 			}
 		}
 		#endregion
-
-		public ActionResult PasswordResetSuccess()
-		{
-			return View();
-		}
-
-		public ActionResult PasswordResetFailure()
-		{
-			return View();
-		}
 	}
 }

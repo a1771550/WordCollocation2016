@@ -1,6 +1,18 @@
 ﻿@{
-	ViewBag.Title = Resources.RegisterSuccess;
+	var dict = (Dictionary<string, object>)Session["SubjectType"];
+	ViewBag.Title = dict["Subject"].ToString();
+	string type = dict["Type"].ToString();
 }
 
 <h3>@ViewBag.Title</h3>
-<p>@Resources.RegisterSuccessText</p>
+@{
+	switch (type.ToLower())
+	{
+		case "register":
+			<p>@Resources.RegisterSuccessText</p>
+			break;
+		case "resetpassword":
+			<p>@Resources.ResetPasswordComplete</p>
+			break;
+	}
+}

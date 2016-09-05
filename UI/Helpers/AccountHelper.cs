@@ -41,8 +41,6 @@ namespace UI.Helpers
 
 		public static bool UpdateRole(Role role)
 		{
-			//string conn = WebConfigurationManager.ConnectionStrings["WcUser"].ConnectionString;
-			//string sql = string.Format("{0}UpdateRole", dbPrefix);
 			string sql = GetQueryNameWithPrefix("UpdateRole");
 			SqlParameter[] sqlParameters = new SqlParameter[2];
 			SqlParameter roleIdParam = new SqlParameter();
@@ -155,35 +153,34 @@ namespace UI.Helpers
 		public static UserProfile GetUserFromName(string username)
 		{
 			UsersContext db = new UsersContext();
-			return
-				db.UserProfiles.FirstOrDefault(u => string.Equals(u.UserName, username, StringComparison.CurrentCultureIgnoreCase));
+			var users =
+			db.UserProfiles.Where(u => u.UserName.Equals(username, StringComparison.OrdinalIgnoreCase));
+			return users.SingleOrDefault();
 		}
 
 		public static string GetEmailFromUser(string username)
 		{
 			UsersContext db = new UsersContext();
-			UserProfile user =
-				db.UserProfiles.FirstOrDefault(u => string.Equals(u.UserName, username, StringComparison.CurrentCultureIgnoreCase));
-			if (user != null)
-				return user.Email;
-			return null;
+			var users =
+				db.UserProfiles.Where(u => string.Equals(u.UserName, username, StringComparison.CurrentCultureIgnoreCase));
+			var singleOrDefault = users.SingleOrDefault();
+			return singleOrDefault?.Email;
 		}
 
 		public static string GetUserNameFromEmail(string email)
 		{
 			UsersContext db = new UsersContext();
-			UserProfile user = db.UserProfiles.FirstOrDefault(u => u.Email.ToLower().Equals(email.ToLower()));
-			if (user != null)
-				return user.UserName;
-			return null;
+			var users = db.UserProfiles.Where(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+			return users.SingleOrDefault()?.UserName;
 		}
 
 		public static bool CheckIfUserEmailConfirmed(string email)
 		{
 			UsersContext db = new UsersContext();
-			UserProfile user = db.UserProfiles.FirstOrDefault(u => u.Email.ToLower().Equals(email.ToLower()));
-			if (user != null)
+			var users = db.UserProfiles.Where(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+			if (users.Single() != null)
 			{
+				UserProfile user = users.Single();
 				string sql = GetQueryNameWithPrefix("CheckIfUserEmailConfirmed");
 				SqlParameter[] sqlParameters = new SqlParameter[1];
 				SqlParameter userIdParam = new SqlParameter();
@@ -290,16 +287,14 @@ namespace UI.Helpers
 		public static bool CheckIfDuplicatedEmail(string email)
 		{
 			UsersContext db = new UsersContext();
-			return db.UserProfiles.Any(u => u.Email.ToLower().Equals(email.ToLower()));
+			return db.UserProfiles.Any(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
 		}
 
 		public static string GetUserNameById(int userId)
 		{
 			UsersContext db = new UsersContext();
-			var firstOrDefault = db.UserProfiles.FirstOrDefault(u => u.UserId == userId);
-			if (firstOrDefault != null)
-				return firstOrDefault.UserName;
-			return null;
+			var users = db.UserProfiles.Where(u => u.UserId == userId);
+			return users.SingleOrDefault()?.UserName;
 		}
 	}
 }
