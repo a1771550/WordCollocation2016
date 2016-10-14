@@ -1042,28 +1042,33 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 			string sourceText = null;
 			if (source!=null)
 			{
-				if (source.ToString().ToLower().Contains("new"))
+				switch (source)
 				{
-					sourceText = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.ChDictUrl, THResources.Resources.CH);
+					case (short)ExampleSource.OXFORD_COLLOCATIONS_DICTIONARY:
+						sourceText = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.OxfordDictUrl, THResources.Resources.Oxford);
+						break;
+					case (short)ExampleSource.NEW_DICTIONARY_OF_ENGLISH_COLLOCATIONS:
+						sourceText = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.ChDictUrl, THResources.Resources.CH);
+						break;
+					case (short)ExampleSource.NEWSPAPER:
+						sourceText = THResources.Resources.Newspaper;
+						break;
+					case (short)ExampleSource.WEB:
+						sourceText = THResources.Resources.Web;
+						break;
+					case (short)ExampleSource.FICTION:
+						sourceText =THResources.Resources.Fiction;
+						break;
+					case (short)ExampleSource.OTHERS:
+						sourceText = THResources.Resources.Others;
+						break;
 				}
-				else if (source.ToString().ToLower().Contains("oxford"))
-				{
-					sourceText = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.OxfordDictUrl, THResources.Resources.Oxford);
-				}
-
-				//string remark;
-				//if (culturename.Contains("hans"))
-				//	remark = example.RemarkZhs;
-				//else if (culturename.Contains("ja"))
-				//	remark = example.RemarkJap;
-				//else
-				//	remark = example.RemarkZht;
 
 				if (string.IsNullOrEmpty(example.Remark))
 					return string.Format("({0}{1})", THResources.Resources.SourceText, sourceText);
-				return string.Format("({0}{1}{2} {3}{4} {5})", THResources.Resources.SourceText, sourceText, ";",THResources.Resources.Remark, ":", example.Remark);
+				return string.Format("({0}{1};{2}:{3})", THResources.Resources.SourceText, sourceText, THResources.Resources.Remark, example.Remark);
 			}
-			sourceText = "Web"; //default as Web for the source, so as to be more efficient when creating or editing
+			sourceText = THResources.Resources.Web; //default as Web for the source, so as to be more efficient when creating or editing
 			return string.Format("({0}{1})", THResources.Resources.SourceText, sourceText);
 		}
 

@@ -798,4 +798,10 @@
   <data name="WebServices" xml:space="preserve">
     <value>ウェブサービス</value>
   </data>
+  <data name="Fiction" xml:space="preserve">
+    <value>フィクション</value>
+  </data>
+  <data name="Newspaper" xml:space="preserve">
+    <value>新聞</value>
+  </data>
 </root>

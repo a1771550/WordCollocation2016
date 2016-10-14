@@ -816,4 +816,10 @@
   <data name="WebServices" xml:space="preserve">
     <value>网络服务</value>
   </data>
+  <data name="Fiction" xml:space="preserve">
+    <value>小说</value>
+  </data>
+  <data name="Newspaper" xml:space="preserve">
+    <value>报纸</value>
+  </data>
 </root>

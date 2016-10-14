@@ -997,6 +997,15 @@ namespace THResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 小說.
+        /// </summary>
+        public static string Fiction {
+            get {
+                return ResourceManager.GetString("Fiction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 名字.
         /// </summary>
         public static string FirstName {
@@ -1407,6 +1416,15 @@ namespace THResources {
         public static string NewPasswordRequired {
             get {
                 return ResourceManager.GetString("NewPasswordRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 報紙.
+        /// </summary>
+        public static string Newspaper {
+            get {
+                return ResourceManager.GetString("Newspaper", resourceCulture);
             }
         }
         
