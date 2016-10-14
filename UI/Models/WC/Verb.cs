@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
-using BLL;
+using MyWcModel;
 
 namespace UI.Models.WC
 {
@@ -40,9 +40,12 @@ namespace UI.Models.WC
 		<PastParticiple>abided</PastParticiple>
 	</Verb>
 				 */
-				Infinitive = verb.Element("Infinitive").Value.Trim();
-				SimplePast = verb.Element("SimplePast").Value.Trim();
-				PastParticiple = verb.Element("PastParticiple").Value.Trim();
+				var xElement = verb.Element("Infinitive");
+				if (xElement != null) Infinitive = xElement.Value.Trim();
+				var element = verb.Element("SimplePast");
+				if (element != null) SimplePast = element.Value.Trim();
+				var o = verb.Element("PastParticiple");
+				if (o != null) PastParticiple = o.Value.Trim();
 				verblist.Add(Infinitive, string.Concat(SimplePast,"|",PastParticiple));
 			}
 			return verblist;

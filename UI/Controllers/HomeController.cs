@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
-using BLL;
+using MyWcModel;
 using CommonLib.Helpers;
 using UI.Controllers.Abstract;
 using UI.Models.Misc;

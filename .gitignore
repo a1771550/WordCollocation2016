@@ -8,3 +8,4 @@
 */bin/*
 */obj/*
 *.cache
+*/backup/*

@@ -322,6 +322,15 @@ namespace THResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 搭配.
+        /// </summary>
+        public static string Collocation {
+            get {
+                return ResourceManager.GetString("Collocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 搭配型態.
         /// </summary>
         public static string CollocationPattern {
@@ -2532,6 +2541,15 @@ namespace THResources {
         public static string Web {
             get {
                 return ResourceManager.GetString("Web", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 網絡服務.
+        /// </summary>
+        public static string WebServices {
+            get {
+                return ResourceManager.GetString("WebServices", resourceCulture);
             }
         }
         

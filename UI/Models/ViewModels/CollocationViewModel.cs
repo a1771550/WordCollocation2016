@@ -2,8 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
-using BLL;
-using BLL.Abstract;
+using MyWcModel;
+using MyWcModel.Abstract;
 using UI.Models.Abstract;
 using UI.Models.Misc;
 using UI.Models.Paging;
@@ -13,17 +13,17 @@ namespace UI.Models.ViewModels
 	public class CollocationViewModel : WcManageViewModelBase
 	{
 		private CollocationRepository repo;
-		private List<Collocation> _CollocationList;
+		private List<collocation> _CollocationList;
 		private readonly int page;
-		private readonly Collocation collocation;
+		private readonly collocation collocation;
 		public CollocationPagingInfo CollocationPagingInfo { get; set; }
 
-		public List<Collocation> CollocationList
+		public List<collocation> CollocationList
 		{
 			get { return _CollocationList; }
 		}
 
-		public Collocation Collocation { get { return collocation; } }
+		public collocation Collocation { get { return collocation; } }
 
 		public int PageSize = SiteConfiguration.WcViewPageSize;
 
@@ -31,7 +31,7 @@ namespace UI.Models.ViewModels
 		{
 		}
 
-		public CollocationViewModel(Collocation collocation)
+		public CollocationViewModel(collocation collocation)
 		{
 			this.collocation = collocation;
 		}
@@ -77,7 +77,7 @@ namespace UI.Models.ViewModels
 		{
 			get
 			{
-				var id = collocation == null ? null : collocation.posId.ToString();
+				var id = collocation == null ? null : collocation.word.pos.Id.ToString();
 				return new CommonViewModel(ModelType.Pos, id).CommonDropDownList;
 			}
 		}
@@ -85,7 +85,7 @@ namespace UI.Models.ViewModels
 		public List<SelectListItem> ColPosDropDownList
 		{
 			get { 
-				var id = collocation == null ? null : collocation.colPosId.ToString();
+				var id = collocation == null ? null : collocation.colword.pos.Id.ToString();
 				return new CommonViewModel(ModelType.ColPos, id).CommonDropDownList; 
 			}
 		}
@@ -107,6 +107,7 @@ namespace UI.Models.ViewModels
 				//ddlEntity.Add(new SelectListItem { Text = CollocationPattern.preposition_verb.ToString(), Value = CollocationPattern.preposition_verb.ToString(), Selected = collocation.CollocationPattern == CollocationPattern.preposition_verb });
 				ddlEntity.Add(new SelectListItem { Text = CollocationPattern.verb_noun.ToString(), Value = CollocationPattern.verb_noun.ToString(), Selected = collocation != null && collocation.CollocationPattern == (int) CollocationPattern.verb_noun });
 				ddlEntity.Add(new SelectListItem { Text = CollocationPattern.verb_preposition.ToString(), Value = CollocationPattern.verb_preposition.ToString(), Selected = collocation != null && collocation.CollocationPattern == (int) CollocationPattern.verb_preposition });
+				ddlEntity.Add(new SelectListItem { Text = CollocationPattern.phrase_noun.ToString(), Value = CollocationPattern.phrase_noun.ToString(), Selected = collocation != null && collocation.CollocationPattern == (int)CollocationPattern.phrase_noun });
 				return ddlEntity;
 			}
 		}
@@ -158,7 +159,7 @@ namespace UI.Models.ViewModels
 		public string ColPosZhs { get; set; }
 
 
-		public List<Example> ExampleList { get; set; }
+		public List<example> ExampleList { get; set; }
 
 		// dont's put this notaion into bll, otherwise resulting in THResources.Resources ambigious reference...
 		[Required, Range(0, 20, ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "CollocationPatternRequired")]

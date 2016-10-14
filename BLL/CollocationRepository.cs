@@ -87,40 +87,6 @@ namespace BLL
 			}
 		}
 
-		//public bool[] Add(Collocation collocation, out long collocationId)
-		//{
-		//	bool[] bRet = new bool[3];
-		//	collocationId = 0;
-
-		//	bRet[0] = CheckIfDuplicatedEntry(collocation);
-
-		//	if (bRet[0])
-		//	{
-		//		bRet[1] = false;
-		//		return bRet;
-		//	}
-
-		//	try
-		//	{
-		//		using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
-		//		{
-		//			collocationId = Convert.ToInt64(Adapter.InsertQuery(collocation.posId, collocation.colPosId, collocation.wordId, collocation.colWordId,
-		//			(int)collocation.CollocationPattern));
-		//			scope.Complete();
-		//			bRet[1] = collocationId > 0;
-		//		}
-		//	}
-		//	catch (TransactionException ex)
-		//	{
-		//		throw new Exception(ex.Message, ex.InnerException);
-		//	}
-		//	CacheHelper.Clear(GetCacheName);
-
-		//	bRet[2] = UpdateOtherIDTables(collocation);
-
-		//	return bRet;
-		//}
-
 		private static void UpdateCanDel(Collocation collocation, bool del)
 		{
 			PosRepository posDb = new PosRepository();

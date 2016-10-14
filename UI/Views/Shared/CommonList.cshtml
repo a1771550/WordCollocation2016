@@ -1,4 +1,4 @@
-﻿@using BLL.Abstract
+﻿@using MyWcModel.Abstract
 @using UI.Helpers
 @model UI.Models.ViewModels.CommonViewModel
 
@@ -48,7 +48,7 @@
 
 			}
 			break;
-		case ModelType.ColPos:
+		@*case ModelType.ColPos:
 			//@Html.Partial("_CommonListItemsPartial", Model.ColPosList, dict)
 			foreach (var item in Model.ColPosList)
 			{
@@ -58,7 +58,7 @@
 				dict.Add("Id", item.Id.ToString());
 				@Html.Partial("_CommonListItemsPartial", dict)
 			}
-			break;
+			break;*@
 		case ModelType.Word:
 			//@Html.Partial("_CommonListItemsPartial", Model.WordList, dict)
 			foreach (var item in Model.WordList)
@@ -70,7 +70,7 @@
 				@Html.Partial("_CommonListItemsPartial", dict)
 			}
 			break;
-		case ModelType.ColWord:
+		@*case ModelType.ColWord:
 			//@Html.Partial("_CommonListItemsPartial", Model.ColWordList, dict)
 			foreach (var item in Model.ColWordList)
 			{
@@ -80,7 +80,7 @@
 				dict.Add("Id", item.Id.ToString());
 				@Html.Partial("_CommonListItemsPartial", dict)
 			}
-			break;
+			break;*@
 	}
 		
 	</tbody>

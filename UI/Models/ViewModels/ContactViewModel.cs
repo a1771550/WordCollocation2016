@@ -3,7 +3,7 @@ using UI.Models.Abstract;
 
 namespace UI.Models.ViewModels
 {
-	public class ContactViewModel:CommonViewModelBase
+	public class ContactViewModel
 	{
 		[Display(ResourceType = typeof (THResources.Resources), Name = "Name")]
 		[Required(ErrorMessageResourceName = "NameRequired", ErrorMessageResourceType = typeof(THResources.Resources))]

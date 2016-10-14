@@ -810,4 +810,10 @@
   <data name="CaptchaRequired" xml:space="preserve">
     <value>请输入验证码</value>
   </data>
+  <data name="Collocation" xml:space="preserve">
+    <value>搭配</value>
+  </data>
+  <data name="WebServices" xml:space="preserve">
+    <value>网络服务</value>
+  </data>
 </root>

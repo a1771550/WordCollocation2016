@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UI.Admin.WordCollocation {
+namespace UI {
     
     
-    public partial class Example {
+    public partial class MyWcDemo {
         
         /// <summary>
-        /// SearchBox1 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UI.Controls.SearchBox SearchBox1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// EntityList1 control.
+        /// Output control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::UI.Controls.EntityList EntityList1;
+        protected global::System.Web.UI.WebControls.Label Output;
     }
 }

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Caching;
-using BLL;
+using System.Web.Configuration;
 using CommonLib.Helpers;
 using Microsoft.VisualBasic;
-using THResources;
+using MyWcModel;
 using UI.Models.Misc;
+using UI.Models.WC;
 
 namespace UI.Helpers
 {
@@ -17,7 +18,7 @@ namespace UI.Helpers
 	public static class WcHelper
 	{
 		private const string RegularVerbListCacheName = "RegularVerbList";
-		private const string RegularVerbListCacheName1 = "RegularVerbList1";
+		//private const string RegularVerbListCacheName1 = "RegularVerbList1";
 		private const string IrregularVerbListCacheName = "IrregularVerbList";
 
 		//private static readonly string DateTimeFormat = SiteConfiguration.DateTimeFormat;
@@ -43,17 +44,35 @@ namespace UI.Helpers
 			Delete
 		}
 
+		public static void GetAdminUrls(out WcAdminUrl wcAdminUrl)
+		{
+			string url = WebConfigurationManager.AppSettings.Get("WcAdminUrl"); // "http://www.translationhall.com/";
+			wcAdminUrl.PosUrl = url + "pos";
+			wcAdminUrl.WordUrl = url + "word";
+			wcAdminUrl.ColUrl = url + "collocation";
+			wcAdminUrl.ExUrl = url + "example";
+		}
+
+		public static void GetAdminUrlLinks(out WcAdminUrl wcAdminUrlLink)
+		{
+			GetAdminUrls(out wcAdminUrlLink);
+			wcAdminUrlLink.PosUrl = string.Format("<a href='{0}' target='_blank'>{1}</a>", wcAdminUrlLink.PosUrl, THResources.Resources.Pos);
+			wcAdminUrlLink.WordUrl = string.Format("<a href='{0}' target='_blank'>{1}</a>", wcAdminUrlLink.WordUrl, THResources.Resources.Word);
+			wcAdminUrlLink.ColUrl = string.Format("<a href='{0}' target='_blank'>{1}</a>", wcAdminUrlLink.ColUrl, THResources.Resources.Collocate);
+			wcAdminUrlLink.ExUrl = string.Format("<a href='{0}' target='_blank'>{1}</a>", wcAdminUrlLink.ExUrl, THResources.Resources.Example);
+		}
+
 		public static string SetPageTitle(string pageTitle)
 		{
 			return THResources.Resources.SiteTitle + SiteConfiguration.TitleSeperator + THResources.Resources.RegisterSuccess;
 		}
 
-		public static List<Example> GetFormattedExamples(Collocation collocation)
+		public static List<example> GetFormattedExamples(collocation collocation)
 		{
-			string verb = collocation.Word.Entry;
-			string pos = collocation.Pos.Entry;
-			string colWord = collocation.ColWord.Entry;
-			string colpos = collocation.ColPos.Entry;
+			string verb = collocation.word.Entry;
+			string pos = collocation.word.pos.Entry;
+			string colWord = collocation.colword.Entry;
+			string colpos = collocation.colword.pos.Entry;
 			var repo = new ExampleRepository();
 			var examples = repo.GetListByCollocationId(collocation.Id);
 
@@ -892,7 +911,7 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 
 			#region IrregularVerb Past Tense & Part Particple
 
-			Dictionary<string, string[]> irregularVerbList;
+			Dictionary<string, string> irregularVerbList;
 			if (CheckVerbIfIrregular(verb, out irregularVerbList))
 			{
 				//try past tense first
@@ -900,7 +919,9 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 				{
 					if (verb == key)
 					{
-						string pastTense = irregularVerbList[key][0];
+						// verblist.Add(Infinitive, string.Concat(SimplePast,"|",PastParticiple));
+						//string pastTense = irregularVerbList[key][0];
+						string pastTense = irregularVerbList[key].Split(Convert.ToChar("|"))[0];
 						VerbForPattern = pastTense;
 						exampleWithFormattedVerb = FormatExampleWithWord(example, VerbForPattern, isWord);
 						if (exampleWithFormattedVerb != null) return exampleWithFormattedVerb;
@@ -912,7 +933,8 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 				{
 					if (verb == key)
 					{
-						string pastParticiple = irregularVerbList[key][1];
+						//string pastParticiple = irregularVerbList[key][1];
+						string pastParticiple = irregularVerbList[key].Split(Convert.ToChar("|"))[1];
 						VerbForPattern = pastParticiple;
 						exampleWithFormattedVerb = FormatExampleWithWord(example, VerbForPattern, isWord);
 						if (exampleWithFormattedVerb != null) return exampleWithFormattedVerb;
@@ -949,7 +971,7 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 		private static bool CheckVerbIfRegular(string verb)
 		{
 			List<string> regularVerbList;
-			List<string> regularVerbList1;
+			//List<string> regularVerbList1;
 
 			Verb v = new Verb();
 			if (HttpContext.Current.Cache[RegularVerbListCacheName] == null)
@@ -963,16 +985,16 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 			else
 				regularVerbList = (List<string>)HttpContext.Current.Cache[RegularVerbListCacheName];
 
-			if (HttpContext.Current.Cache[RegularVerbListCacheName1] == null)
-			{
-				regularVerbList1 = v.GetRegularVerbList1();
-				CacheDependency dep = new CacheDependency(HttpContext.Current.Server.MapPath(SiteConfiguration.RegularVerbsXMLFile1));
-				HttpContext.Current.Cache.Insert(RegularVerbListCacheName1, regularVerbList1, dep,
-												 DateTime.Now.AddMinutes(SiteConfiguration.CacheExpiration_Minutes),
-												 TimeSpan.Zero, CacheItemPriority.High, null);
-			}
-			else
-				regularVerbList1 = (List<string>)HttpContext.Current.Cache[RegularVerbListCacheName1];
+			//if (HttpContext.Current.Cache[RegularVerbListCacheName1] == null)
+			//{
+			//	regularVerbList1 = v.GetRegularVerbList1();
+			//	CacheDependency dep = new CacheDependency(HttpContext.Current.Server.MapPath(SiteConfiguration.RegularVerbsXMLFile1));
+			//	HttpContext.Current.Cache.Insert(RegularVerbListCacheName1, regularVerbList1, dep,
+			//									 DateTime.Now.AddMinutes(SiteConfiguration.CacheExpiration_Minutes),
+			//									 TimeSpan.Zero, CacheItemPriority.High, null);
+			//}
+			//else
+			//	regularVerbList1 = (List<string>)HttpContext.Current.Cache[RegularVerbListCacheName1];
 
 			bool isRegular = false;
 			foreach (string vb in regularVerbList)
@@ -983,19 +1005,19 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 					break;
 				}
 			}
-			foreach (string vb in regularVerbList1)
-			{
-				if (vb.ToLower().Contains(verb))
-				{
-					isRegular = true;
-					break;
-				}
-			}
-			//return (regularVerbList.Any(vb => vb.ToLower() == verb || vb.ToLower().Contains(verb)));
+			//foreach (string vb in regularVerbList1)
+			//{
+			//	if (vb.ToLower().Contains(verb))
+			//	{
+			//		isRegular = true;
+			//		break;
+			//	}
+			//}
+			
 			return isRegular;
 		}
 
-		private static bool CheckVerbIfIrregular(string verb, out Dictionary<string, string[]> irregularVerbList)
+		private static bool CheckVerbIfIrregular(string verb, out Dictionary<string, string> irregularVerbList)
 		{
 			//Dictionary<string, string[]> irregularVerbList;
 			Verb v = new Verb();
@@ -1008,66 +1030,50 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 												 DateTime.Now.AddMinutes(SiteConfiguration.CacheExpiration_Minutes),
 												 TimeSpan.Zero, CacheItemPriority.High, null);
 			}
-			else irregularVerbList = (Dictionary<string, string[]>)HttpContext.Current.Cache[IrregularVerbListCacheName];
+			else irregularVerbList = (Dictionary<string, string>)HttpContext.Current.Cache[IrregularVerbListCacheName];
 
 			return (irregularVerbList.ContainsKey(verb));
 		}
 
-		public static string GetSourceRemark(Example example)
+		public static string GetSourceRemark(example example)
 		{
-			var culturename = CultureHelper.GetCurrentCulture();
-			string source = example.Source;
-			if (!string.IsNullOrEmpty(source))
+			//var culturename = CultureHelper.GetCurrentCulture();
+			short? source = example.Source;
+			string sourceText = null;
+			if (source!=null)
 			{
-				if (source.ToLower().Contains("ch"))
+				if (source.ToString().ToLower().Contains("new"))
 				{
-					source = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.ChDictUrl, THResources.Resources.CH);
+					sourceText = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.ChDictUrl, THResources.Resources.CH);
 				}
-				else if (source.ToLower().Contains("oxford"))
+				else if (source.ToString().ToLower().Contains("oxford"))
 				{
-					source = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.OxfordDictUrl, THResources.Resources.Oxford);
+					sourceText = string.Format(@"<a href=""{0}"" target=""_blank"">{1}</a>", SiteConfiguration.OxfordDictUrl, THResources.Resources.Oxford);
 				}
 
-				string remark;
-				if (culturename.Contains("hans"))
-					remark = example.RemarkZhs;
-				else if (culturename.Contains("ja"))
-					remark = example.RemarkJap;
-				else
-					remark = example.RemarkZht;
+				//string remark;
+				//if (culturename.Contains("hans"))
+				//	remark = example.RemarkZhs;
+				//else if (culturename.Contains("ja"))
+				//	remark = example.RemarkJap;
+				//else
+				//	remark = example.RemarkZht;
 
-				if (string.IsNullOrEmpty(remark))
-					return string.Format("({0}{1})", THResources.Resources.SourceText, source);
-				return string.Format("({0}{1}{2} {3}{4} {5})", THResources.Resources.SourceText, source, ";",THResources.Resources.Remark, ":", remark);
+				if (string.IsNullOrEmpty(example.Remark))
+					return string.Format("({0}{1})", THResources.Resources.SourceText, sourceText);
+				return string.Format("({0}{1}{2} {3}{4} {5})", THResources.Resources.SourceText, sourceText, ";",THResources.Resources.Remark, ":", example.Remark);
 			}
-			source = "Web"; //default as Web for the source, so as to be more efficient when creating or editing
-			return string.Format("({0}{1})", THResources.Resources.SourceText, source);
+			sourceText = "Web"; //default as Web for the source, so as to be more efficient when creating or editing
+			return string.Format("({0}{1})", THResources.Resources.SourceText, sourceText);
 		}
 
-		public static string GetFormattedExample(string example, Collocation collocation)
+		public static string GetFormattedExample(string example, collocation collocation)
 		{
-			string word = collocation.Word.Entry;
-			string pos = collocation.Pos.Entry;
-			string colWord = collocation.ColWord.Entry;
-			string colpos = collocation.ColPos.Entry;
+			string word = collocation.word.Entry;
+			string pos = collocation.word.pos.Entry;
+			string colWord = collocation.colword.Entry;
+			string colpos = collocation.colword.pos.Entry;
 			return FormatExampleForView(example, word, pos, colWord, colpos, (CollocationPattern) collocation.CollocationPattern);
 		}
-
-		
-		//public static string ToClientTime(this DateTime dt)
-		//{
-		//	var timeOffSet = HttpContext.Current.Session["timezoneoffset"];  // read the value from session
-
-		//	if (timeOffSet != null)
-		//	{
-		//		var offset = int.Parse(timeOffSet.ToString());
-		//		dt = dt.AddMinutes(-1 * offset);
-
-		//		return dt.ToString();
-		//	}
-
-		//	// if there is no offset in session return the datetime in server timezone
-		//	return dt.ToLocalTime().ToString();
-		//}
 	}
 }

@@ -42,6 +42,8 @@ var showSuggestion = function ()
 				if ($("input#Word").val() == "") {
 					$("input#Word").val("abandon");
 					setDropDownList("abandon");
+				} else {
+					setDropDownList($('input#Word').val());
 				}
 				$(this).dialog("close");
 			} },
@@ -75,15 +77,10 @@ function setWord(w)
 	$("input#Word").val(w);
 };
 
-function setDropDownList(w)
-{
+function setDropDownList(w) {
+	//console.log('setDropdownlist called');
 	var wl = w.toLowerCase();
-	/*
-	<li><a href="#" class="lnkWord" tabindex="-1">abandon</a></li>
-	<li><a href="#" class="lnkWord" tabindex="-1">ability</a></li>
-	<li><a href="#" class="lnkWord" tabindex="-1">absence</a></li>
-	<li><a href="#" class="lnkWord" tabindex="-1">look</a></li>
-	*/
+	
 	switch (wl)
 	{
 		case "abandon":

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using BLL;
-using BLL.Abstract;
-using THResources;
+using MyWcModel;
+using MyWcModel.Abstract;
 using UI.Controllers.Abstract;
-using UI.Models;
 using UI.Models.ViewModels;
 
 namespace UI.Controllers
@@ -14,11 +12,6 @@ namespace UI.Controllers
 	public class PosController : WcControllerBase
 	{
 		private readonly PosRepository repo = new PosRepository();
-
-		public PosController()
-		{
-			
-		}
 
 		public ActionResult Index()
 		{
@@ -37,9 +30,9 @@ namespace UI.Controllers
 			return View("CommonEdit", pos);
 		}
 
-		// POST: Pos/Edit/5
+		// POST: pos/Edit/5
 		[HttpPost]
-		public ActionResult Edit(Pos pos, string returnUrl = null)
+		public ActionResult Edit(pos pos, string returnUrl = null)
 		{
 			try
 			{
@@ -49,7 +42,7 @@ namespace UI.Controllers
 					{
 						try
 						{
-							var p = new Pos
+							var p = new pos
 							{
 								Entry = pos.Entry,
 								EntryZht = pos.EntryZht,
@@ -84,7 +77,7 @@ namespace UI.Controllers
 					else //edit pos
 					{
 						var Id = Convert.ToInt16(pos.Id);
-						Pos p = repo.GetById(Id.ToString());
+						pos p = repo.GetById(Id.ToString());
 						if (p != null)
 						{
 							p.Id = Id;
@@ -111,7 +104,7 @@ namespace UI.Controllers
 			return null;
 		}
 
-		// GET: Pos/Delete/5
+		// GET: pos/Delete/5
 		public ActionResult Delete(short id, string returnUrl = null)
 		{
 			try

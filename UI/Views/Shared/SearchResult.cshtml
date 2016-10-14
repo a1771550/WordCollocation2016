@@ -1,9 +1,11 @@
-﻿@using CommonLib.Helpers
+﻿@using System.Web.Mvc.Html
+@using CommonLib.Helpers
+@using MyWcModel
 @using UI.Helpers
 @model UI.Models.ViewModels.SearchViewModel
 
 @{
-	ViewBag.Title = THResources.Resources.SearchResult;
+	ViewBag.Title = Resources.SearchResult;
 	Layout = "~/Views/Shared/_Layout.cshtml";
 	string definitionLink;
 	string culturename = CultureHelper.GetCurrentCulture();
@@ -37,23 +39,22 @@
 							<span class="wordTransHeading">@(Model.WordTrans)</span>
 							&nbsp;<span id="lblpos">(@Model.Pos @Model.PosTrans)</span>
 							&nbsp;&nbsp;
-							<a href="@definitionLink" target="_blank" title="@THResources.Resources.SeeDefinition"><img src="~/images/accessories_dictionary.png" style="vertical-align:bottom;" alt="@THResources.Resources.SeeDefinition" title="@THResources.Resources.SeeDefinition" /></a>
+							<a href="@definitionLink" target="_blank" title="@Resources.SeeDefinition"><img src="~/images/accessories_dictionary.png" style="vertical-align:bottom;" alt="@Resources.SeeDefinition" title="@Resources.SeeDefinition" /></a>
 						</h4>
 						<div class="indent-1em marginBottom05em colPatternHeadingText">
-							<span>@THResources.Resources.CollocationPattern:&nbsp;</span>
+							<span>@Resources.CollocationPattern:&nbsp;</span>
 							<span class="">@Model.Pattern[0]</span>&nbsp;
 							<span class="">@Model.Pattern[1]</span>
 						</div>
 					</div>
 
 
-					@foreach (Collocation collocation in Model.CollocationList)
+					@foreach (collocation collocation in Model.CollocationList)
 					{
-						var colWord = collocation.ColWord;
-						var colWordZht = colWord.EntryZht;
-						var colWordZhs = colWord.EntryZhs;
-						var colWordJap = colWord.EntryJap;
-						//var colWordTrans = culturename.Contains("hans") ? colWordZht : colWordJap;
+						var colWord = collocation.colword.Entry;
+						var colWordZht = collocation.colword.EntryZht;
+						var colWordZhs = collocation.colword.EntryZhs;
+						var colWordJap = collocation.colword.EntryJap;
 						string colWordTrans;
 						if (culturename.Contains("hans"))
 						{
@@ -68,7 +69,7 @@
 							colWordTrans = colWordZht;
 						}
 
-						var exampleList = collocation.Examples;
+						var exampleList = collocation.examples;
 						<div class="paddingLeftDot3em">
 							<table id="ColWordList" class="table table-striped" style="width: 99%">
 								<tbody>
@@ -76,12 +77,12 @@
 										<td>
 											<div class="colWordDiv indent-1em">
 												<h5>
-													<i class="halflings-icon share-alt"></i>&nbsp;<span class="colWordIcon">@colWord.Entry</span>&nbsp;
+													<i class="halflings-icon share-alt"></i>&nbsp;<span class="colWordIcon">@colWord</span>&nbsp;
 													<span class="colWordTrans">@colWordTrans</span>
 												</h5>
 
 												<div class="marginTop1em marginBottom05em">
-													<span class="exampleLabel">@THResources.Resources.ExampleText</span>
+													<span class="exampleLabel">@Resources.ExampleText</span>
 												</div>
 
 												@foreach (var example in exampleList)
@@ -108,5 +109,5 @@
 </div>
 
 <div id="continueSearch">
-	@Html.ActionLink(THResources.Resources.ContinueToSearch, "Index", "Home")
+	@Html.ActionLink(Resources.ContinueToSearch, "Index", "Home")
 </div>

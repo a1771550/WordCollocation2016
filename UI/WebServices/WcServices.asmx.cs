@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using BLL;
-using BLL.Abstract;
+using MyWcModel;
+using MyWcModel.Abstract;
 using UI.Helpers;
 using UI.Models.Misc;
 using WebMatrix.WebData;
@@ -17,7 +16,7 @@ namespace UI.WebServices
 	/// <summary>
 	/// Summary description for WcServices
 	/// </summary>
-	[WebService(Namespace = "http://www.translationhall.com/WebServices")]
+	[WebService(Namespace = "http://www.wordcollocation.net/WebServices")]
 	[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 	[ToolboxItem(false)]
 	// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 

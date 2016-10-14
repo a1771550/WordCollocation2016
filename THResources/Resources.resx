@@ -969,4 +969,10 @@
   <data name="ResetPasswordProcess" xml:space="preserve">
     <value>重設密碼程序</value>
   </data>
+  <data name="Collocation" xml:space="preserve">
+    <value>搭配</value>
+  </data>
+  <data name="WebServices" xml:space="preserve">
+    <value>網絡服務</value>
+  </data>
 </root>

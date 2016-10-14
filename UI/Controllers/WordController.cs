@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using BLL;
-using BLL.Abstract;
-using THResources;
+using MyWcModel;
+using MyWcModel.Abstract;
 using UI.Controllers.Abstract;
-using UI.Models;
 using UI.Models.ViewModels;
 
 namespace UI.Controllers
@@ -32,9 +30,9 @@ namespace UI.Controllers
 			return View("CommonEdit", word);
 		}
 
-		// POST: Word/Edit/5
+		// POST: word/Edit/5
 		[HttpPost]
-		public ActionResult Edit(Word word, string returnUrl = null)
+		public ActionResult Edit(word word, string returnUrl = null)
 		{
 			try
 			{
@@ -44,7 +42,7 @@ namespace UI.Controllers
 					{
 						try
 						{
-							var w = new Word
+							var w = new word
 							{
 								Entry = word.Entry,
 								EntryZht = word.EntryZht,
@@ -83,7 +81,7 @@ namespace UI.Controllers
 					else //edit word
 					{
 						var Id = Convert.ToInt16(word.Id);
-						Word p = repo.GetById(Id.ToString());
+						word p = repo.GetById(Id.ToString());
 						if (p != null)
 						{
 							p.Id = Id;
@@ -114,7 +112,7 @@ namespace UI.Controllers
 			return null;
 		}
 
-		// GET: Word/Delete/5
+		// GET: word/Delete/5
 		public ActionResult Delete(short id, string returnUrl = null)
 		{
 			try

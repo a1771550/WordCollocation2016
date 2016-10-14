@@ -1,16 +1,10 @@
-﻿@using System.Web.Configuration
-@using CommonLib.Helpers
-@using UI.Helpers
+﻿@using UI.Helpers
+@using UI.Models.WC
 @{
-	//string rolename = CookieHelper.GetCookieValue("UserRoles");
 	bool isAdmin = Roles.IsUserInRole("Admin");
 	bool isEditor = Roles.IsUserInRole("Editor");
-	//if (!string.IsNullOrEmpty(rolename))
-	//{
-	//	string[] rolenames = TextHelper.Decrypt(rolename, WebConfigurationManager.AppSettings.Get("SecurityKey"), WebConfigurationManager.AppSettings.Get("KeyFileName")).Split(';');
-	//	isAdmin = rolenames.Any(name => name == "Admin");
-	//	isEditor = rolenames.Any(name => name == "Editor");
-	//}
+	WcAdminUrl wcAdminUrlLink;
+	WcHelper.GetAdminUrlLinks(out wcAdminUrlLink);
 }
 @if (Request.IsAuthenticated && (isAdmin || isEditor))
 {
@@ -18,21 +12,24 @@
 
 		@if (isAdmin)
 		{
-			@Html.ActionLink("Pos", "Index", "Pos")
-			@Html.Raw(" | ")
-			@Html.ActionLink("ColPos", "Index", "ColPos")@Html.Raw(" | ")
+			//@Html.ActionLink("Pos", "Index", "Pos")
+			@*<a href="@wcAdminUrl.PosUrl">@Resources.Pos</a>*@
+			@Html.Raw(wcAdminUrlLink.PosUrl)
 		}
 
+		@*<a href="@wcAdminUrl.WordUrl">@Resources.Word</a> |
+		<a href="@wcAdminUrl.ColUrl">@Resources.Collocation</a> |
+		<a href="@wcAdminUrl.ExUrl">@Resources.Example</a>*@
+
+
+		@*@Html.ActionLink("Word", "Index", "Word")@Html.Raw(" | ")
+		@Html.ActionLink("Collocation", "Index", "Collocation")@Html.Raw(" | ")
+			@Html.ActionLink("Example", "Index", "Example")*@
 		
-			@Html.ActionLink("Word", "Index", "Word")@Html.Raw(" | ")
-			@Html.ActionLink("ColWord", "Index", "ColWord")@Html.Raw(" | ")
-			@Html.ActionLink("Collocation", "Index", "Collocation")@Html.Raw(" | ")
-			@Html.ActionLink("Example", "Index", "Example")
-		
-			
+		@Html.Raw(wcAdminUrlLink.WordUrl) | @Html.Raw(wcAdminUrlLink.ColUrl) | @Html.Raw(wcAdminUrlLink.ExUrl)
 		
 		
 		@Html.Raw(" | ")
-		<a href="/WebServices/WcServices.asmx">Web Services</a>
+		<a href="/WebServices/WcServices.asmx">@Resources.WebServices</a>
 	</p>
 }

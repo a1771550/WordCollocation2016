@@ -1,22 +1,29 @@
-﻿<ul class="dropdown-menu">
+﻿@using UI.Helpers
+@using UI.Models.WC
+@{
+	WcAdminUrl wcAdminUrlLink;
+	WcHelper.GetAdminUrlLinks(out wcAdminUrlLink);
+}
+<ul class="dropdown-menu">
 	@if (Request.IsAuthenticated && User.IsInRole("Admin"))
 	{
-
 		<li>
-			@Html.ActionLink("Pos", "Index", "Pos")
+			@*@Html.ActionLink("Pos", "Index", "Pos")*@
+			@*<a href="@wcAdminUrl.PosUrl">@Resources.Pos</a>*@
+			@Html.Raw(wcAdminUrlLink.PosUrl)
 		</li>
-		<li>
-			@Html.ActionLink("ColPos", "Index", "ColPos")
-		</li>
+		
 
 	}
 	@if (Request.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Editor")))
 	{
 
-		<li>@Html.ActionLink("Word", "Index", "Word")</li>
-		<li>@Html.ActionLink("ColWord", "Index", "ColWord")</li>
+		@*<li>@Html.ActionLink("Word", "Index", "Word")</li>
 		<li>@Html.ActionLink("Collocation", "Index", "Collocation")</li>
-		<li>@Html.ActionLink("Example", "Index", "Example")</li>
-		<li><a href="/WebServices/WcServices.asmx">Web Services</a></li>
+		<li>@Html.ActionLink("Example", "Index", "Example")</li>*@
+		<li>@Html.Raw(wcAdminUrlLink.WordUrl)</li>
+		<li>@Html.Raw(wcAdminUrlLink.ColUrl)</li>
+		<li>@Html.Raw(wcAdminUrlLink.ExUrl)</li>
+		<li><a href="/WebServices/WcServices.asmx">@Resources.WebServices</a></li>
 	}
 </ul>

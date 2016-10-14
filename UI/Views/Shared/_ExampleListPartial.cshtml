@@ -1,7 +1,7 @@
-﻿@using BLL.Helpers
-@using CommonLib.Helpers
+﻿@using CommonLib.Helpers
+@using MyWcModel.Helpers
 @using UI.Helpers
-@model Example
+@model MyWcModel.example
 @{
 	var culturename = CultureHelper.GetCurrentCulture();
 	var exZht = Model.EntryZht;
@@ -21,7 +21,7 @@
 		exTrans = exZht;
 	}
 	var sourceRemark = WcHelper.GetSourceRemark(Model);
-	var collocation = BLLHelper.GetCollocationByCollocationId(Model.CollocationId);
+	var collocation = MyWcModelHelper.GetCollocationByCollocationId(Model.collocationId);
 	var formattedExample = WcHelper.GetFormattedExample(Model.Entry, collocation);
 }
 <table id="ExampleList" class="table table-striped table-hover">
