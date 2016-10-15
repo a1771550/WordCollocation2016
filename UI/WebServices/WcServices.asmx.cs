@@ -88,40 +88,28 @@ namespace UI.WebServices
 				var colrepo = new CollocationRepository();
 				var collocationList = colrepo.GetCollocationListByWordColPosId(word, wcpId);
 				string host = HttpContext.Current.Request.Headers["HOST"];
-				string url;
+				//string url;
 				string protocol = SiteConfiguration.Protocol + @"://";
 				if (collocationList.Count > 0)
 				{
 					HttpContext.Current.Session[CollocationListSessionName] = collocationList;
-					int pageSize = SiteConfiguration.WcViewPageSize;
-					int pageCount;
-					int listSize = collocationList.Count;
-					if (listSize > 10)
-						pageCount = (int)Math.Ceiling((double)(collocationList.Count / pageSize));
-					else pageCount = 1;
-					url = string.Format("{0}{1}{2}{3}", protocol, host, @"/Home/SearchResult/", pageCount);
-					return url;
+					//int pageSize = SiteConfiguration.WcViewPageSize;
+					//int pageCount;
+					//int listSize = collocationList.Count;
+					//int colPageSize = SiteConfiguration.WcColListPageSize;
+					//if (listSize > colPageSize)
+					//	pageCount = (int)Math.Ceiling((double)(collocationList.Count / pageSize));
+					//else pageCount = 1;
+					// return url;
+					// url = string.Format("{0}{1}{2}{3}", protocol, host, @"/Home/SearchResult/", pageCount);
+					return string.Format("{0}{1}{2}", protocol, host, @"/Home/SearchResult");
+					
 				}
-				url = string.Format("{0}{1}{2}", protocol, host, @"/Home/NoSearchResult");
-				return url;
+				return string.Format("{0}{1}{2}", protocol, host, @"/Home/NoSearchResult");
+				//return url;
 			}
 			return null;
 		}
-
-		//[WebMethod]
-		//public bool[] CheckEmail(string email)
-		//{
-		//	bool[] bRet = new bool[2];
-		//	if (CheckIfDuplicatedEmail(email)) bRet[0] = false;
-		//	else bRet[0] = true;
-
-		//	string pattern = SiteConfiguration.EmailPattern;
-		//	Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
-		//	if (!regex.IsMatch(email))
-		//		bRet[1] = false;
-		//	else bRet[1] = true;
-		//	return bRet;
-		//}
 
 		[WebMethod]
 		public bool CheckIfDuplicatedEntry(ModelType entity, params string[] entities)

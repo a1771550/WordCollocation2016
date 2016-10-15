@@ -12,8 +12,8 @@
 		<asp:GridView runat="server" ID="gvPos" AllowPaging="True" AllowSorting="True" 
 			DataSourceID="SqlDataSource1" pages="5"></asp:GridView>
     	<asp:SqlDataSource ID="SqlDataSource1" runat="server"
-			ConnectionString="<%$ ConnectionStrings:MySqlPosConn %>"
-			ProviderName="<%$ ConnectionStrings:MySqlPosConn.ProviderName %>"
+			ConnectionString="<%$ ConnectionStrings:TongLing_wordcollocation %>"
+			ProviderName="<%$ ConnectionStrings:TongLing_wordcollocation.ProviderName %>"
 			SelectCommand="SELECT Id, Entry, EntryZht, EntryZhs, EntryJap FROM pos">
 		</asp:SqlDataSource>
     </div>
