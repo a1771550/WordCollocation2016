@@ -3,27 +3,27 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
 using MyWcModel;
-using MyWcModel.Abstract;
 using UI.Models.Abstract;
 using UI.Models.Misc;
 using UI.Models.Paging;
+using UI.Models.WC;
 
 namespace UI.Models.ViewModels
 {
 	public class CollocationViewModel : WcManageViewModelBase
 	{
 		private CollocationRepository repo;
-		private List<collocation> _CollocationList;
+		private List<Collocation> _CollocationList;
 		private readonly int page;
-		private readonly collocation collocation;
+		private readonly Collocation collocation;
 		public CollocationPagingInfo CollocationPagingInfo { get; set; }
 
-		public List<collocation> CollocationList
+		public List<Collocation> CollocationList
 		{
 			get { return _CollocationList; }
 		}
 
-		public collocation Collocation { get { return collocation; } }
+		public Collocation Collocation { get { return collocation; } }
 
 		public int PageSize = SiteConfiguration.WcViewPageSize;
 
@@ -31,53 +31,53 @@ namespace UI.Models.ViewModels
 		{
 		}
 
-		public CollocationViewModel(collocation collocation)
+		public CollocationViewModel(Collocation collocation)
 		{
 			this.collocation = collocation;
 		}
 
-		public CollocationViewModel(int page = 1)
-			: this()
-		{
-			this.page = page;
-			GetCollocationList();
-		}
+		//public CollocationViewModel(int page = 1)
+		//	: this()
+		//{
+		//	this.page = page;
+		//	GetCollocationList();
+		//}
 
-		public CollocationViewModel(long id)
-		{
-			repo = new CollocationRepository();
-			collocation = repo.GetById(id.ToString());
-		}
+		//public CollocationViewModel(long id)
+		//{
+		//	repo = new CollocationRepository();
+		//	collocation = repo.GetById(id.ToString());
+		//}
 
-		private void GetCollocationList()
-		{
-			repo = new CollocationRepository();
-			_CollocationList = repo.GetList();
-			SetPageInfo();
-		}
+		//private void GetCollocationList()
+		//{
+		//	repo = new CollocationRepository();
+		//	_CollocationList = repo.GetList();
+		//	SetPageInfo();
+		//}
 
-		private void SetPageInfo()
-		{
-			CollocationPagingInfo pagingInfo = new CollocationPagingInfo();
-			pagingInfo.CurrentPage = page;
-			pagingInfo.CollocationsPerPage = PageSize;
+		//private void SetPageInfo()
+		//{
+		//	CollocationPagingInfo pagingInfo = new CollocationPagingInfo();
+		//	pagingInfo.CurrentPage = page;
+		//	pagingInfo.CollocationsPerPage = PageSize;
 
-			if (_CollocationList != null && _CollocationList.Count > 0)
-			{
-				if (page >= 1)
-				{
-					pagingInfo.TotalCollocations = _CollocationList.Count();
-					CollocationPagingInfo = pagingInfo;
-					_CollocationList = _CollocationList.Skip((page - 1) * PageSize).Take(PageSize).ToList();
-				}
-			}
-		}
+		//	if (_CollocationList != null && _CollocationList.Count > 0)
+		//	{
+		//		if (page >= 1)
+		//		{
+		//			pagingInfo.TotalCollocations = _CollocationList.Count();
+		//			CollocationPagingInfo = pagingInfo;
+		//			_CollocationList = _CollocationList.Skip((page - 1) * PageSize).Take(PageSize).ToList();
+		//		}
+		//	}
+		//}
 
 		public List<SelectListItem> PosDropDownList
 		{
 			get
 			{
-				var id = collocation == null ? null : collocation.word.pos.Id.ToString();
+				var id = collocation == null ? null : collocation.Word.pos.Id.ToString();
 				return new CommonViewModel(ModelType.Pos, id).CommonDropDownList;
 			}
 		}
@@ -159,7 +159,7 @@ namespace UI.Models.ViewModels
 		public string ColPosZhs { get; set; }
 
 
-		public List<example> ExampleList { get; set; }
+		public List<Example> ExampleList { get; set; }
 
 		// dont's put this notaion into bll, otherwise resulting in THResources.Resources ambigious reference...
 		[Required, Range(0, 20, ErrorMessageResourceType = typeof(THResources.Resources), ErrorMessageResourceName = "CollocationPatternRequired")]

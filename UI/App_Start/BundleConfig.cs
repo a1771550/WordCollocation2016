@@ -8,10 +8,9 @@ namespace UI
 		// For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
 		public static void RegisterBundles(BundleCollection bundles)
 		{
-			bundles.Add(new ScriptBundle("~/bundles/layout").Include("~/Scripts/jquery-2.1.4.js").Include("~/Scripts/bootstrap.js").Include("~/Scripts/tinynav.js").Include("~/Scripts/template.js").Include("~/Scripts/socialLinks.js").Include("~/Scripts/jquery-cookie-plugin.js").Include("~/Scripts/timezone.js").Include("~/Scripts/jquery-ui.custom/jquery-ui.js").Include("~/Scripts/suggestion.js").Include("~/Scripts/searchbox_submit.js").Include("~/Scripts/js.cookie.js").Include("~/Scripts/logout.js"));
+			bundles.Add(new ScriptBundle("~/bundles/layout").Include("~/Scripts/jquery-2.1.4.js").Include("~/Scripts/bootstrap.js").Include("~/Scripts/js.cookie.js").Include("~/Scripts/url.js").Include("~/Scripts/tinynav.js").Include("~/Scripts/template.js").Include("~/Scripts/socialLinks.js").Include("~/Scripts/timezone.js").Include("~/Scripts/jquery-ui.custom/jquery-ui.js").Include("~/Scripts/pageload.js").Include("~/Scripts/suggestion.js").Include("~/Scripts/searchbox_submit.js").Include("~/Scripts/logout.js"));
 
-			//bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-			//			"~/Scripts/jquery-{version}.js"));
+			bundles.Add(new ScriptBundle("~/bundles/search_result").Include("~/Scripts/jquery-2.1.4.js").Include("~/Scripts/js.cookie.js").Include("~/Scripts/pageload.js").Include("~/Scripts/search_result.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
 						"~/Scripts/jquery.unobtrusive*",

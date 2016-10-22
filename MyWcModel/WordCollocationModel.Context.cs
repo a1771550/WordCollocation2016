@@ -25,9 +25,9 @@ namespace MyWcModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<collocation> collocations { get; set; }
-        public DbSet<example> examples { get; set; }
-        public DbSet<pos> poss { get; set; }
-        public DbSet<word> words { get; set; }
+        public DbSet<Collocation> collocations { get; set; }
+        public DbSet<Example> examples { get; set; }
+        public DbSet<Pos> poss { get; set; }
+        public DbSet<Word> words { get; set; }
     }
 }

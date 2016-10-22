@@ -9,7 +9,7 @@
 	{
 		navClass = "nav ww-nav-admin pull-right hidden-phone";
 	}
-	string lang = CultureHelper.GetCurrentNeutralCulture();
+	string lang = CultureHelper.GetCurrentCulture();
 	string dir = CultureHelper.IsRighToLeft() ? "rtl" : "ltr";
 
 	string title = string.Format("{0}: {1}", Resources.SiteTitle, ViewBag.Title);
@@ -51,6 +51,21 @@
 	@Html.RenderStyles()
 </head>
 <body>
+	<div class="hide" id="currLang">@lang</div>
+	<div class="hide" id="selectColPosText">@Resources.ColPos</div>
+	<div class="hide" id="searchResultUrl">@Url.Action("SearchResult", "Home")</div>
+	<div class="hide" id="noSearchResultUrl">@Url.Action("NoSearchResult", "Home")</div>
+	<div class="hide" id="exampleText">@Resources.ExampleText</div>
+	<div class="hide" id="sourceText">@Resources.SourceText</div>
+	<div class="hide" id="remarkText">@Resources.Remark</div>
+	<div class="hide" id="oxfordDictUrl">@SiteConfiguration.OxfordDictUrl</div>
+	<div class="hide" id="chDictUrl">@SiteConfiguration.ChDictUrl</div>
+	<div class="hide" id="oxfordDictText">@Resources.Oxford</div>
+	<div class="hide" id="chDictText">@Resources.CH</div>
+	<div class="hide" id="webText">@Resources.Web</div>
+	<div class="hide" id="npText">@Resources.Newspaper</div>
+	<div class="hide" id="fictText">@Resources.Fiction</div>
+	<div class="hide" id="othersText">@Resources.Others</div>
 	<div class="container">
 		<div class="masthead clearfix">
 			<a href="~/">
@@ -58,22 +73,22 @@
 			</a>
 			<ul id="nav" class="@navClass">
 				<li class="active">@Html.ActionLink(Resources.Home, "Index", "Home")</li>
-				
+
 				@if (Request.IsAuthenticated && (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("Editor")))
-				{
+			{
 					<li class="dropdown">
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle">@Resources.WcAdmin <b class="caret"></b></a>
 						@Html.Partial("_WcAdminDropDown")
 					</li>
-				}
+			}
 
 				@if (Request.IsAuthenticated && User.IsInRole("Admin"))
-				{
+			{
 					<li class="dropdown">
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle">@Resources.AccountManagement <b class="caret"></b></a>
 						@Html.Partial("_AccountManagementDropDown")
 					</li>
-				}
+			}
 
 				<li class="dropdown">
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">@Resources.ChooseLanguage <b class="caret"></b></a>
@@ -90,12 +105,6 @@
 
 		<div class="row main-content">
 
-			@*@Html.Partial("_Underconstruction")*@
-
-			<!-- for debug only starts -->
-			@*@Html.ActionLink("JsError", "Index", "ElmahJsDemo")*@
-			<!-- for debug only ends -->
-
 			<div class="offset1 span6 zone-content">
 				@RenderBody()
 			</div>
@@ -104,22 +113,10 @@
 
 		@Html.Partial("_Footer", footer)
 	</div>
-	<!-- End Container -->
-	@*@Scripts.Render("~/bundles/jquery")
-		@Scripts.Render("~/bundles/bootstrap")*@
+	
 	@Scripts.Render("~/bundles/layout")
 	@Scripts.Render("~/bundles/modernizr")
 	@RenderSection("scripts", false)
-
-	@*@if ((LoggingHandler)HttpContext.Current.Session[MvcApplication.LoggingHandlerSession] == LoggingHandler.Elmah)
-		{*@
-	<!-- for elmah: DON'T move/remove/replace the following code (into bundle/other js file)!!! -->
-	<!-- for elmah: logErrorUrl is a global variable, used by errorhandler.js rendered in the following 'layout bundle'...-->
-	@*<script>
-		var logErrorUrl = '@Url.Action("LogJavaScriptError", "Error")';
-	</script>*@
-	@*<script src="@Url.Content("~/scripts/errorhandler.min.js")"></script>*@
-	@* } *@
 
 	@Html.RenderJavaScripts()
 </body>

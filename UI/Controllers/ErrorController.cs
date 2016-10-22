@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using log4net;
 using UI.Controllers.Abstract;
 using UI.Models.Misc;
-using ErrorViewModel = UI.Models.ViewModels.ErrorViewModel;
+using UI.Models.ViewModels;
 
 namespace UI.Controllers
 {
@@ -27,9 +27,9 @@ namespace UI.Controllers
 		//	: null;
 
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-		
 
-		// GET: Error
+
+		//// GET: Error
 		public ActionResult Index(ErrorViewModel model = null)
 		{
 			return View(model);

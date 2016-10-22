@@ -13,11 +13,11 @@ namespace MyWcModel
 {
 	using System.Collections.Generic;
 
-	public partial class pos:WcBase
+	public partial class Pos:WcBase
     {
-        public pos()
+        public Pos()
         {
-            this.words = new HashSet<word>();
+            this.words = new HashSet<Word>();
         }
     
         public new short Id { get; set; }
@@ -28,6 +28,6 @@ namespace MyWcModel
         //public System.DateTime RowVersion { get; set; }
         //public Nullable<bool> CanDel { get; set; }
     
-        public virtual ICollection<word> words { get; set; }
+        public virtual ICollection<Word> words { get; set; }
     }
 }

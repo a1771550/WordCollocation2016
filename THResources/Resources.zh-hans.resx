@@ -822,4 +822,16 @@
   <data name="Newspaper" xml:space="preserve">
     <value>报纸</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>来源</value>
+  </data>
+  <data name="SourceText" xml:space="preserve">
+    <value>来源：</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Web" xml:space="preserve">
+    <value>网络</value>
+  </data>
 </root>

@@ -1,11 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using MyWcModel;
+using System.Web.Script.Serialization;
+using System.Web.WebSockets;
 using CommonLib.Helpers;
+using UI.Classes;
 using UI.Controllers.Abstract;
+using UI.Helpers;
 using UI.Models.Misc;
 using UI.Models.ViewModels;
+using UI.Models.WcRepo;
+using UI.Models.WC;
 
 namespace UI.Controllers
 {
@@ -48,39 +58,55 @@ namespace UI.Controllers
 		}
 
 		[AcceptVerbs(HttpVerbs.Get)]
-		public ActionResult Search(string word, string colposid)
-		{
-			if (word != null && colposid != null)
-			{
-				//string word = model.Word;
-				short colPosId = Convert.ToInt16(colposid);
-				var repo = new CollocationRepository();
-				var collocationList = repo.GetCollocationListByWordColPosId(word, colPosId);
-				if (collocationList.Count > 0)
-				{
-					Session[CollocationListSessionName] = collocationList;
-					int pageSize = SiteConfiguration.WcViewPageSize;
-					int pageCount;
-					int listSize = collocationList.Count;
-					if (listSize > 10 && pageSize >= 1)
-					{
-						pageCount = (int)Math.Ceiling((double)(listSize / pageSize));
-					}
-					else pageCount = 1;
-					return RedirectToAction("SearchResult", pageCount);
-				}
-				SearchViewModel model = new SearchViewModel();
-				model.Word = word;
-				model.ColPosId = colposid;
-				Session["SearchViewModel"] = model;
-			}
-			return null;
-		}
-
-		[AcceptVerbs(HttpVerbs.Get)]
 		public ViewResult SearchResult(int page = 1)
 		{
 			SearchViewModel model = new SearchViewModel(ViewMode.SearchResult, page);
+			return View("SearchResult", model);
+			//return null;
+		}
+
+		[AcceptVerbs(HttpVerbs.Get)]
+		public ViewResult SearchResult_bak()
+		{
+			//SearchViewModel tempModel = (SearchViewModel) TempData["SearchViewModel"];
+			SearchViewModel model = new SearchViewModel();
+			//model.Pos = tempModel.Pos;
+			//model.PosTrans = tempModel.PosTrans;
+			//model.Word = tempModel.Word;
+			//model.WordTrans = tempModel.WordTrans;
+			//model.ColPos = tempModel.ColPos;
+			//model.ColPosTran = tempModel.ColPosTran;
+			//model.Pattern = tempModel.Pattern;
+			model.Pos = Request.Cookies.Get("pos")?.Value;
+			model.PosZht = Request.Cookies.Get("posZht")?.Value;
+			model.PosZht = HttpUtility.UrlDecode(model.PosZht);
+			model.PosZhs = Request.Cookies.Get("posZhs")?.Value;
+			model.PosZhs = HttpUtility.UrlDecode(model.PosZhs);
+			model.PosJap = Request.Cookies.Get("posJap")?.Value;
+			model.PosJap = HttpUtility.UrlDecode(model.PosJap);
+			model.Word = Request.Cookies.Get("word")?.Value;
+			model.WordZht = Request.Cookies.Get("wordZht")?.Value;
+			model.WordZht = HttpUtility.UrlDecode(model.WordZht);
+			model.WordZhs = Request.Cookies.Get("wordZhs")?.Value;
+			model.WordZhs = HttpUtility.UrlDecode(model.WordZhs);
+			model.WordJap = Request.Cookies.Get("wordJap")?.Value;
+			model.WordJap = HttpUtility.UrlDecode(model.WordJap);
+			model.ColPos = Request.Cookies.Get("colpos")?.Value;
+			model.ColPosZht = Request.Cookies.Get("colposZht")?.Value;
+			model.ColPosZht = HttpUtility.UrlDecode(model.ColPosZht);
+			model.ColPosZhs = Request.Cookies.Get("colposZhs")?.Value;
+			model.ColPosZhs = HttpUtility.UrlDecode(model.ColPosZhs);
+			model.ColPosJap = Request.Cookies.Get("colposJap")?.Value;
+			model.ColPosJap = HttpUtility.UrlDecode(model.ColPosJap);
+			var httpCookie = Request.Cookies.Get("colpattern");
+			if (httpCookie != null)
+			{
+				CollocationPattern pattern = (CollocationPattern)(int.Parse(httpCookie.Value));
+				model.Pattern = WcHelper.GetPatternArray(pattern);
+			}
+			var cookie = Request.Cookies.Get("colcount");
+			if (cookie != null)
+				model.CollocationCount = int.Parse(cookie.Value);
 			return View("SearchResult", model);
 			//return null;
 		}
@@ -105,5 +131,78 @@ namespace UI.Controllers
 			string host = System.Web.HttpContext.Current.Request.Headers["HOST"];
 			return host;
 		}
+
+		[HttpGet]
+		public JsonpResult SearchCollocation(string word, string id)
+		{
+			//if (word != null && id != null)
+			//{
+			//	short wcpId = Convert.ToInt16(id);
+			//	var colrepo = new CollocationRepository();
+			//	var collocationList = colrepo.GetCollocationListByWordColPosId(word, wcpId);
+
+			//	if (collocationList.Count > 0)
+			//	{
+			//		var data = from item in collocationList
+			//				   select new { item.colword.Entry, item.colword.EntryZht };
+			//		//JsonpResult result = new JsonpResult(data.FirstOrDefault());
+			//		JsonpResult result = new JsonpResult(data);
+			//		return result;
+			//	}
+
+			//}
+			return null;
+		}
+
+		public ActionResult CallJsonpDemo()
+		{
+			return View();
+		}
+
+		public void JsonDemo()
+		{
+			StringBuilder sb = new StringBuilder();
+			//byte[] buf = new byte[8192];
+			var url = "http://www.translationhall.com/api/web/pos";
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+			Stream resstream = response.GetResponseStream();
+			MemoryStream ms = new MemoryStream();
+			
+			if (resstream != null)
+			{
+				resstream.CopyTo(ms);
+				byte[] buf = new byte[ms.Length];
+				int count;
+				ms.Position = 0;
+				do
+				{
+					count = ms.Read(buf, 0, buf.Length);
+					if (count != 0)
+					{
+						string tempString = Encoding.UTF8.GetString(buf, 0, count);
+						sb.Append(tempString);
+					}
+				} while (count > 0);
+			}
+
+			//Response.Write(sb + "<br/><br/>");
+			JavaScriptSerializer serializer = new JavaScriptSerializer();
+			List<PosRepository.Pos> posList = serializer.Deserialize<List<PosRepository.Pos>>(sb.ToString());
+			foreach (PosRepository.Pos p in posList)
+			{
+				Response.Write("Id: " + p.Id + "&" + "Entry: " + p.Entry + "&EntryZht: " + p.EntryZht + "&EntryZhs: " + p.EntryZhs + "&EntryJap: " + p.EntryJap + "<br>");
+			}
+		}
+
 	}
+
+	//public struct Pos
+	//{
+	//	public short Id;
+	//	public string Entry;
+	//	public string EntryZht;
+	//	public string EntryZhs;
+	//	public string EntryJap;
+	//}
 }

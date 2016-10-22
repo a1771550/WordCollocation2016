@@ -14,7 +14,7 @@ using MyWcModel.Abstract;
 
 namespace MyWcModel
 {
-	public class ExampleRepository : WcRepositoryBase<example>
+	public class ExampleRepository : WcRepositoryBase<Example>
 	{
 		readonly WordcollocationEntities db = new WordcollocationEntities();
 		internal override string GetCacheName { get { return "GetExamplesCacheName"; } }
@@ -22,11 +22,11 @@ namespace MyWcModel
 		readonly string connString = WebConfigurationManager.ConnectionStrings["WordCollocation"].ConnectionString;
 		private string sql;
 
-		public override List<example> GetList()
+		public override List<Example> GetList()
 		{
 			try
 			{
-				List<example> exampleList;
+				List<Example> exampleList;
 				if (CacheHelper.Exists(GetCacheName))
 				{
 					CacheHelper.Get(GetCacheName, out exampleList);
@@ -55,7 +55,7 @@ namespace MyWcModel
 			return example != null ? new[] { example.EntryZht, example.EntryZhs, example.EntryJap } : null;
 		}
 
-		public override bool[] Add(example example)
+		public override bool[] Add(Example example)
 		{
 			bool[] bRet = new bool[2];
 			bRet[0] = CheckIfDuplicatedEntry(example.Entry);
@@ -91,7 +91,7 @@ namespace MyWcModel
 			}
 		}
 
-		public override bool Update(example example)
+		public override bool Update(Example example)
 		{
 
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
@@ -119,7 +119,7 @@ namespace MyWcModel
 
 		}
 
-		public override example GetById(string id)
+		public override Example GetById(string id)
 		{
 			try
 			{
@@ -190,7 +190,7 @@ namespace MyWcModel
 			}
 		}
 
-		public bool Delete(example example)
+		public bool Delete(Example example)
 		{
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
 			{
@@ -217,7 +217,7 @@ namespace MyWcModel
 		}
 
 		[System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, false)]
-		public collocation GetCollocationObjectByWcExampleId(long exampleId)
+		public Collocation GetCollocationObjectByWcExampleId(long exampleId)
 		{
 			var example = GetById(exampleId.ToString());
 			var collocationId = example.collocationId;
@@ -225,7 +225,7 @@ namespace MyWcModel
 		}
 
 		[System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, false)]
-		public List<example> GetListByCollocationId(long collocationId)
+		public List<Example> GetListByCollocationId(long collocationId)
 		{
 			return (from examples in GetListInGroup() from example in examples where example.collocationId == collocationId select example).ToList();
 		}
@@ -251,7 +251,7 @@ namespace MyWcModel
 			
 		}
 
-		public override List<IGrouping<long, example>> GetListInGroup()
+		public override List<IGrouping<long, Example>> GetListInGroup()
 		{
 			var exList = GetList();
 			return exList.GroupBy(x => x.collocationId).OrderByDescending(x => x.Key).ToList();

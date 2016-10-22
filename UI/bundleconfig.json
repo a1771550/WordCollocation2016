@@ -100,5 +100,17 @@
     "inputFiles": [
       "Scripts/jquery-cookie-plugin.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/js.cookie.min.js",
+    "inputFiles": [
+      "Scripts/js.cookie.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/pageload.min.js",
+    "inputFiles": [
+      "Scripts/pageload.js"
+    ]
   }
 ]

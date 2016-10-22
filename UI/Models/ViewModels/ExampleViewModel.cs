@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using MyWcModel;
 using UI.Controllers.Abstract;
 using UI.Models.Abstract;
 using UI.Models.Misc;
 using UI.Models.Paging;
+using UI.Models.WC;
 
 namespace UI.Models.ViewModels
 {
@@ -17,15 +17,15 @@ namespace UI.Models.ViewModels
 		public bool NeedRemark { get; set; }
 		//public override bool NeedRemark { get; set; }
 		private readonly ExampleRepository repo = new ExampleRepository();
-		private readonly example _example;
-		private List<IGrouping<long, example>> _exampleListInGroup;
+		private readonly Example _example;
+		private List<IGrouping<long, Example>> _exampleListInGroup;
 		private readonly int page;
 		public ExamplePagingInfo ExamplePagingInfo { get; set; }
-		public List<example> ExampleList { get; }
-		public List<IGrouping<long, example>> ExampleListInGroup { get { return _exampleListInGroup; } }
+		public List<Example> ExampleList { get; }
+		public List<IGrouping<long, Example>> ExampleListInGroup { get { return _exampleListInGroup; } }
 
 		public int PageSize = SiteConfiguration.WcViewPageSize;
-		public example Example { get { return _example; } }
+		public Example Example { get { return _example; } }
 
 		//private readonly CreateMode createMode;
 		//public CreateMode CreateMode { get { return createMode; } }
@@ -46,7 +46,7 @@ namespace UI.Models.ViewModels
 					_example = repo.GetById(id.ToString());
 					break;
 			}
-			ExampleList = new List<example> { _example };
+			ExampleList = new List<Example> { _example };
 		}
 
 		public ExampleViewModel(int page = 1)
@@ -55,9 +55,9 @@ namespace UI.Models.ViewModels
 			GetExampleListInGroup();
 		}
 
-		public ExampleViewModel(example example)
+		public ExampleViewModel(Example example)
 		{
-			ExampleList = new List<example> { example };
+			ExampleList = new List<Example> { example };
 		}
 		private void GetExampleListInGroup()
 		{
@@ -88,7 +88,7 @@ namespace UI.Models.ViewModels
 				var ddlCollocation = new List<SelectListItem>();
 				ddlCollocation.Add(new SelectListItem { Selected = collocationId == 0, Text = string.Format("- {0} -", THResources.Resources.WordCollocation), Value = "0" });
 				var crepo = new CollocationRepository();
-				List<collocation> cList = crepo.GetList();
+				List<Collocation> cList = crepo.GetList();
 
 				ddlCollocation.AddRange(from entity in cList let isSelected = entity.Id.ToString().Equals(collocationId.ToString(), StringComparison.OrdinalIgnoreCase) select new SelectListItem { Text = entity.Id.ToString(), Value = entity.Id.ToString(), Selected = isSelected });
 

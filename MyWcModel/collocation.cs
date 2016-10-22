@@ -12,11 +12,11 @@ namespace MyWcModel
     using System;
     using System.Collections.Generic;
     
-    public partial class collocation
+    public partial class Collocation
     {
-        public collocation()
+        public Collocation()
         {
-            this.examples = new HashSet<example>();
+            this.examples = new HashSet<Example>();
         }
     
         public long Id { get; set; }
@@ -25,9 +25,9 @@ namespace MyWcModel
         public int CollocationPattern { get; set; }
         public System.DateTime RowVersion { get; set; }
     
-        public virtual word colword { get; set; }
-        public virtual word word { get; set; }
-        public virtual ICollection<example> examples { get; set; }
+        public virtual Word colword { get; set; }
+        public virtual Word word { get; set; }
+        public virtual ICollection<Example> examples { get; set; }
     }
 
 	/*

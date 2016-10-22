@@ -6,8 +6,8 @@ using System.Web.Caching;
 using System.Web.Configuration;
 using CommonLib.Helpers;
 using Microsoft.VisualBasic;
-using MyWcModel;
 using UI.Models.Misc;
+using UI.Models.WcRepo;
 using UI.Models.WC;
 
 namespace UI.Helpers
@@ -43,6 +43,93 @@ namespace UI.Helpers
 			Update,
 			Delete
 		}
+		private static string[] GetPatternTrans(CollocationPattern collocationPattern)
+		{
+			var culturename = CultureHelper.GetCurrentCulture();
+			string[] pattern = new string[2];
+			const string adj = "adjective", noun = "noun", adv = "adverb", verb = "verb", prep = "preposition", phrase = "phrase";
+			var repo = new PosRepository();
+			string adj_tran;
+			string noun_tran;
+			string adv_tran;
+			string verb_tran;
+			string prep_tran;
+			string phrase_tran;
+			if (culturename.Contains("hans"))
+			{
+				adj_tran = repo.GetPos_TranByEntry(adj)[1];
+				noun_tran = repo.GetPos_TranByEntry(noun)[1];
+				adv_tran = repo.GetPos_TranByEntry(adv)[1];
+				verb_tran = repo.GetPos_TranByEntry(verb)[1];
+				prep_tran = repo.GetPos_TranByEntry(prep)[1];
+				phrase_tran = repo.GetPos_TranByEntry(phrase)[1];
+			}
+			else if (culturename.Contains("ja"))
+			{
+				adj_tran = repo.GetPos_TranByEntry(adj)[2];
+				noun_tran = repo.GetPos_TranByEntry(noun)[2];
+				adv_tran = repo.GetPos_TranByEntry(adv)[2];
+				verb_tran = repo.GetPos_TranByEntry(verb)[2];
+				prep_tran = repo.GetPos_TranByEntry(prep)[2];
+				phrase_tran = repo.GetPos_TranByEntry(phrase)[2];
+			}
+			else
+			{
+				adj_tran = repo.GetPos_TranByEntry(adj)[0];
+				noun_tran = repo.GetPos_TranByEntry(noun)[0];
+				adv_tran = repo.GetPos_TranByEntry(adv)[0];
+				verb_tran = repo.GetPos_TranByEntry(verb)[0];
+				prep_tran = repo.GetPos_TranByEntry(prep)[0];
+				phrase_tran = repo.GetPos_TranByEntry(phrase)[0];
+			}
+
+			switch (collocationPattern)
+			{
+				case CollocationPattern.adjective_noun:
+					pattern[0] = "adjective + noun";
+					pattern[1] = string.Format("({0} + {1})", adj_tran, noun_tran);
+					break;
+				case CollocationPattern.adverb_verb:
+					pattern[0] = "adverb + verb";
+					pattern[1] = string.Format("({0} + {1})", adv_tran, verb_tran);
+					break;
+				case CollocationPattern.noun_verb:
+					pattern[0] = "noun + verb";
+					pattern[1] = string.Format("({0} + {1})", noun_tran, verb_tran);
+					break;
+				case CollocationPattern.phrase_noun:
+					pattern[0] = "phrase + noun";
+					pattern[1] = string.Format("({0} + {1})", phrase_tran, noun_tran);
+					break;
+				case CollocationPattern.preposition_noun:
+					pattern[0] = "preposition + noun";
+					pattern[1] = string.Format("({0} + {1})", prep_tran, noun_tran);
+					break;
+				case CollocationPattern.verb_noun:
+					pattern[0] = "verb + noun";
+					pattern[1] = string.Format("({0} + {1})", verb_tran, noun_tran);
+					break;
+				case CollocationPattern.verb_preposition:
+					pattern[0] = "verb + preposition";
+					pattern[1] = string.Format("({0} + {1})", verb_tran, prep_tran);
+					break;
+				case CollocationPattern.adjective_phrase:
+					pattern[0] = "adjective + phrase";
+					pattern[1] = string.Format("({0} + {1})", adj_tran, phrase_tran);
+					break;
+			}
+			return pattern;
+		}
+		public static string[] GetPatternArray(CollocationPattern collocationPattern)
+		{
+			var pattern = GetPatternTrans(collocationPattern);
+			return pattern;
+		}
+		public static string GetPatternString(CollocationPattern collocationPattern)
+		{
+			var pattern = GetPatternTrans(collocationPattern);
+			return string.Format("{0} {1}", pattern[0], pattern[1]);
+		}
 
 		public static void GetAdminUrls(out WcAdminUrl wcAdminUrl)
 		{
@@ -67,21 +154,22 @@ namespace UI.Helpers
 			return THResources.Resources.SiteTitle + SiteConfiguration.TitleSeperator + THResources.Resources.RegisterSuccess;
 		}
 
-		public static List<example> GetFormattedExamples(collocation collocation)
+		public static List<Models.WcRepo.Example> GetFormattedExamples(Models.WcRepo.Collocation collocation)
 		{
-			string verb = collocation.word.Entry;
-			string pos = collocation.word.pos.Entry;
-			string colWord = collocation.colword.Entry;
-			string colpos = collocation.colword.pos.Entry;
-			var repo = new ExampleRepository();
-			var examples = repo.GetListByCollocationId(collocation.Id);
+			//string verb = collocation.Word.Entry;
+			//string pos = collocation.Word.pos.Entry;
+			//string colWord = collocation.colword.Entry;
+			//string colpos = collocation.colword.pos.Entry;
+			//var repo = new ExampleRepository();
+			//var examples = repo.GetListByCollocationId(collocation.Id);
 
-			foreach (var example in examples)
-			{
-				example.Entry = FormatExampleForView(example.Entry, verb, pos, colWord, colpos, (CollocationPattern) collocation.CollocationPattern);
-			}
+			//foreach (var example in examples)
+			//{
+			//	example.Entry = FormatExampleForView(example.Entry, verb, pos, colWord, colpos, (CollocationPattern) collocation.CollocationPattern);
+			//}
 
-			return examples;
+			//return examples;
+			return null;
 		}
 
 		/// <summary>
@@ -1035,10 +1123,9 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 			return (irregularVerbList.ContainsKey(verb));
 		}
 
-		public static string GetSourceRemark(example example)
+		public static string GetSourceRemark(UI.Models.WcRepo.Example example)
 		{
-			//var culturename = CultureHelper.GetCurrentCulture();
-			short? source = example.Source;
+			short? source = example.source;
 			string sourceText = null;
 			if (source!=null)
 			{
@@ -1064,21 +1151,21 @@ Examples:do / doing; echo / echoing; go / going; ski / skiing */
 						break;
 				}
 
-				if (string.IsNullOrEmpty(example.Remark))
+				if (string.IsNullOrEmpty(example.remark))
 					return string.Format("({0}{1})", THResources.Resources.SourceText, sourceText);
-				return string.Format("({0}{1};{2}:{3})", THResources.Resources.SourceText, sourceText, THResources.Resources.Remark, example.Remark);
+				return string.Format("({0}{1};{2}:{3})", THResources.Resources.SourceText, sourceText, THResources.Resources.Remark, example.remark);
 			}
 			sourceText = THResources.Resources.Web; //default as Web for the source, so as to be more efficient when creating or editing
 			return string.Format("({0}{1})", THResources.Resources.SourceText, sourceText);
 		}
 
-		public static string GetFormattedExample(string example, collocation collocation)
+		public static string GetFormattedExample(string example, Models.WcRepo.Collocation collocation)
 		{
-			string word = collocation.word.Entry;
-			string pos = collocation.word.pos.Entry;
-			string colWord = collocation.colword.Entry;
-			string colpos = collocation.colword.pos.Entry;
-			return FormatExampleForView(example, word, pos, colWord, colpos, (CollocationPattern) collocation.CollocationPattern);
+			string word = collocation.word;
+			string pos = collocation.pos;
+			string colWord = collocation.colword;
+			string colpos = collocation.colpos;
+			return FormatExampleForView(example, word, pos, colWord, colpos, collocation.colpattern);
 		}
 	}
 }

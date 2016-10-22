@@ -1,6 +1,5 @@
 ﻿@using System.Web.Mvc.Html
 @using CommonLib.Helpers
-@using MyWcModel
 @using UI.Helpers
 @model UI.Models.ViewModels.SearchViewModel
 
@@ -49,35 +48,56 @@
 					</div>
 
 
-					@foreach (collocation collocation in Model.CollocationList)
+					@foreach (UI.Models.WcRepo.Collocation col in Model.CollocationList)
 					{
-						var colWord = collocation.colword.Entry;
-						var colWordZht = collocation.colword.EntryZht;
-						var colWordZhs = collocation.colword.EntryZhs;
-						var colWordJap = collocation.colword.EntryJap;
 						string colWordTrans;
 						if (culturename.Contains("hans"))
 						{
-							colWordTrans = colWordZhs;
+							colWordTrans = col.colwordZhs;
 						}
 						else if (culturename.Contains("ja"))
 						{
-							colWordTrans = colWordJap;
+							colWordTrans = col.colwordJap;
 						}
 						else
 						{
-							colWordTrans = colWordZht;
+							colWordTrans = col.colwordZht;
 						}
 
-						var exampleList = collocation.examples;
-						<div class="paddingLeftDot3em">
+						// ReSharper disable once RedundantNameQualifier
+						UI.Models.WcRepo.Example example = new UI.Models.WcRepo.Example();
+						// ReSharper disable once RedundantNameQualifier
+						List<UI.Models.WcRepo.Example> exampleList = new List<UI.Models.WcRepo.Example>();
+
+						example.entry = col.ex;
+						example.entryZht = col.exZht;
+						example.entryZhs = col.exZhs;
+						example.entryJap = col.exJap;
+
+						if (culturename.Contains("hans"))
+						{
+							example.entryTran = example.entryZhs;
+						}
+						else if (culturename.Contains("ja"))
+						{
+							example.entryTran = example.entryJap;
+						}
+						else
+						{
+							example.entryTran = example.entryZht;
+						}
+
+						example.formattedEntry = WcHelper.GetFormattedExample(example.entry, col);
+						exampleList.Add(example);
+						
+							<div class="paddingLeftDot3em">
 							<table id="ColWordList" class="table table-striped" style="width: 99%">
 								<tbody>
 									<tr>
 										<td>
 											<div class="colWordDiv indent-1em">
 												<h5>
-													<i class="halflings-icon share-alt"></i>&nbsp;<span class="colWordIcon">@colWord</span>&nbsp;
+													<i class="halflings-icon share-alt"></i>&nbsp;<span class="colWordIcon">@col.colword</span>&nbsp;
 													<span class="colWordTrans">@colWordTrans</span>
 												</h5>
 
@@ -85,10 +105,12 @@
 													<span class="exampleLabel">@Resources.ExampleText</span>
 												</div>
 
-												@foreach (var example in exampleList)
+												@* ReSharper disable once RedundantNameQualifier *@
+												@foreach (UI.Models.WcRepo.Example ex in exampleList)
 												{
-													@Html.Partial("_ExampleListPartial", example)
+													@Html.Partial("_ExampleListPartial", ex)
 												}
+
 											</div>
 										</td>
 									</tr>

@@ -57,61 +57,6 @@ namespace UI.Models.Misc
 		public static string WebUrlRegEx { get { return ConfigurationManager.AppSettings.Get("WebUrlRegEx"); } }
 
 		public static int GravatarSize { get { return Convert.ToInt32(ConfigurationManager.AppSettings.Get("GravatarSize")); } }
-		//public static GravatarRating GravatarRating
-		//{
-		//	get
-		//	{
-		//		string rating = ConfigurationManager.AppSettings.Get("GravatarRating");
-		//		GravatarRating grating = GravatarRating.Default;
-		//		switch(rating)
-		//		{
-		//			case "G":
-		//				grating = GravatarRating.G;
-		//				break;
-		//			case "R":
-		//				grating = GravatarRating.R;
-		//				break;
-		//			case "X":
-		//				grating = GravatarRating.X;
-		//				break;
-		//			case "PG":
-		//				grating = GravatarRating.PG;
-		//				break;
-		//			case "Default":
-		//				grating = GravatarRating.Default;
-		//				break;
-		//		}
-		//		return grating;
-		//	}
-		//}
-		//public static GravatarDefaultImageBehavior GravatarDefaultImageBehavior
-		//{
-		//	get 
-		//	{ 
-		//		string behavior = ConfigurationManager.AppSettings.Get("GravatarDefaultBehavior");
-		//		GravatarDefaultImageBehavior gbehavior = GravatarDefaultImageBehavior.Default;
-		//		switch(behavior)
-		//		{
-		//			case "Retro":
-		//				gbehavior = GravatarDefaultImageBehavior.Retro;
-		//				break;
-		//			case "MonsterId":
-		//				gbehavior= GravatarDefaultImageBehavior.MonsterId;
-		//				break;
-		//			case "Identicon":gbehavior = GravatarDefaultImageBehavior.Identicon;
-		//				break;
-		//			case "MysteryMan":gbehavior = GravatarDefaultImageBehavior.MysteryMan;
-		//				break;
-		//			case "Default":
-		//				gbehavior = GravatarDefaultImageBehavior.Default;
-		//				break;
-		//			case "Wavatar":
-		//				gbehavior = GravatarDefaultImageBehavior.Wavatar;
-		//				break;
-		//		}
-		//		return gbehavior;
-		//	}
-		//}
 		public static string GravatarDefaultImage { get { return ConfigurationManager.AppSettings.Get("GravatarDefaultImage"); } }
 		public static string GravatarUrl { get { return ConfigurationManager.AppSettings.Get("GravatarUrl"); } }
 		public static string DomainName { get { return ConfigurationManager.AppSettings.Get("DomainName"); } }
@@ -169,5 +114,11 @@ namespace UI.Models.Misc
 		public static string GoodEveningJap { get { return ConfigurationManager.AppSettings.Get("GoodEveningJap"); } }
 		public static string Protocol { get { return ConfigurationManager.AppSettings.Get("Protocol"); } }
 		public static string KeyFileUserId => ConfigurationManager.AppSettings.Get("KeyFileUserId");
+		public static string CountryXMLFile { get { return ConfigurationManager.AppSettings.Get("CountryXMLFile"); } }
+		public static string TaiwanCityXMLFile { get { return ConfigurationManager.AppSettings.Get("TaiwanCityXMLFile"); } }
+		public static string ChinaCityXMLFile { get { return ConfigurationManager.AppSettings.Get("ChinaCityXMLFile"); } }
+		public static string JapanCityXMLFile { get { return ConfigurationManager.AppSettings.Get("JapanCityXMLFile"); } }
+		public static string PrepostionXMLFile { get { return ConfigurationManager.AppSettings.Get("PrepositionXMLFile"); } }
+		
 	}
 }

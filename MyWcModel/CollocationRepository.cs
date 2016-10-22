@@ -15,7 +15,7 @@ namespace MyWcModel
 		internal string GetCacheName { get { return "GetCollocationsCacheName"; } }
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-		public List<collocation> GetList()
+		public List<Collocation> GetList()
 		{
 			try
 			{
@@ -30,7 +30,7 @@ namespace MyWcModel
 
 		}
 
-		public collocation GetByIds(params string[] ids)
+		public Collocation GetByIds(params string[] ids)
 		{
 			return GetList().SingleOrDefault(x =>
 				//x.posId == short.Parse(ids[0]) && x.colPosId == short.Parse(ids[1]) &&
@@ -38,7 +38,7 @@ namespace MyWcModel
 				x.CollocationPattern == (int) Enum.Parse(typeof(CollocationPattern), ids[4], true));
 		}
 
-		public bool[] Add(collocation collocation)
+		public bool[] Add(Collocation collocation)
 		{
 			bool[] bRet = new bool[2];
 			bRet[0] = CheckIfDuplicatedEntry(collocation);
@@ -104,7 +104,7 @@ namespace MyWcModel
 		//	}
 		//}
 
-		private bool CheckIfDuplicatedEntry(collocation collocation)
+		private bool CheckIfDuplicatedEntry(Collocation collocation)
 		{
 			return db.collocations.Any(
 				c =>
@@ -113,7 +113,7 @@ namespace MyWcModel
 					c.colWordId == collocation.colWordId);
 		}
 
-		public bool Update(collocation collocation)
+		public bool Update(Collocation collocation)
 		{
 
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
@@ -141,7 +141,7 @@ namespace MyWcModel
 
 		}
 
-		public collocation GetById(string id)
+		public Collocation GetById(string id)
 		{
 			try
 			{
@@ -185,7 +185,7 @@ namespace MyWcModel
 			}
 		}
 
-		public bool Delete(collocation collocation)
+		public bool Delete(Collocation collocation)
 		{
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
 			{
@@ -254,7 +254,7 @@ namespace MyWcModel
 		}
 
 		[System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, false)]
-		public List<collocation> GetCollocationListInGroup(string letter = null)
+		public List<Collocation> GetCollocationListInGroup(string letter = null)
 		{
 			//var collocations = Getcollocations();
 			var collocationList = GetList();
@@ -263,11 +263,11 @@ namespace MyWcModel
 					collocationList.Where(c => String.Equals(c.word.Entry, letter, StringComparison.CurrentCultureIgnoreCase)).ToList();
 
 			var collist = collocationList.GroupBy(c => c.word + "|" + c.CollocationPattern).Select(g => new { g.Key, collocation = g });
-			var cvList = new List<collocation>();
+			var cvList = new List<Collocation>();
 
 			foreach (var l in collist)
 			{
-				collocation cv = new collocation();
+				Collocation cv = new Collocation();
 				cv.word.Entry = l.Key.Split('|')[0];
 					//CollocationPattern = (CollocationPattern)(Convert.ToInt32(l..Split('|')[1]))
 				
@@ -289,7 +289,7 @@ namespace MyWcModel
 		}
 
 		[System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, false)]
-		public List<collocation> GetCollocationListByWordColPosId(string word, long colposId)
+		public List<Collocation> GetCollocationListByWordColPosId(string word, long colposId)
 		{
 			//var collocations = Getcollocations();
 			var collocationList = GetList();
@@ -298,7 +298,7 @@ namespace MyWcModel
 		}
 
 		[System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, false)]
-		public List<collocation> GetCollocationListByWordPattern(string word, CollocationPattern pattern)
+		public List<Collocation> GetCollocationListByWordPattern(string word, CollocationPattern pattern)
 		{
 			//var collocations = Getcollocations();
 			var colList = GetList();
@@ -306,7 +306,7 @@ namespace MyWcModel
 		}
 
 		[System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Select, false)]
-		public List<collocation> GetCollocationListByWord(string word)
+		public List<Collocation> GetCollocationListByWord(string word)
 		{
 			//var collocations = Getcollocations();
 			var collocationList = GetList();

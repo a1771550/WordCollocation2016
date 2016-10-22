@@ -2,7 +2,6 @@
 using System.Web.Mvc;
 using UI.Controllers.Abstract;
 using UI.Helpers;
-using UI.Models;
 using UI.Models.ViewModels;
 
 namespace UI.Controllers

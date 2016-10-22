@@ -23,9 +23,9 @@
 			<label for="Word">@Resources.SearchWordText</label>
 			@Html.TextBoxFor(m => m.Word, new{id="Word",autocomplete="off"})
 		</div>
-		<div class="form-group">
-			<label for="ColPosId">@Resources.SearchColPosText</label>
-			@Html.DropDownList("ColPosId", Model.ColPosDropDownList, new {id="ColPosId", @class = "text fLeft" })
+		<div id="divColPos" class="form-group">
+			<label for="ColPosId" id="lblColPos">@Resources.SearchColPosText</label>
+		@Html.DropDownList("ColPosId", Model.ColPosDropDownList, new {id="ColPosId", @class = "text fLeft" })
 		</div>
 		<div class="form-group">
 			<a id="btnSearch" class="button-link AddEntity">@Resources.Search</a>

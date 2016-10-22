@@ -94,11 +94,11 @@ namespace MyWcModel.Helpers
 			return string.Format("{0} {1}", pattern[0], pattern[1]);
 		}
 
-		public static List<word> GetColWordListByWordPattern(string word, CollocationPattern pattern)
+		public static List<Word> GetColWordListByWordPattern(string word, CollocationPattern pattern)
 		{
 			var collocationList = new CollocationRepository().GetCollocationListByWordPattern(word, pattern);
 
-			return collocationList.Select(collocation => new word
+			return collocationList.Select(collocation => new Word
 			{
 				Entry = collocation.colword.Entry,
 				EntryZht = collocation.colword.EntryZht,
@@ -108,19 +108,19 @@ namespace MyWcModel.Helpers
 			}).OrderBy(cw => cw.Entry).ToList();
 		}
 
-		public static collocation GetCollocationByCollocationId(long collocationId)
+		public static Collocation GetCollocationByCollocationId(long collocationId)
 		{
 			var repo = new CollocationRepository();
 			return repo.GetById(collocationId.ToString());
 		}
 
-		public static List<example> GetWcExampleListByCollocationId(long collocationId)
+		public static List<Example> GetWcExampleListByCollocationId(long collocationId)
 		{
 			var repo = new ExampleRepository();
 			return repo.GetListByCollocationId(collocationId);
 		}
 
-		public static List<collocation> GetCollocationListByWordPattern(string word, CollocationPattern collocationPattern)
+		public static List<Collocation> GetCollocationListByWordPattern(string word, CollocationPattern collocationPattern)
 		{
 			var repo = new CollocationRepository();
 			return repo.GetCollocationListByWordPattern(word, collocationPattern);

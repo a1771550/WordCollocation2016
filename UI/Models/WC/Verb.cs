@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
-using MyWcModel;
+using UI.Models.Misc;
 
 namespace UI.Models.WC
 {
@@ -19,7 +19,7 @@ namespace UI.Models.WC
 
 		public List<string> GetRegularVerbList()
 		{
-			filepath = HttpContext.Current.Server.MapPath(ModelAppSettings.RegularVerbsXMLFile);
+			filepath = HttpContext.Current.Server.MapPath(SiteConfiguration.RegularVerbsXMLFile);
 			XElement xelement = XElement.Load(filepath);
 			IEnumerable<XElement> verbs = xelement.Elements();
 			return verbs.Select(verb => verb.Value).ToList();
@@ -28,7 +28,7 @@ namespace UI.Models.WC
 		public Dictionary<string, string> GetIrregluarVerbList()
 		{
 			Dictionary<string,string> verblist=new Dictionary<string, string>();
-			filepath = HttpContext.Current.Server.MapPath(ModelAppSettings.IrregularVerbsXMLFile);
+			filepath = HttpContext.Current.Server.MapPath(SiteConfiguration.IrregularVerbsXMLFile);
 			XElement xelement = XElement.Load(filepath);
 			IEnumerable<XElement> verbs = xelement.Elements();
 			foreach (var verb in verbs)

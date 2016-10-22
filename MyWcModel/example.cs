@@ -14,7 +14,7 @@ namespace MyWcModel
 	using System;
 	using System.Collections.Generic;
 
-	public partial class example : WcBase
+	public partial class Example : WcBase
 	{
 		public new long Id { get; set; }
 		//public string Entry { get; set; }
@@ -26,7 +26,7 @@ namespace MyWcModel
 		public long collocationId { get; set; }
 		//public Nullable<System.DateTime> RowVersion { get; set; }
 
-		public virtual collocation collocation { get; set; }
+		public virtual Collocation collocation { get; set; }
 	}
 
 	public enum ExampleSource

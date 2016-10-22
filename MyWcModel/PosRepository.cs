@@ -4,24 +4,25 @@ using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Transactions;
+using System.Web;
 using CommonLib.Helpers;
 using log4net;
 using MyWcModel.Abstract;
 
 namespace MyWcModel
 {
-	public class PosRepository:WcRepositoryBase<pos>
+	public class PosRepository:WcRepositoryBase<Pos>
 	{
 		private readonly WordcollocationEntities db = new WordcollocationEntities();
 		internal override string GetCacheName { get { return "GetPossCacheName"; } }
 
 		private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-		public override List<pos> GetList()
+		public override List<Pos> GetList()
 		{
 			try
 			{
-				List<pos> posList;
+				List<Pos> posList;
 				if (CacheHelper.Exists(GetCacheName))
 				{
 					CacheHelper.Get(GetCacheName, out posList);
@@ -29,6 +30,8 @@ namespace MyWcModel
 				else
 				{
 					posList = db.poss.ToList();
+					//var data = HttpContext.Current.Request.Cookies.Get("posList")?.Value;
+
 					CacheHelper.Add(posList, GetCacheName, ModelAppSettings.CacheExpiration_Minutes);
 				}
 				return posList;
@@ -50,7 +53,7 @@ namespace MyWcModel
 			return pos != null ? new[] { pos.EntryZht, pos.EntryZhs, pos.EntryJap } : null;
 		}
 
-		public override bool[] Add(pos pos)
+		public override bool[] Add(Pos pos)
 		{
 			bool[] bRet = new bool[2];
 			bRet[0] = CheckIfDuplicatedEntry(pos.Entry);
@@ -86,7 +89,7 @@ namespace MyWcModel
 			}
 		}
 
-		public override bool Update(pos pos)
+		public override bool Update(Pos pos)
 		{
 
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
@@ -114,7 +117,7 @@ namespace MyWcModel
 
 		}
 
-		public override pos GetById(string id)
+		public override Pos GetById(string id)
 		{
 			try
 			{
@@ -185,7 +188,7 @@ namespace MyWcModel
 			}
 		}
 
-		public bool Delete(pos pos)
+		public bool Delete(Pos pos)
 		{
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
 			{

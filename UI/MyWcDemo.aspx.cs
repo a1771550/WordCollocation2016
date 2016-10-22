@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MyWcModel;
+using UI.Models.WC;
 
 namespace UI
 {
@@ -12,15 +12,15 @@ namespace UI
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			WordcollocationEntities db = new WordcollocationEntities();
-			if (!IsPostBack)
-			{
-				List<pos> posList = db.poss.ToList();
-				foreach (pos p in posList)
-				{
-					Output.Text += p.Entry + " " + p.EntryZht + "<br>";
-				}
-			}
+			//WordcollocationEntities db = new WordcollocationEntities();
+			//if (!IsPostBack)
+			//{
+			//	List<Pos> posList = db.poss.ToList();
+			//	foreach (Pos p in posList)
+			//	{
+			//		Output.Text += p.Entry + " " + p.EntryZht + "<br>";
+			//	}
+			//}
 		}
 	}
 }

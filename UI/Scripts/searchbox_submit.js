@@ -35,8 +35,8 @@
 				dataType: "json",
 				contentType: "application/json; charset=utf-8",
 				data: JSON.stringify({ word: word, id: id }),
-				success: function (data)
-				{
+				success: function (data) {
+					//console.log('data.d: ' + data.d);
 					window.location.assign(data.d);
 				},
 				error: function (data)

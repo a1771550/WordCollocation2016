@@ -5,10 +5,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using MyWcModel;
-using MyWcModel.Abstract;
 using UI.Helpers;
+using UI.Models.Abstract;
 using UI.Models.Misc;
+using UI.Models.WcRepo;
 using WebMatrix.WebData;
 
 namespace UI.WebServices
@@ -93,17 +93,8 @@ namespace UI.WebServices
 				if (collocationList.Count > 0)
 				{
 					HttpContext.Current.Session[CollocationListSessionName] = collocationList;
-					//int pageSize = SiteConfiguration.WcViewPageSize;
-					//int pageCount;
-					//int listSize = collocationList.Count;
-					//int colPageSize = SiteConfiguration.WcColListPageSize;
-					//if (listSize > colPageSize)
-					//	pageCount = (int)Math.Ceiling((double)(collocationList.Count / pageSize));
-					//else pageCount = 1;
-					// return url;
-					// url = string.Format("{0}{1}{2}{3}", protocol, host, @"/Home/SearchResult/", pageCount);
 					return string.Format("{0}{1}{2}", protocol, host, @"/Home/SearchResult");
-					
+
 				}
 				return string.Format("{0}{1}{2}", protocol, host, @"/Home/NoSearchResult");
 				//return url;

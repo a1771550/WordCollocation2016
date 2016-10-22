@@ -14,12 +14,12 @@ namespace MyWcModel
     using System;
     using System.Collections.Generic;
     
-    public partial class word:WcBase
+    public partial class Word:WcBase
     {
-        public word()
+        public Word()
         {
-            this.colword_collocations = new HashSet<collocation>();
-            this.word_collocations = new HashSet<collocation>();
+            this.colword_collocations = new HashSet<Collocation>();
+            this.word_collocations = new HashSet<Collocation>();
         }
     
         public new long Id { get; set; }
@@ -31,8 +31,8 @@ namespace MyWcModel
         //public System.DateTime RowVersion { get; set; }
         //public Nullable<bool> CanDel { get; set; }
     
-        public virtual ICollection<collocation> colword_collocations { get; set; }
-        public virtual ICollection<collocation> word_collocations { get; set; }
-        public virtual pos pos { get; set; }
+        public virtual ICollection<Collocation> colword_collocations { get; set; }
+        public virtual ICollection<Collocation> word_collocations { get; set; }
+        public virtual Pos pos { get; set; }
     }
 }

@@ -1,38 +1,14 @@
-﻿@using CommonLib.Helpers
-@using MyWcModel.Helpers
-@using UI.Helpers
-@model MyWcModel.example
-@{
-	var culturename = CultureHelper.GetCurrentCulture();
-	var exZht = Model.EntryZht;
-	var exZhs = Model.EntryZhs;
-	var exJap = Model.EntryJap;
-	string exTrans;
-	if (culturename.Contains("hans"))
-	{
-		exTrans = exZhs;
-	}
-	else if (culturename.Contains("ja"))
-	{
-		exTrans = exJap;
-	}
-	else
-	{
-		exTrans = exZht;
-	}
-	var sourceRemark = WcHelper.GetSourceRemark(Model);
-	var collocation = MyWcModelHelper.GetCollocationByCollocationId(Model.collocationId);
-	var formattedExample = WcHelper.GetFormattedExample(Model.Entry, collocation);
-}
+﻿@model UI.Models.WcRepo.Example
+
 <table id="ExampleList" class="table table-striped table-hover">
 	<tbody>
 		<tr>
 			<td>
 				<div class="exampleDiv">
-					<div class="indent-1em marginBottom05em exampleText">@Html.Raw(formattedExample)</div>
+					<div class="indent-1em marginBottom05em exampleText">@Html.Raw(Model.formattedEntry)</div>
 
-					<div class="indent-1em marginBottom05em exampleTransText">@Html.Raw(exTrans)</div>
-					<div class="indent-1em exampleSourceText">@Html.Raw(sourceRemark)</div>
+					<div class="indent-1em marginBottom05em exampleTransText">@Html.Raw(Model.entryTran)</div>
+					<div class="indent-1em exampleSourceText">@Html.Raw(Model.sourceRemark)</div>
 
 				</div>
 			</td>

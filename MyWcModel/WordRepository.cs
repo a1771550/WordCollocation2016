@@ -10,17 +10,17 @@ using MyWcModel.Abstract;
 
 namespace MyWcModel
 {
-	public class WordRepository : WcRepositoryBase<word>
+	public class WordRepository : WcRepositoryBase<Word>
 	{
 		readonly WordcollocationEntities db = new WordcollocationEntities();
 		internal override string GetCacheName { get { return "GetWordsCacheName"; } }
 		private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
-		public override List<word> GetList()
+		public override List<Word> GetList()
 		{
 			try
 			{
-				List<word> wordList;
+				List<Word> wordList;
 				if (CacheHelper.Exists(GetCacheName))
 				{
 					CacheHelper.Get(GetCacheName, out wordList);
@@ -49,7 +49,7 @@ namespace MyWcModel
 			return word != null ? new[] { word.EntryZht, word.EntryZhs, word.EntryJap } : null;
 		}
 
-		public override bool[] Add(word word)
+		public override bool[] Add(Word word)
 		{
 			bool[] bRet = new bool[2];
 			bRet[0] = CheckIfDuplicatedEntry(word.Entry);
@@ -85,7 +85,7 @@ namespace MyWcModel
 			}
 		}
 
-		public override bool Update(word word)
+		public override bool Update(Word word)
 		{
 
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
@@ -113,7 +113,7 @@ namespace MyWcModel
 
 		}
 
-		public override word GetById(string id)
+		public override Word GetById(string id)
 		{
 			try
 			{
@@ -184,7 +184,7 @@ namespace MyWcModel
 			}
 		}
 
-		public bool Delete(word word)
+		public bool Delete(Word word)
 		{
 			using (TransactionScope scope = new TransactionScope(TransactionScopeOption.Required))
 			{
