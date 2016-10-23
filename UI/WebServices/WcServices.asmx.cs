@@ -9,6 +9,7 @@ using UI.Helpers;
 using UI.Models.Abstract;
 using UI.Models.Misc;
 using UI.Models.WcRepo;
+using UI.Models.WC;
 using WebMatrix.WebData;
 
 namespace UI.WebServices
@@ -98,6 +99,30 @@ namespace UI.WebServices
 				}
 				return string.Format("{0}{1}{2}", protocol, host, @"/Home/NoSearchResult");
 				//return url;
+			}
+			return null;
+		}
+
+		[WebMethod(EnableSession = true)]
+		public string SearchCollocationDemo(string word, string id)
+		{
+			if (word != null && id != null)
+			{
+				short wcpId = Convert.ToInt16(id);
+				var colrepo = new CollocationRepository();
+				var collocationList = colrepo.GetCollocationListByWordColPosId(word, wcpId);
+				string output = null;
+				if (collocationList.Count > 0)
+				{
+					foreach (var collocation in collocationList)
+					{
+						output += collocation.word + " " + collocation.wordZht + " (" + collocation.pos + " " + collocation.posZht + ") " + collocation.colword + " " + collocation.colwordZht + " (" + collocation.colpos + " " + collocation.colposZht + 
+								  ") " + "Pattern: " + collocation.colpattern + " Example: " + collocation.ex + " (" + collocation.exZht + ") " + "; ";
+
+					}
+					//return collocationList;
+				}
+				if (output != null) return output;
 			}
 			return null;
 		}

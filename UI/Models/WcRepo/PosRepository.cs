@@ -22,18 +22,22 @@ namespace UI.Models.WcRepo
 			{
 				MemoryStream ms = new MemoryStream();
 				resstream.CopyTo(ms);
+				resstream.Close();
 				byte[] buf = new byte[ms.Length];
 				ms.Position = 0;
-				int count;
-				do
+				using (ms)
 				{
-					count = ms.Read(buf, 0, buf.Length);
-					if (count != 0)
+					int count;
+					do
 					{
-						string tempString = Encoding.UTF8.GetString(buf, 0, count);
-						sb.Append(tempString);
-					}
-				} while (count > 0);
+						count = ms.Read(buf, 0, buf.Length);
+						if (count != 0)
+						{
+							string tempString = Encoding.UTF8.GetString(buf, 0, count);
+							sb.Append(tempString);
+						}
+					} while (count > 0);
+				}
 			}
 			JavaScriptSerializer serializer = new JavaScriptSerializer();
 			// don't modify below code!!

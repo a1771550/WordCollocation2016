@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Configuration;
-using System.Web.Security;
 using UI.Helpers;
 using UI.Models.Paging;
 
@@ -12,7 +11,8 @@ namespace UI.Models.ViewModels
 		private readonly short _page;
 		private List<UserProfile> _userList;
 		public UserPagingInfo UserPagingInfo { get; set; }
-		public int PageSize { get { return int.Parse(WebConfigurationManager.AppSettings.Get("UserPageSize")); } }
+		public int PageSize = int.Parse(WebConfigurationManager.AppSettings.Get("UserPageSize")); 
+		public List<UserProfile> UserList { get { return _userList;} }
 		public UserViewModel() { }
 
 		public UserViewModel(short page = 1) : this()
