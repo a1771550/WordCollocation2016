@@ -91,7 +91,7 @@ namespace UI.WebServices
 				string host = HttpContext.Current.Request.Headers["HOST"];
 				//string url;
 				string protocol = SiteConfiguration.Protocol + @"://";
-				if (collocationList.Count > 0)
+				if (collocationList!=null && collocationList.Count > 0)
 				{
 					HttpContext.Current.Session[CollocationListSessionName] = collocationList;
 					return string.Format("{0}{1}{2}", protocol, host, @"/Home/SearchResult");

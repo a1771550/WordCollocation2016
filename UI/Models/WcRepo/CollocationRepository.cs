@@ -22,6 +22,10 @@ namespace UI.Models.WcRepo
 			{
 				resstream.CopyTo(ms);
 				resstream.Close();
+				if (ms.Length == 0)
+				{
+					return null;
+				}
 				byte[] buf = new byte[ms.Length];
 				ms.Position = 0;
 				using (ms)
@@ -37,10 +41,11 @@ namespace UI.Models.WcRepo
 						}
 					} while (count > 0);
 				}
+				JavaScriptSerializer serializer = new JavaScriptSerializer();
+				List<Collocation> colList = serializer.Deserialize<List<Collocation>>(sb.ToString());
+				return colList;
 			}
-			JavaScriptSerializer serializer = new JavaScriptSerializer();
-			List<Collocation> colList = serializer.Deserialize<List<Collocation>>(sb.ToString());
-			return colList;
+			return null;
 		}
 	}
 
